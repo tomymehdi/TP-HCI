@@ -64,7 +64,7 @@ body {
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
-	min-height:1000px;
+	min-height:500px;
 	min-width: 1000px; 
 	background-image: url('../images/home/fondo.png');
 }
@@ -80,7 +80,6 @@ body {
 }
 
 
-
 #logo{
 	position: relative;
 	float: left;
@@ -92,11 +91,12 @@ body {
 
 #CartContainer{
 	background-image: url('../images/home/cartContainer.png');
+	background-repeat: no-repeat;
 	position: relative;
 	float: left;
 	height: 60%;
 	width:18%;
-	margin-left: 60px;
+	margin-left: 100px;
 	margin-top: 20px;
 	margin-bottom:10px;
 }
@@ -108,11 +108,12 @@ body {
 }
 #WishListContainer{
 	background-image: url('../images/home/cartContainer.png');
+	background-repeat: no-repeat;
 	position: relative;
 	float: left;
 	height: 60%;
 	width:18%;
-	margin-left: 60px;
+	margin-left: 100px;
 	margin-top: 20px;
 	margin-bottom:10px;
 }
@@ -124,40 +125,142 @@ body {
 #search{
 	position: relative;
 	float: left;
-	heigth:40%;
+	heigth:20%;
 	width:30%;
 	margin-left: 60px;
 	margin-top: 15px;
 }	
 	
-
-
 #opciones{
 	position: relative;
-	width: 20%;
+	width: 25%;
 	height: 100%;
 	float: right;
 }
+
 .item{
-	float: left;
-	height: 40%;
+	float: right;
+	height: 30%;
 	width: 33%;
-	margin-top: 20px;
+	margin-top: 10px;
+	font-size:12px;
+	color: black;
 }
-#login{
-	position:relative;
-	float:left;
-	height: 70%;
-	width:100%;
-	background-image:  url('../images/home/login.png');
-	background-repeat: no-repeat;
+.text{
+
+	height: 100%;
+	width: 40%;
+	float: left; 
 }
-#idioma{
-	float:left;
-	height: 20%;
-	width: 100%;
+.text a{
+	float: right;
+	margin-right: 13px;
+	color: black;
+	text-decoration: none;
 }
 
+#login{
+	float: left;
+	height: 60%;
+	width: 60%
+}
+
+#login a{
+	position:relative;
+	float:left;
+	height:100%;
+	width:60%;
+	background-image:  url('../images/home/login.png');
+	background-repeat: no-repeat;
+	
+}
+
+#help{
+	float: left;
+	height: 60%;
+	width: 60%
+}
+
+#help a{
+	position:relative;
+	float:left;
+	height:100%;
+	width:60%;
+	background-image:  url('../images/home/Help.png');
+	background-repeat: no-repeat;
+	
+}
+
+#MyAccount{
+	float: left;
+	height: 60%;
+	width: 60%
+}
+
+#MyAccount a{
+	position:relative;
+	float:left;
+	height:100%;
+	width:60%;
+	background-image:  url('../images/home/user.png');
+	background-repeat: no-repeat;
+	
+}
+
+
+#idioma{
+	float:right;
+	height: 10%;
+	width: 30%;
+	margin-left:70%;
+	margin-top: 20px;
+}
+#moneda{
+	width:100%;
+	height: 100%;
+	float:right;
+	margin-top: 15px;
+}
+#dollar a{
+	position:relative;
+	float:right;
+	height:100%;
+	width:100%;
+	background-image:  url('../images/home/dollar.png');
+	background-repeat: no-repeat;
+
+	
+}
+
+#peso a{
+	position:relative;
+	float:right;
+	height:100%;
+	width:100%;
+	background-image:  url('../images/home/peso.png');
+	background-repeat: no-repeat;
+
+	
+}
+	
+#euro a{
+	position:relative;
+	float:right;
+	height:100%;
+	width:100%;
+	background-image:  url('../images/home/euro.png');
+	background-repeat: no-repeat;
+
+	
+}
+
+
+
+#moneda.item{
+height: 30%;
+width: 10%;
+
+}
 #navigation {
 	position: relative;
 	float: right;
@@ -181,20 +284,108 @@ body {
 }
 
 #main {
-	height:auto;
-	min-height: 700px;
+	position: relative;
+	margin-top: 50px;
+	height: auto;
+	min-height:700px;
 	width: 100%;
 }
+
+.title{
+	position:relative;
+	text-align: center;
+	height:10%;
+	width:100%;
+	font-size: 36px;
+	font-family: century gothic;
+}
+
+
+.main_opt{
+	position:relative;
+	float:right;
+	margin-top: 5%;
+	height:600px;
+	width:30%;
+}
+#movies{
+	float: left;
+	height: 60%;
+	width: 100%
+}
+
+#movies a{
+	display:block;
+	height: 100%;
+	width: 100%;
+	background-image:  url('../images/home/movies.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#cds{
+	float: left;
+	height: 60%;
+	width: 100%
+}
+#cds a{
+	display:block;
+	height: 100%;
+	width: 100%;
+	background-image:  url('../images/home/cds.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	
+}
+
+
+#books{
+	float: left;
+	height: 60%;
+	width: 100%
+}
+
+#books a{
+	display:block;
+	height: 100%;
+	width: 100%;
+	background-image:  url('../images/home/books.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}  
+.span {
+      visibility: hidden;
+	   text-decoration: none;
+}
+
 
 #footer {
 	background-image: url('../images/home/header.png');
 	height: 180px;
 	with: 100%
-	
+}
+#footer_container{
+	text-align: center;
 }
 
-
-
+#whereAreWe a{
+	position:relative;
+	float:left;
+	width:28px;
+	height:28px;
+	margin-left:46%;
+	background-image:  url('../images/home/map.png');
+	background-repeat: no-repeat;
+}
+#contactUs a{
+	position:relative;
+	float:left;
+	width:28px;
+	height:28px;
+	margin-left:46%;
+	background-image:  url('../images/home/mail.png');
+	background-repeat: no-repeat;
+}
 #facebook{
 	float: left;
 	background-image: url('../images/home/facebook.png');	
@@ -202,7 +393,7 @@ body {
 	height:28px;
 	border:0px,;
 	margin-top:15px;
-	margin-left:5px;
+	margin-left:33%;
 	margin-right:5px;
 
 }
@@ -219,9 +410,8 @@ body {
 }
 .column{
 float:left;
-width: 13%;
+width: 15%;
 height: 100%;
-margin-left: 30px;
 }
 .column a{
 	color: black;
@@ -250,3 +440,4 @@ h2{
 	
 	
 
+	
