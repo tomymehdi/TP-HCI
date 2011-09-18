@@ -87,40 +87,78 @@ body {
 	height:100%;
 	margin-left: 30px;
 }
-
+#carros{
+	float:left;
+	min-width: 200px;
+	width:50%;
+	height: 125px;
+}
 
 #CartContainer{
 	background-image: url('../images/home/cartContainer.png');
 	background-repeat: no-repeat;
 	position: relative;
 	float: left;
-	height: 60%;
-	width:18%;
-	margin-left: 100px;
+	height: 105px;
+	width:200px;
 	margin-top: 20px;
-	margin-bottom:10px;
+	margin-left:20px;
+	color:white;
+	font-family: century gothic;
+	font-size: 26px;
 }
 
-#Cart{
+#Cart a{
 	position: relative;
+	width: 30%;
+	height:48px;
+	margin-top: 10px;
 	float:left;
 	background-image: url('../images/home/Cart.png');
+	background-repeat: no-repeat;
 }
 #WishListContainer{
 	background-image: url('../images/home/cartContainer.png');
 	background-repeat: no-repeat;
 	position: relative;
-	float: left;
-	height: 60%;
-	width:18%;
-	margin-left: 100px;
+	float: right;
+	height: 105px;
+	width:200px;
 	margin-top: 20px;
-	margin-bottom:10px;
+	margin-right: 20px;
+	color:white;
+	font-family: century gothic;
+	font-size: 26px;
 }
-#WishList{
+#WishList a{
 	position: relative;
+	width: 30%;
+	height:48px;
+	margin-left:10px;
+	margin-top: 10px;
 	float:left;
 	background-image: url('../images/home/wishlist.png');
+	background-repeat: no-repeat;
+}
+
+#data{
+	float: right;
+    height: 20px;
+    margin-right: 10px;
+    width: 140px;
+    margin-bottom:10px;
+}
+.Extendable a{
+	position: relative;
+	width: 10%;
+	height: 30%;
+	margin-top:20px;
+	margin-left:10px;
+	float:left;
+	background-image: url('../images/home/arrow.png');
+	background-repeat: no-repeat;
+	
+	
 }
 #search{
 	position: relative;
@@ -130,12 +168,28 @@ body {
 	margin-left: 60px;
 	margin-top: 15px;
 }	
-	
+#searchbar{
+	width: 65%;
+	float:left;
+}
+#search_it a{
+	float:right;
+	width:15%;
+	height: 100%;
+	background-image: url('../images/home/search.png');
+	background-repeat: no-repeat;
+}
 #opciones{
 	position: relative;
 	width: 25%;
 	height: 100%;
 	float: right;
+}
+#idioma_select{
+	float:right;
+	margin-right:40px;
+	width: 150px;
+	height: 70%;	
 }
 
 .item{
@@ -297,7 +351,7 @@ width: 10%;
 	height:10%;
 	width:100%;
 	font-size: 36px;
-	font-family: century gothic;
+	font-family: century gothic, serif;
 }
 
 
@@ -423,19 +477,27 @@ height: 100%;
 
 /*para el footer*/
 h3{
+	
 	margin-top:15px;
-	margin-bottom:30px;
+	margin-bottom:10px;
+	text-align: left;
+	margin-left:60px;
 }
 /*para el search*/
 h1{
+	width:15%;
 	float: left;
 	margin-right: 10px;
 }
 /*para los carts*/
 h2{
-	color: white;
-	margin-top:5px;
-	
+	color:white;
+	text-decoration:none;
+	float:left;
+	height:100%;
+	font-size: 14px;
+	font-family: century gothic, serif;
+	text-align: right;
 }
 	
 	
