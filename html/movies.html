@@ -6,67 +6,80 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
 <body>
-
 	<div id="wrapper">
 		
 		
 		<div id="header">
 		
 			
-			<div id ="logo" ></div>
+			<div id ="logo" >
+				<div id="Home"><a href="#" ><span class="span">Home</span></a></div>
+			</div>
 			
+			<div id="carros">
 			
 			<div id="CartContainer" class="curved" >
-					<h2>Cart</h2>
-					<div id="Cart"></div>
+					<div id="Cart"><a href="#" ><span class="span">cart</span></a></div>
+					<h4><a href="#">Cart</a></h4>
+					<div id="data">
 					<h2>You have: 0 items</h2>
 					<h2>Total : $0</h2>
-					<div id="CartMenu"></div>
+					</div>
+					<div id="CartMenu" class="Extendable"><a href="#" ><span class="span">open</span></a></div>
 			</div>
 			
 			<div id="WishListContainer" class="curved" >
-					<h2>WishList</h2>
-					<div id="WishList"></div>
+					<div id="WishList"><a href="#" ><span class="span">wishlist</span></a></div>
+					<h4><a href="#">WishList</a></h4>
+					<div id="data">
 					<h2>You have: 0 items</h2>
-					<div id="WishListMenu"></div>
+					</div>
+					<div id="WishListMenu" class="Extendable"><a href="#" ><span class="span">open</span></a></div>
 			</div>
 			
 			
-		
+			</div>
 			
 			<div id="opciones" >
 			
 				<div class="item">
-					<div id ="login"></div>
-					<div><a href="#">Login</a></div>
+					<div class="text"><a href="#" >Login</a></div>
+					<div id ="login" ><a href="#" ><span class="span">Login</span></a></div>
 				</div>
 			
-				<div id="help" class="item">
-					<a href="#">Help</a>
+				<div class="item">
+					<div class="text"><a href="#">Help</a></div>
+					<div id="help"><a href="#" ><span class="span">Help</span></a></div>
 				</div>
 			
-				<div id="MyAccount" class="item">
-					<a href="#">MyAcc</a>
+				<div class="item">
+					<div class="text"><a href="#">MyAccount</a></div>
+					<div id="MyAccount"><a href="#" ><span class="span">MyAccount</span></a></div>					
 				</div>
 
+	 
+
+	 
+	 
 				<div id="idioma">
-					<select>
+					<select id="idioma_select">
  						<option value="english">English</option>
   						<option value="spanish">Spanish</option>
 					</select>
 				</div>
 			
 				<div id="moneda" >
-					<div id="dollar" class="item">$U</div>
-					<div id="peso" class="item">$</div>
-					<div id="euro" class="item">E</div>
+					<div id="dollar" class="item"><a href="#"><span class="span">dollar</span></a></div>
+					<div id="peso" class="item"><a href="#"><span class="span">peso</span></a></div>
+					<div id="euro" class="item"><a href="#"><span class="span">euro</span></a></div>
 				</div>
 				
 		</div>
 		
 		<div id="search" >
 				<h1>Search</h1>
-				<input type="text"></input>
+				<input type="text" id="searchbar"></input>
+				<div id="search_it"><a href="#" ><span class="span">search_it</span></a></div>					
 				</div>
 		</div>
 
@@ -74,27 +87,43 @@
 			<ul>
 				<li><a href="#">Home</a></li>
 				<li>></li>
+				<li><a href="#">Movies</a></li>
 			</ul>
 		</div>
 
 
+
+
 		<div id="main">
-				<div id="Movies options">
-					<a href="#">Movies options</a>
-				</div>
-				<div id="Movies subsections">
-					<a href="#">Movies subsections</a>
-				</div>
-				<div id="Books options">
-					<a href="#">Books Options</a>
-				</div>
-				<div id="CD'S options">
-					<a href="#">CD'S options</a>
-				</div>
-				<div id="Up bar">
-					<div id="Count items"></div>
-					<div id="Page number"></div>
-					<div id="Sort by">
+		
+			<div id="Categories">
+				<div id="MoviesOption"></div>					
+				
+				<div id="MoviesSelection"></div>
+					<div id="MoviesSubsections">
+						<ul>
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Love</a></li>
+							<li><a href="#">Thriller</a></li>
+							<li><a href="#">Comedy</a></li>
+							<li><a href="#">Drama</a></li>
+							<li><a href="#">Kids</a></li>
+						</ul>
+					</div>
+					
+					<div id="BooksOption"></div>					
+					<div id="CDsOption"></div>					
+			</div>
+			
+				<div id="UpBar">
+					<div id="CountItems">1-2 of 8</div>
+					<div id="PageNumber"></div>
+						<a href="#">1 </a>
+						<a href="#">2 </a>
+						<a href="#">3 </a>
+						<a href="#"> . . .</a>
+						<a href="#">4 </a>
+					<div id="SortBy">
 						Sort by: 
 					<select>
  							<option value="english">A-Z</option>
@@ -102,40 +131,47 @@
   							<option value="spanish">Low-Up price</option>
   							<option value="spanish">Up-Low price</option>
 					</select>
+					</div>
 				</div>
 
 				<div id="Items">
 					<div id="Item">
-						<div id="Image"></div>
-						<div id="Description"></div>
+						<div id="Image"  class="HP"></div>
+						<div id="Description">Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.</div>
 						<div id="Options">
-							<div id="Price"></div>
-							<div id="Cart"></div>
-							<div id="Wishlist"></div>
+							<div id="Price">$10.45</div>
+							<div id="Cart"><a href="#" ><span class="span">AddToCart</span></a></div>
+							<div id="WishList"><a href="#" ><span class="span">AddToWishList</span></a></div>					
 						</div>
 					</div>
 					<div id="Item">
-						<div id="Image"></div>
-						<div id="Description"></div>
+						<div  id="Image" class="Aladdin"></div>
+						<div id="Description">Aladdin, a street urchin, accidentally meets Princess Jasmine, who is in the city undercover. They love each other, but she can only marry a prince.</div>
 						<div id="Options">
-							<div id="Price"></div>
-							<div id="Cart"></div>
-							<div id="Wishlist"></div>
+							<div id="Price">$10.45</div>
+							<div id="Cart"><a href="#" ><span class="span">AddToCart</span></a></div>		
+							<div id="WishList"><a href="#" ><span class="span">AddToWishList</span></a></div>		
 						</div>
 					</div>
 				</div>
 
-				<div id="Down bar">
-					<div id="Count items"></div>
-					<div id="Page number"></div>
-					<div id="Sort by">
+				<div id="DownBar">
+					<div id="CountItems">1-2 of 8</div>
+					<div id="PageNumber"></div>
+						<a href="#">1 </a>
+						<a href="#">2 </a>
+						<a href="#">3 </a>
+						<a href="#"> . . .</a>
+						<a href="#">4 </a>
+					<div id="SortBy">
 						Sort by: 
 					<select>
  							<option value="english">A-Z</option>
   							<option value="spanish">Z-A</option>
-							<option value="spanish">Low-Up price</option>
+  							<option value="spanish">Low-Up price</option>
   							<option value="spanish">Up-Low price</option>
 					</select>
+					</div>
 				</div>
 
 			</div>
@@ -143,9 +179,10 @@
 
 		
 		
-		<ul id="footer">
-							
-			<li class="column">
+		<div id="footer">
+						
+			<div id="footer_container">	
+			<div class="column">
 			<h3>Navigate</h3>
 			<ul>
 				<li><a href="#">CD's</a></li>
@@ -153,9 +190,9 @@
 				<li><a href="#">Movies</a></li>
 				
 			</ul>
-			</li>
+			</div>
 			
-			<li class="column">
+			<div class="column">
 			<h3>Customer Service</h3>
 			
 			<ul>
@@ -164,43 +201,37 @@
 				
 				
 			</ul>
-			</li>
+			</div>
 			
-			<li class="column">		
+			<div class="column">
 			<h3>Our Company</h3>
 			<ul>
 				<li><a href="#">About Us</a></li>
 				<li><a href="#">Site Map</a></li>
 				
 			</ul>
-			</li>
+			</div>
 			
-			<li class="column">			
+			<div class="column">
 			<h3>Where Are We</h3>
-			<ul>
-				<li><a id="whereAreWe" href="#"></a></li>
-				
-			</ul>
-			</li>
+				<div id="whereAreWe" ><a href="#" ><span class="span">direction</span></a></div>	
+			</div>
 			
-			<li class="column">			
-			<h3>Contact Us</h3>
-			<ul>
-				<li><a id="contactUs" href="#"></a></li>
-				
-			</ul>
-			</li>
+			<div class="column">
+				<h3>Contact Us</h3>
+				<div id="contactUs"><a href="#" ><span class="span">mail</span></a></div>		
+			</div>
 	
-			<li class="column">
+			<div class="column">
 			<h3>Follow Us</h3>
 			<ul>
-				<li><a href="#" id="facebook"></a></li>
-				<li><a href="#" id="twitter"></a></li>
+				<li><a href="#" id="facebook"><span class="span">facebook</span></a></li>
+				<li><a href="#" id="twitter"></a><span class="span">witter</span></li>
 			</ul>
-			</li>
-			
+			</div>
+			</div>
 
-		</ul>
+		</div>
 
 	</div>
 

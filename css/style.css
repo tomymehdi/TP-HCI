@@ -6,7 +6,9 @@ body,div,dl,dt,dd,li,pre,form,fieldset,input,textarea,p,blockquote,th,td,button
 	margin: 0;
 	padding: 0;
 }
-
+a{
+text-decoration: none;
+}
 h1,h2,h3,h4,h5,h6 {
 	margin: 0;
 	padding: 0;
@@ -65,7 +67,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	min-height:500px;
-	min-width: 1000px; 
+	min-width: 1200px; 
 	background-image: url('../images/home/fondo.png');
 }
 
@@ -87,6 +89,21 @@ body {
 	height:100%;
 	margin-left: 30px;
 }
+#Home{
+	position: relative;
+	float: left;
+	width: 100%;
+	height:100%;
+}
+#Home a{
+	width: 100%;
+	height:100%;
+	float:left;
+	margin-top:10px;
+	position: relative;
+	background-image: url('../images/home/logo.png');
+	background-repeat: no-repeat;
+}
 #carros{
 	float:left;
 	min-width: 200px;
@@ -102,7 +119,8 @@ body {
 	height: 105px;
 	width:200px;
 	margin-top: 20px;
-	margin-left:20px;
+	margin-left:100px;
+	margin-right: 20px;
 	color:white;
 	font-family: century gothic;
 	font-size: 26px;
@@ -121,7 +139,7 @@ body {
 	background-image: url('../images/home/cartContainer.png');
 	background-repeat: no-repeat;
 	position: relative;
-	float: right;
+	float: left;
 	height: 105px;
 	width:200px;
 	margin-top: 20px;
@@ -280,7 +298,7 @@ body {
 	float:right;
 	height:100%;
 	width:100%;
-	background-image:  url('../images/home/dollar.png');
+	background-image:  url('../images/home/dolar.png');
 	background-repeat: no-repeat;
 
 	
@@ -291,7 +309,7 @@ body {
 	float:right;
 	height:100%;
 	width:100%;
-	background-image:  url('../images/home/peso.png');
+	background-image:  url('../images/home/peso2.png');
 	background-repeat: no-repeat;
 
 	
@@ -338,6 +356,7 @@ width: 10%;
 }
 
 #main {
+	
 	position: relative;
 	margin-top: 50px;
 	height: auto;
@@ -346,12 +365,17 @@ width: 10%;
 }
 
 .title{
+  	font-size: 1.8em;
+  	text-transform: uppercase;
+  	letter-spacing: 0.08em;
+  	word-spacing: 0.1em;
 	position:relative;
 	text-align: center;
 	height:10%;
 	width:100%;
 	font-size: 36px;
-	font-family: century gothic, serif;
+	font-family: thaoma, century gothic, serif;
+	font-weight: bolder;
 }
 
 
@@ -372,7 +396,7 @@ width: 10%;
 	display:block;
 	height: 100%;
 	width: 100%;
-	background-image:  url('../images/home/movies.png');
+	background-image:  url('../images/home/pelis.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -424,7 +448,7 @@ width: 10%;
 
 #whereAreWe a{
 	position:relative;
-	float:left;
+	float:right;
 	width:28px;
 	height:28px;
 	margin-left:46%;
@@ -433,7 +457,7 @@ width: 10%;
 }
 #contactUs a{
 	position:relative;
-	float:left;
+	float:right;
 	width:28px;
 	height:28px;
 	margin-left:46%;
@@ -441,18 +465,18 @@ width: 10%;
 	background-repeat: no-repeat;
 }
 #facebook{
-	float: left;
+	float: right;
 	background-image: url('../images/home/facebook.png');	
 	width:28px;
 	height:28px;
 	border:0px,;
 	margin-top:15px;
-	margin-left:33%;
+	margin-left:5px;
 	margin-right:5px;
 
 }
 #twitter{
-	float: left;
+	float: right;
 	background-image: url('../images/home/twitter.png');	
 	width:28px;
 	height:28px;
@@ -463,6 +487,7 @@ width: 10%;
 
 }
 .column{
+text-align:right;
 float:left;
 width: 15%;
 height: 100%;
@@ -477,10 +502,10 @@ height: 100%;
 
 /*para el footer*/
 h3{
-	
+
 	margin-top:15px;
 	margin-bottom:10px;
-	text-align: left;
+	text-align: right;
 	margin-left:60px;
 }
 /*para el search*/
@@ -499,7 +524,186 @@ h2{
 	font-family: century gothic, serif;
 	text-align: right;
 }
+h4{
+	margin-top:20px;
+	margin-bottom:3px;
+	text-align: center;
+	margin-left:60px;
+}
 	
 	
+/*********************************** MOVIES ********************************************/
 
+
+#Categories{
+	position: relative;
+	float: left;
+	width: 10%;
+	height:600px;
+	margin-left: 30px;
+}
+
+#UpBar{
+	position: relative;
+	float: left;
+	width: 80%;
+	height:50px;
+	margin-left: 30px;
+	background-color: #dfdfd9;
+	border-color: #bdbdb7;
+	border-style: groove;
+}
+#Items{
 	
+	position: relative;
+	float: left;
+	width: 80%;
+	height:100%;
+	margin-left: 30px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	background-color: #dfdfd9;
+	border-color: #bdbdb7;
+	border-style: groove;
+}
+#DownBar{
+	position: relative;
+	float: left;
+	width: 80%;
+	height:50px;
+	margin-left: 30px;
+	background-color: grey;
+	background-color: #dfdfd9;
+	border-color: #bdbdb7;
+	border-style: groove;
+}
+
+
+
+#MoviesOption{
+	float: right;
+	width:100%;
+	height:100px;
+	background-image: url('../images/home/MoviesSelect.png');
+	background-repeat: no-repeat;
+	margin-top:10px;
+}
+#MoviesSelection{
+	background-color: white;
+	float:left;
+	width:60%;
+	height:auto;
+	background-color: grey;		
+}
+#MoviesSubsections{
+	float: left;
+	width:60%;
+	height:auto;
+	background-color: #dfdfd9;
+	border-color: #bdbdb7;
+	border-style: groove;
+
+}
+#MoviesSubsections a{
+	color:black;
+	border-color: #bdbdb7;
+}
+
+#BooksOption{
+	float: right;
+	width:100%;
+	height:100px;
+	background-image: url('../images/home/booksSelect.png');
+	background-repeat: no-repeat;
+	margin-top:10px;
+}
+#CDsOption{
+	float: right;
+	width:100%;
+	height:100px;
+	background-image: url('../images/home/CdsSelect.png');
+	background-repeat: no-repeat;
+	margin-top:10px;
+}
+#CountItems{
+	margin-top:10px;
+	float:left;
+	height: 100%;
+}
+#PageNumber{
+	margin-top:10px;
+	margin-left:300px;
+	float:left;
+	height: 100%;
+}
+
+#SortBy{
+	margin-top:10px;	
+	margin-left:50px;
+	margin-right:10px;
+	float:right;
+}
+#Item{
+	margin-left:10px;
+	margin-top:10px;
+	margin-right:10px;
+	margin-bottom: 10px;
+	height: 100px;
+	border-color: #bdbdb7;
+	border-style: groove;
+	background-color: #a0a09a;
+}
+	
+#Image{
+	float:left;
+	height: 85px;
+	width: 85px;
+	margin-left:10px;
+	margin-top:10px;
+	margin-right:10px;
+	margin-bottom: 10px;
+}
+#Description{
+	position:relative;
+	float:left;
+	height: 80%;
+	width: 30%;
+	margin-left:10px;
+	margin-top:10px;
+	margin-right:10px;
+	margin-bottom: 10px;
+	background-color: #dfdfd9;
+	border-color: #bdbdb7;
+	border-style: groove;
+	
+}
+
+#Options{
+	position:relative;
+	float:right;
+	height: 95%;
+	width: 40%;
+	margin-left:10px;
+	margin-top:10px;
+	margin-right:10px;
+	margin-bottom: 10px;
+
+}
+#Price{
+	position:relative;
+	text-align: right;
+	float:right;
+	height:10%;
+	width: 100%;
+}
+
+.HP{
+	position:relative;
+	float:left;
+	background-image:  url('../images/itemSelector/hp.png');
+}
+.Aladdin{
+	position:relative;
+	float:left;
+	background-image:  url('../images/itemSelector/aladdin.png');
+}
