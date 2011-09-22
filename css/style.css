@@ -440,7 +440,7 @@ width: 10%;
 #footer {
 	background-image: url('../images/home/header.png');
 	height: 180px;
-	with: 100%
+	width: 100%;
 }
 #footer_container{
 	text-align: center;
@@ -667,7 +667,7 @@ h4{
 	position:relative;
 	float:left;
 	height: 80%;
-	width: 30%;
+	width: 40%;
 	margin-left:10px;
 	margin-top:10px;
 	margin-right:10px;
