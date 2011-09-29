@@ -1,0 +1,56 @@
+$(document).ready( function() {   
+   
+    function User(name, cart){
+        this.name = name;
+        this.cart = cart;
+    }
+   
+    function Cart(){
+        this.items = new Array();
+    }
+   
+    Cart.prototype.total = function (){
+        var count = 0;
+        var i = 0;
+        for(i = 0 ; i < this.items.length; i++){
+            count += parseInt(this.items[i].price);
+        }
+        return count;
+    }
+   
+    Cart.prototype.addItem = function (item){
+        this.items.push(item);
+    }
+   
+    function Item(name, description, price, subcategory){
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.subcategory = subcategory;
+    }
+   
+    function Category(name){
+        this.name = name;
+        this.subcategories = new Array();
+    }
+   
+    Category.prototype.add = function (category){
+        this.subcategories.push(category);
+    }
+   
+    function Subcategory(name, category){
+        this.name = name;
+        this.category = category;
+        category.add(this);
+    }
+   
+    cat = new Category("Fantasia");
+    subcat = new Subcategory("Magia", cat);
+    myItem = new Item("Harry Potter", "Pelicula de magos y algunos flasheos", "45", subcat);
+    myItem2 = new Item("Harry Plotter", "Pelicula trucha de magos y algunos flasheos", "15", subcat);
+    cart = new Cart();
+   
+    cart.addItem(myItem);
+    cart.addItem(myItem2);
+    alert(cart.total());
+});
