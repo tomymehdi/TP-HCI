@@ -22,5 +22,19 @@ $(document).ready( function() {
 	         .end().appendTo('.fadein');}, 
 	      3000);
 	    });	
+	  
+	  
+	  
+     $('.cds_link').click(function(){
+          $("#main").load("./movies.html #main");
+      });
+		     $('.books_link').click(function(){
+		           $("#main").load("./movies.html #main");
+		     });
+
+		     $('.movies_link').click(function(){
+		           $("#main").load("./movies.html #main");
+		       $('#subnavegador').hide();    
+		     });  
 		
 });

@@ -71,6 +71,12 @@ $(document).ready( function() {
 	
     $('.home').click( function(){
         $("#main").load("./home.html #main");
+
+        var ss = document.createElement('script');
+        ss.type = 'text/javascript';
+        ss.src = "../javascript/home.js";
+        var hh = document.getElementsByTagName('head')[0];
+        hh.appendChild(ss);
 	});
     
     
@@ -118,13 +124,15 @@ $(document).ready( function() {
 	
 	$('#register_link').click( function(){
 		$("#main").load("./register.html #main");
+		var ss = document.createElement('script');
+		ss.type = 'text/javascript';
+		ss.src = "../javascript/register.js";
+		var hh = document.getElementsByTagName('head')[0];
+		hh.appendChild(ss);
 	});
 		
-
 	$('#cds_link').click(function(){
-		
         $("#main").load("./movies.html #main");
-        
     });
 		
 	$('#books_link').click(function(){

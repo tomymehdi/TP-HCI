@@ -1,128 +1,112 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Art.com</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
-<script  type="text/javascript" src ="../javascript/jQuery.js"> </script>
-<script  type="text/javascript" src ="../javascript/js.js"> </script>
-<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'></head>
-<script type="text/javascript" src="../javascript/livevalidation_standalone.js"></script>
+<div id="main">
 
-<body>
 
-	
-	<div id="main">
+	<div id="navigation">
+		<ul>
+			<li id="home_nav" class="navigationItem"><a href="#" >Home</a></li>
+			<li class="navigationItem">></li>
+			<li id="movies_nav" class="navigationItem"><a href ="#" >Movies</a>
+		</ul>
+	</div>
 		
 		
-			<div id="navigation">
-				<ul>
-					<li id="home_nav" class="navigationItem"><a href="#"  >Home</a></li>
-					<li class="navigationItem">></li>
-					<li  id="movies_nav" class="navigationItem"><a href ="#" >Movies</a>
-				</ul>
+	<div id="Categories">
+		
+		<ul class="navegador">
+		
+		<li><a href="#" title="Movies" class="desplegable" >Movies</a>
+			<ul id="subnavegador">
+				<li><a href="#" title="Sub-Opcion 1-1">Action</a></li>
+				<li><a href="#" title="Sub-Opcion 1-2">Love</a></li>
+				<li><a href="#" title="Sub-Opcion 1-3">Thriller</a></li>
+				<li><a href="#" title="Sub-Opcion 1-4">Comedy</a></li>
+				<li><a href="#" title="Sub-Opcion 1-5">Drama</a></li>
+				<li><a href="#" title="Sub-Opcion 1-6">Kids</a></li>
+			</ul>
+		</li>
+		     
+		<li><a href="#" title="CDS" class="desplegable" >CDS</a>
+		     
+			<ul id="subnavegador">
+			<li><a href="#" title="Sub-Opcion 2-1">Tango</a></li>
+			<li><a href="#" title="Sub-Opcion 2-2">Rock</a></li>
+			<li><a href="#" title="Sub-Opcion 2-3">Pop</a></li>
+			<li><a href="#" title="Sub-Opcion 2-4">Latino</a></li>
+		
+		    </ul>
+		</li>
+		     
+		      <li><a href="#" title="Books" class="desplegable" >Books</a>
+		<ul id="subnavegador">
+		<li><a href="#" title="Sub-Opcion 2-1">Adveture</a></li>
+		<li><a href="#" title="Sub-Opcion 2-2">Novels</a></li>
+		<li><a href="#" title="Sub-Opcion 2-3">Stories</a></li>
+		<li><a href="#" title="Sub-Opcion 2-4">Poems</a></li>
+		
+		      </ul></li>
+		      </ul>
+		
+		
 		</div>
 		
-			
-			<div id="Categories">
-			
-				<ul class="navegador">
-				
-				<li><a href="#" title="Movies" class="desplegable" >Movies</a>
-				
-					<ul id="subnavegador">
-							  <li><a href="#" title="Sub-Opción 1-1">Action</a></li>
-							  <li><a href="#" title="Sub-Opción 1-2">Love</a></li>
-							  <li><a href="#" title="Sub-Opción 1-3">Thriller</a></li>
-							  <li><a href="#" title="Sub-Opción 1-4">Comedy</a></li>
-							  <li><a href="#" title="Sub-Opción 1-5">Drama</a></li>
-							  <li><a href="#" title="Sub-Opción 1-6">Kids</a></li>
-							  
-     				</ul></li>
-     				
-     			<li><a href="#" title="CDS" class="desplegable" >CDS</a>
-     				
-						<ul id="subnavegador">
-							  <li><a href="#" title="Sub-Opción 2-1">Tango</a></li>
-							  <li><a href="#" title="Sub-Opción 2-2">Rock</a></li>
-							  <li><a href="#" title="Sub-Opción 2-3">Pop</a></li>
-							  <li><a href="#" title="Sub-Opción 2-4">Latino</a></li>
-							
-     				</ul></li>
-     			
-     			<li><a href="#" title="Books" class="desplegable" >Books</a>
-						<ul id="subnavegador">
-							  <li><a href="#" title="Sub-Opción 2-1">Adveture</a></li>
-							  <li><a href="#" title="Sub-Opción 2-2">Novels</a></li>
-							  <li><a href="#" title="Sub-Opción 2-3">Stories</a></li>
-							  <li><a href="#" title="Sub-Opción 2-4">Poems</a></li>
-							
-     			</ul></li>
-     			</ul>					
-				
-								
-			</div>
-			
-				<div id="UpBar">
-					<div id="CountItems">1-2 of 8</div>
-					<div id="PageNumber"></div>
-						<a href="#">1 </a>
-						<a href="#">2 </a>
-						<a href="#">3 </a>
-						<a href="#"> . . .</a>
-						<a href="#">4 </a>
-					<div id="SortBy">
-						Sort by: 
-					<select>
- 							<option value="english">A-Z</option>
-  							<option value="spanish">Z-A</option>
-  							<option value="spanish">Low-Up price</option>
-  							<option value="spanish">Up-Low price</option>
-					</select>
-					</div>
-				</div>
-
-				<div id="Items">
-					<div id="Item">
-						<div id="Image"  class="HP"></div>
-						<div id="Description">Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.</div>
-						<div id="Options">
-							<div id="Price">$10.45</div>
-							<div id="Cart"><a href="#" ><span class="span">AddToCart</span></a></div>
-							<div id="WishList"><a href="#" ><span class="span">AddToWishList</span></a></div>					
-						</div>
-					</div>
-					<div id="Item">
-						<div  id="Image" class="Aladdin"></div>
-						<div id="Description">Aladdin, a street urchin, accidentally meets Princess Jasmine, who is in the city undercover. They love each other, but she can only marry a prince.</div>
-						<div id="Options">
-							<div id="Price">$10.45</div>
-							<div id="Cart"><a href="#" ><span class="span">AddToCart</span></a></div>		
-							<div id="WishList"><a href="#" ><span class="span">AddToWishList</span></a></div>		
-						</div>
-					</div>
-				</div>
-
-				<div id="DownBar">
-					<div id="CountItems">1-2 of 8</div>
-					<div id="PageNumber"></div>
-						<a href="#">1 </a>
-						<a href="#">2 </a>
-						<a href="#">3 </a>
-						<a href="#"> . . .</a>
-						<a href="#">4 </a>
-					<div id="SortBy">
-						Sort by: 
-					<select>
- 							<option value="english">A-Z</option>
-  							<option value="spanish">Z-A</option>
-  							<option value="spanish">Low-Up price</option>
-  							<option value="spanish">Up-Low price</option>
-					</select>
-					</div>
-				</div>
+		<div id="UpBar">
+		<div id="CountItems">1-2 of 8</div>
+		<div id="PageNumber"></div>
+			<a href="#">1 </a>
+			<a href="#">2 </a>
+			<a href="#">3 </a>
+			<a href="#"> . . .</a>
+			<a href="#">4 </a>
+		<div id="SortBy">
+			Sort by:
+			<select>
+			  <option value="english">A-Z</option>
+			   <option value="spanish">Z-A</option>
+			   <option value="spanish">Low-Up price</option>
+			   <option value="spanish">Up-Low price</option>
+			</select>
+		</div>
+		</div>
+		
+		<div id="Items">
+		<div id="Item">
+		<div id="Image" class="HP"></div>
+		<div id="Description">Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.</div>
+		<div id="Options">
+		<div id="Price">$10.45</div>
+		<div id="Cart"><a href="#" ><span class="span">AddToCart</span></a></div>
+		<div id="WishList"><a href="#" ><span class="span">AddToWishList</span></a></div>
+		</div>
+		</div>
+		<div id="Item">
+		<div id="Image" class="Aladdin"></div>
+		<div id="Description">Aladdin, a street urchin, accidentally meets Princess Jasmine, who is in the city undercover. They love each other, but she can only marry a prince.</div>
+		<div id="Options">
+		<div id="Price">$10.45</div>
+		<div id="Cart"><a href="#" ><span class="span">AddToCart</span></a></div>
+		<div id="WishList"><a href="#" ><span class="span">AddToWishList</span></a></div>
+		</div>
+		</div>
+		</div>
+		
+		<div id="DownBar">
+		<div id="CountItems">1-2 of 8</div>
+		<div id="PageNumber"></div>
+		<a href="#">1 </a>
+		<a href="#">2 </a>
+		<a href="#">3 </a>
+		<a href="#"> . . .</a>
+		<a href="#">4 </a>
+		<div id="SortBy">
+		Sort by:
+		<select>
+		  <option value="english">A-Z</option>
+		   <option value="spanish">Z-A</option>
+		   <option value="spanish">Low-Up price</option>
+		   <option value="spanish">Up-Low price</option>
+		</select>
+		</div>
+	</div>
 
 </div>
 
-</body>
-</html>
