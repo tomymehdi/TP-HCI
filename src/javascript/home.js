@@ -1,19 +1,17 @@
 $(document).ready( function() {	
 	
-	$('.main_opt').mouseover( function(){
-			$(this).animate({
-	    	opacity: 0.5,
-	 		 }, 400 );			
-		});
-
+	var opacity = 1, toOpacity = 0.5, duration = 2500;
 	
-	$('.main_opt').mouseout( function(){
-			$(this).animate({
-	    	opacity: 1,
-	 		 }, 100 );			
-		});
-		
-		
+	$('.main_opt').css('opacity',opacity).hover(function() {
+	      $(this).animate({
+				opacity: toOpacity,
+			}, 400 );
+	    }, function() {
+	      $(this).animate({
+				opacity: opacity,
+			}, 100 );
+	    }
+	);
 	
 
 	  $(function(){

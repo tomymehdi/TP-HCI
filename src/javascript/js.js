@@ -9,62 +9,63 @@ $(document).ready( function() {
 	});
 	
 	
-	$('#CartContainer').mouseover( function(){
-		$(this).animate({
-    	opacity: 0.5,
- 		 }, 400 );			
-	});
+	var opacity = 1, toOpacity = 0.5, duration = 2500;
+	 $('#CartContainer').css('opacity',opacity).hover(function() {
+	      $(this).animate({
+				opacity: toOpacity,
+			}, 400 );
+	    }, function() {
+	      $(this).animate({
+				opacity: opacity,
+			}, 100 );
+	    }
+	  );
+	  
 	
-	$('#CartContainer').mouseout( function(){
-		$(this).animate({
-    	opacity: 1,
- 		 }, 100 );			
-	});
-
 	$('#WishListContainer').click( function(){
         $("#main").load("./wishlist.html #main");
 	});
 	
+	 $('#WishListContainer').css('opacity',opacity).hover(function() {
+	      $(this).animate({
+				opacity: toOpacity,
+			}, 400 );
+	    }, function() {
+	      $(this).animate({
+				opacity: opacity,
+			}, 100 );
+	    }
+	  );
 	
-	$('#WishListContainer').mouseover( function(){
-		$(this).animate({
-    	opacity: 0.5,
- 		 }, 400 );			
-	});
 	
-	$('#WishListContainer').mouseout( function(){
-		$(this).animate({
-    	opacity: 1,
- 		 }, 100 );			
-	});
-
-
 	$('#login_opt').click( function(){
+		$(this).animate({
+			opacity: 1,
+		}, 400 );	
 		if($('#login_data').is(":hidden")){
 			$('#login_data').slideDown();
 		} else{
 			$('#login_data').slideUp();
 		}
-		$(this).animate({
-    		opacity: 1,
- 			 }, 400 );	
+	});
+	$('#login_opt').click( function(){
 	});
 	
-	$('#login_opt').mouseover( function(){
-		if($('#login_data').is(":hidden")){
-			$(this).animate({
-    		opacity: 0.5,
- 			 }, 400 );			
- 		 }
+	$('#login_button').click( function(){
+		$('#login_data').slideUp();
 	});
 	
-	$('#login_opt').mouseout( function(){
-		if($('#login_data').is(":hidden")){
-			$(this).animate({
-    		opacity: 1,
- 			 }, 100 );			
- 		 }			
-	});
+	
+	$('.item').css('opacity',opacity).hover(function() {
+	      $(this).animate({
+				opacity: toOpacity,
+			}, 400 );
+	    }, function() {
+	      $(this).animate({
+				opacity: opacity,
+			}, 100 );
+	    }
+	);
 	
 	
 	
@@ -116,11 +117,7 @@ $(document).ready( function() {
 
 	
 	$('#register_link').click( function(){
-			
-			$("#main").load("./register.html #main");
-			
-			
-			
+		$("#main").load("./register.html #main");
 	});
 		
 

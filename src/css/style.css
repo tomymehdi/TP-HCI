@@ -450,7 +450,7 @@ width: 10%;
 
 .main_opt{
     float: right;
-    height: 600px;
+    height: auto;
     margin-top: 3%;
     position: relative;
     width: 33%;
@@ -785,15 +785,13 @@ h4{
 }
 
 #login_data{
-	z-index: 10;
-	position: relative;
-	float: left;
-	heigth:200px;
-	border-style: groove;
-	width:200px;
-	margin-left: -180px;
-	margin-top: 35px;
-	background-image: url('../images/home/cartContainer.png');
+    background-image: url("../images/home/cartContainer.png");
+    border-style: groove;
+    float: left;
+    margin-left: -7px;
+    margin-top: -2px;
+    position: relative;
+    width: 200px;
 }
 
 .navigationItem{
