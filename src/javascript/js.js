@@ -69,6 +69,7 @@ $(document).ready( function() {
 	
 	
     $('.home').click( function(){
+    	
         $("#main").load("./home.html #main");
         
 		var ss = document.createElement('script');
@@ -76,6 +77,13 @@ $(document).ready( function() {
 		ss.src = "../javascript/home.js";
 		var hh = document.getElementsByTagName('head')[0];
 		hh.appendChild(ss);
+		
+		var ss = document.createElement('script');
+		ss.type = 'text/javascript';
+		ss.src = "../javascript/js.js";
+		var hh = document.getElementsByTagName('head')[0];
+		hh.appendChild(ss);
+
 	});
     
     
@@ -133,7 +141,12 @@ $(document).ready( function() {
 			var hh = document.getElementsByTagName('head')[0];
 			hh.appendChild(ss);
 
-			
+			var ss = document.createElement('script');
+			ss.type = 'text/javascript';
+			ss.src = "../javascript/js.js";
+			var hh = document.getElementsByTagName('head')[0];
+			hh.appendChild(ss);
+
 			
 	});
 		
