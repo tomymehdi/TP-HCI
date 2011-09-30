@@ -96,7 +96,7 @@ body {
 	height:100%;
 	margin-left: 30px;
 }
-#Home{
+#logo_img{
     background-image: url("../images/home/logo.png");
     background-repeat: no-repeat;
     float: left;
@@ -743,7 +743,7 @@ h4{
 	position:relative;
 	float:left;
 	height: 80%;
-	width: 40%;
+	width: 44%;
 	margin-left:10px;
 	margin-top:10px;
 	margin-right:10px;
@@ -758,7 +758,7 @@ h4{
 	position:relative;
 	float:right;
 	height: 95%;
-	width: 40%;
+	width: 20%;
 	margin-left:10px;
 	margin-top:10px;
 	margin-right:10px;
