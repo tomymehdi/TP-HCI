@@ -14,7 +14,25 @@ $(document).ready( function() {
 		});
 		
 		
+	$('.cds_link').click(function(){
+		
+        $("#main").load("./movies.html #main");
+        
+    });
+		
+	$('.books_link').click(function(){
+        $("#main").load("./movies.html #main");
+	});
+
+
 	
+	$('.movies_link').click(function(){
+		
+        $("#main").load("./movies.html #main");
+        
+		$('#subnavegador').hide();		
+		
+	});	
 
 	  $(function(){
 	   $('.fadein div:gt(0)').hide();
