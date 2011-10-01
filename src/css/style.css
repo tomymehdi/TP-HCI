@@ -135,6 +135,16 @@ body {
 	background-repeat: no-repeat;
 }
 
+#Cart2 a {
+    background-image: url("../images/home/Cart.png");
+    background-repeat: no-repeat;
+    float: left;
+    height: 48px;
+    margin-top: 10px;
+    position: relative;
+    width: 20%;
+}
+
 #WishListContainer {
 	background-image: url("../images/home/cartContainer.png");
 	background-repeat: no-repeat;
@@ -157,6 +167,17 @@ body {
 	float: left;
 	background-image: url('../images/home/wishlist.png');
 	background-repeat: no-repeat;
+}
+
+#WishList2 a {
+	position: relative;
+    background-image: url("../images/home/wishlist.png");
+    background-repeat: no-repeat;
+    float: right;
+    height: 50px;
+    margin-top: 10px;
+    width: 20%;
+    margin-right: 120px;
 }
 
 #data {
@@ -200,13 +221,13 @@ body {
 	width: 95px;
 }
 
-.fadein {
+.fadein1, .fadein2, .fadein3 {
 	position: relative;
 	width: 300px;
 	height: 300px;
 }
 
-.fadein div {
+.fadein1 div, .fadein2 div, .fadein3 div {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -421,8 +442,8 @@ body {
 }
 
 #main {
-	background-color: #F5FAFA;
-	height: auto;
+	background-color: #F5FAFA;	
+	overflow: auto;
 	min-height: 700px;
 	position: relative;
 	min-width: 960px;
@@ -597,9 +618,8 @@ h4 {
 }
 
 .Registration_title {
-	
 	float:left;
-	margin-left: 30px;
+	margin-left: 45px;
 	font-size: 40px;
 	letter-spacing: 0.08em;
 	word-spacing: 0.1em;
@@ -608,15 +628,23 @@ h4 {
 	font-family: 'Irish Grover', thaoma, century gothic, serif;
 	font-weight: bolder;
 	color: #585044;
+	width: 100%;
 }
 
+#info_reg{
+	float:left;
+	margin-left: 45px;
+	margin-top: 15px;
+	width: 66%;
+}
 /*********************************** MOVIES ********************************************/
 #Categories {
 	position: relative;
 	float: left;
-	width: 10%;
+	width: 15%;
 	height: 600px;
 	margin-left: 30px;
+	margin-top: 30px;
 }
 
 #UpBar {
@@ -633,10 +661,10 @@ h4 {
 #Items {
 	position: relative;
 	float: left;
-	width: 80%;
+	width: 75%;
 	height: 100%;
 	margin-left: 30px;
-	margin-top: 30px;
+	margin-top: 15px;
 	margin-bottom: 30px;
 	background-color: #dfdfd9;
 	border-color: #bdbdb7;
@@ -718,14 +746,14 @@ h4 {
 }
 
 #SortBy {
-	margin-top: 10px;
-	margin-left: 50px;
-	margin-right: 10px;
-	float: right;
+    float: left;
+    margin-left: 30px;
+    margin-top: -5px;
 }
 
 #Item {
-	margin-left: 10px;
+	float: left;
+	margin-left: 15px;
 	margin-top: 10px;
 	margin-right: 10px;
 	margin-bottom: 10px;
@@ -733,6 +761,7 @@ h4 {
 	border-color: #bdbdb7;
 	border-style: groove;
 	background-color: #a0a09a;
+	width: 93%;
 }
 
 #Image {
@@ -763,7 +792,7 @@ h4 {
 	position: relative;
 	float: right;
 	height: 95%;
-	width: 20%;
+	width: 33%;
 	margin-left: 10px;
 	margin-top: 10px;
 	margin-right: 10px;
@@ -771,11 +800,13 @@ h4 {
 }
 
 #Price {
-	position: relative;
-	text-align: right;
-	float: right;
-	height: 10%;
-	width: 100%;
+    float: right;
+    height: 20%;
+    margin-right: 17px;
+    position: relative;
+    text-align: right;
+    width: 136%;
+    font-size: 32px;
 }
 
 .HP {
@@ -796,8 +827,16 @@ h4 {
 	float: left;
 	margin-left: -7px;
 	margin-top: -2px;
-	position: relative;
 	width: 200px;
+}
+
+#login_data2 {
+	background-image: url("../images/home/cartContainer.png");
+	border-style: groove;
+	float: right;
+	width: 200px;
+    margin-right: 92px;
+    margin-top: -57px;
 }
 
 .navigationItem {
@@ -829,9 +868,114 @@ h4 {
 	border: 1px solid #CC0000;
 }
 
-#form {
+.form {
 	float: left;
-	width: 50%;
-	height: 20%;
+	width: 40%;
+	height: 50px;
 	margin-top: 40px;
+}
+
+#name{
+	margin-left: 45px;
+}
+
+#nameBar{
+	float: right;
+	margin-right: 100px;	
+}
+
+#lastname{
+	margin-left: 100px;
+}
+
+#lastnameBar{
+	float: right;
+	margin-right: 70px;
+}
+#email{
+	margin-left: 45px;
+}
+
+#emailBar{
+	float: right;	
+	margin-right: 100px;
+}
+#rmail{
+	margin-left: 100px;	
+}
+
+#rmailBar{
+	float: right;
+		margin-right: 70px;
+}
+#pass{
+	margin-left: 45px;
+}
+
+#passBar{
+	float:right;
+		margin-right: 100px;
+}
+
+#rpass{
+	margin-left: 100px;
+}
+
+#rpassBar{
+	float: right;	
+	margin-right: 70px;
+}
+
+#prev{
+    float: left;
+    margin-left: 40px;
+    width: 25%;
+    margin-top: -23px;
+}
+
+#next{
+    float: right;
+    margin-right: 42px;
+    width: 25%;
+    margin-top: -23px;
+}
+
+
+
+ul#menu, ul#menu ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+ul#menu a {
+  display: block;
+  text-decoration: none;	
+}
+
+ul#menu li {
+  margin-top: 1px;
+}
+
+ul#menu li a {
+  background: #6D929B;
+  color: #fff;	
+  padding: 0.5em;
+}
+
+ul#menu li a:hover {
+  background: #000;
+}
+
+ul#menu li ul li a {
+  background: #ccc;
+  color: #000;
+  padding-left: 20px;
+}
+
+ul#menu li ul li a:hover {
+  background: #aaa;
+  border-left: 5px #6D929B solid;
+  padding-left: 15px;
 }

@@ -1,4 +1,19 @@
 $(document).ready( function() {
+	$('#login_data2').hide();
+	$('#login_option').click( function(){
+		$(this).animate({
+			opacity: 1,
+		}, 400 );	
+		if($('#login_data2').is(":hidden")){
+			$('#login_data2').slideDown();
+		} else{
+			$('#login_data2').slideUp();
+		}
+	});
+
+$('#login_button2').click( function(){
+	$('#login_data2').slideUp();
+});
 
 
 /*Validacion de formulario registro*/
