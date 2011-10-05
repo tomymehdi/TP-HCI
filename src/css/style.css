@@ -480,6 +480,7 @@ body {
 
 #main {
 	background-color: #F5FAFA;
+	overflow: auto;
 	min-height: 750px;
 	position: relative;
 	min-width: 960px;

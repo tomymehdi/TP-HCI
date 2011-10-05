@@ -2,9 +2,14 @@
 
 $(document).ready( function() {
 
+
 	$('#CartContainer').live('click',function(){  
     
     $("#main").load("./html/cart.html #main");
+    
+    
+    
+    /*ESTE APPEND NO ANDA */
     
     $('#CartCount').append('<h3>You Have'+cart.items.length+' items in your cart</h3>');
              
@@ -154,7 +159,18 @@ $(document).ready( function() {
     });
     
     
-    
+    function reloadregisterScript(){
+	if(document.getElementById("registerScript")){
+		$("#registerScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/register.js";
+	ss.id = "registerScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+    }
       
     
     

@@ -5,15 +5,22 @@ $(document).ready( function() {
 	setTimeout("actualizeWishList()", 100);
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
 
-	$('.main_opt').css('opacity',opacity).hover(function() {
+	$('.main_opt').css('opacity',opacity).live({
+    
+        mouseenter:
+        function() {
 	      $(this).animate({
 				opacity: toOpacity,
 			}, 400 );
-	    }, function() {
+	    },
+        
+        mouseleave:
+        function() {
 	      $(this).animate({
 				opacity: opacity,
 			}, 100 );
-	    }
+            }
+        }
 	);
 
 
