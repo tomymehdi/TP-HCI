@@ -137,6 +137,11 @@ function loadItems(category, page){
 	}
 }
 
+
+
+
+
+
 //function load(){
 //	urld = "http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=1";
 //	var request;

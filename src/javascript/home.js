@@ -2,6 +2,9 @@ $(document).ready( function() {
 
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
 
+	
+	
+
 	$('.main_opt').css('opacity',opacity).hover(function() {
 	      $(this).animate({
 				opacity: toOpacity,
@@ -24,7 +27,7 @@ $(document).ready( function() {
 	    });	
 
 
-        $(function(){
+       $(function(){
 	   $('.fadein2 div:gt(0)').hide();
 	    setInterval(function(){
 	      $('.fadein2 :first-child').fadeOut()
@@ -35,7 +38,7 @@ $(document).ready( function() {
         
         
         
-        $(function(){
+       $(function(){
 	   $('.fadein3 div:gt(0)').hide();
 	    setInterval(function(){
 	      $('.fadein3 :first-child').fadeOut()
@@ -43,79 +46,47 @@ $(document).ready( function() {
 	         .end().appendTo('.fadein3');}, 
 	      3000);
 	    });	
+        
+        
+		function initMenu() {
+		  $('#menu ul').hide();
+		  $('#menu ul:first').show();
+		  $('#menu li a').live('click',
+		    function() {
+		      var checkElement = $(this).next();
+		      if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+		        return false;
+		        }
+		      if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+		        $('#menu ul:visible').slideUp('normal');
+		        checkElement.slideDown('normal');
+		        return false;
+		        }
+		      }
+		    );
 
-	    $('.cds_link').click(function(){
+		  }
+
+  
+	    $('.cds_link').live('click',function(){    
 	    	$("#main").load("./html/articles.html #main");
-			reloadArticlesScript();
-			reloadItemsManagerScript();
-			reloadjsScript();
 			setTimeout("loadItems(cds, 0)", 100);
+            initMenu();
 	    });
 	     
-		$('.books_link').click(function(){
+		$('.books_link').live('click',function(){    
 			$("#main").load("./html/articles.html #main");
-			reloadArticlesScript();
-			reloadItemsManagerScript();
-			reloadjsScript();
 			setTimeout("loadItems(books, 0)", 100);
+            initMenu();
 		});
 
-		$('.movies_link').click(function(){
+		$('.movies_link').live('click',function(){    
+        
 			$("#main").load("./html/articles.html #main");
-			reloadArticlesScript();
-			reloadItemsManagerScript();
-			reloadjsScript();
-			setTimeout("loadItems(movies, 0)", 100);
+            setTimeout("loadItems(movies, 0)", 100);
+            initMenu();
 		});
 
+		
 });
 
-function reloadjsScript(){
-	if(document.getElementById("jsScript")){
-		$("#jsScript").remove();
-	}
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/js.js";
-	ss.id = "jsScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
-	
-}
-
-function reloadArticlesScript(){
-	if(document.getElementById("articlesScript")){
-		$("#articlesScript").remove();
-	}
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/articles.js";
-	ss.id = "articlesScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
-}
-
-function reloadItemsManagerScript(){
-	if(document.getElementById("itemsManagerScript")){
-		$("#itemsManagerScript").remove();
-	}
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/itemsManager.js";
-	ss.id = "itemsManagerScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
-}
-
-function reloadregisterScript(){
-	if(document.getElementById("registerScript")){
-		$("#registerScript").remove();
-	}
-	
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/register.js";
-	ss.id = "registerScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
-}

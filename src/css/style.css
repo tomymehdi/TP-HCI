@@ -357,6 +357,22 @@ body {
 	margin-left: 2px;
 	width: 36%;
 }
+#logout{
+	background-image: url("../images/home/logout.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 53%;
+	margin-left: 2px;
+	width: 36%;
+}
+#MyAccount{
+	background-image: url("../images/home/MyAcc.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 53%;
+	margin-left: 2px;
+	width: 36%;
+}
 
 #help {
 	background-image: url("../images/home/help.png");
@@ -615,6 +631,80 @@ h4 {
 	text-align: center;
 	margin-left: 60px;
 	color: #6D929B;
+}
+h5{
+	color: #585044;
+	text-decoration: none;
+	float: left;
+	font-size: 24px;
+	font-family: century gothic, serif;
+	text-align: right;
+	margin-left:50px;
+	
+}
+
+#upOptions{
+	position:relative;
+	float:left;
+	background-color:#c4dcd8;
+	width: 100%;
+	height: 30px;
+}
+#itemCount{
+	text-align: center;
+		
+}
+#CartItems{
+	position:relative;
+	float:left;
+	width:75%;
+	height: 60%;
+	margin-top:30px;
+	margin-bottom: 15px;
+}
+
+.CartsItems{
+	position:relative;
+	float:left;
+	width:100%;
+	height:100%;
+}
+#CartCount{
+	position:relative;
+	float:left;
+	width:75%;
+	height:30px;
+	margin-bottom: 15px;
+}
+#Buttons{
+	position:relative;
+	float:left;
+	width: 25%;
+	height: 60%;
+	margin-top:30px;	
+}
+
+#CheckOut{
+	postition:relative;
+	float:right;
+	font-size: 24px;
+	font-family: century gothic, serif;	
+	color: #585044;
+	margin-right: 200px;
+}
+	
+.CartButton{
+	position: relative;
+	float:right;
+	margin:30px;
+	height: 50px;
+	width: 110px;
+	font-size: 18px;
+	text-align: center;
+	font-family: century gothic, serif;
+	color: #585044;
+	background-color: #c4dcd8;
+	border-style:double;
 }
 
 .Registration_title {

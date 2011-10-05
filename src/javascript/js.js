@@ -1,10 +1,19 @@
+
+
 $(document).ready( function() {
-	$('#CartContainer').click( function(){
-        $("#main").load("./html/cart.html #main");
+
+
+	$('#CartContainer').live('click',function(){  
+    
+    $("#main").load("./html/cart.html #main");
+    
+    $('#CartCount').append('<h3>You Have'+cart.items.length+' items in your cart</h3>');
+             
 	});
 
-	$('#Cart2 a').click( function(){
+	$('#Cart2 a').live('click',function(){   
         $("#main").load("./html/cart.html #main");
+              
 	});
 
 
@@ -21,7 +30,7 @@ $(document).ready( function() {
 	  );
 
 
-	$('#WishListContainer').click( function(){
+	$('#WishListContainer').live('click',function(){    
         $("#main").load("./html/wishlist.html #main");
 	});
 
@@ -36,11 +45,12 @@ $(document).ready( function() {
 	    }
 	  );
 
-	 $('#WishList2 a').click( function(){
+	 $('#WishList2 a').live('click',function(){    
+
 	        $("#main").load("./html/wishlist.html #main");
 		});
 
-	$('#login_opt').click( function(){
+	$('#login_opt').live('click',function(){    
 		$(this).animate({
 			opacity: 1,
 		}, 400 );	
@@ -51,10 +61,28 @@ $(document).ready( function() {
 		}
 	});
 
-	$('#login_button').click( function(){
-		$('#login_data').slideUp();
+	$('#login_button').live('click',function(){    
+		
+        $('#login_data').slideUp();
+        
+        
+        /*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
+        
+        $('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
+        
+        $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
+        
+
 	});
 
+
+    $('#logout').live('click',function(){    
+     
+        $('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
+        
+        $('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
+    
+    });
 
 	$('.item').css('opacity',opacity).hover(function() {
 	      $(this).animate({
@@ -68,20 +96,10 @@ $(document).ready( function() {
 	);
 
 
-    $('.home').click( function(){
+    $('.home').live('click',function(){    
+    
         $("#main").load("./index.html #main");
 
-        var ss = document.createElement('script');
-        ss.type = 'text/javascript';
-        ss.src = "./javascript/home.js";
-        var hh = document.getElementsByTagName('head')[0];
-        hh.appendChild(ss);
-        
-        var ss = document.createElement('script');
-		ss.type = 'text/javascript';
-		ss.src = "./javascript/js.js";
-		var hh = document.getElementsByTagName('head')[0];
-		hh.appendChild(ss);
 	});
     
     
@@ -110,27 +128,38 @@ $(document).ready( function() {
  		 }, 100 );			
 	});
 
-	$('#facebook').click( function() {
+	$('#facebook').live('click',function(){    
 		window.location = "http://www.facebook.com";
 	});
 
-	$('#twitter').click( function() {
+	$('#twitter').live('click',function(){    
 		window.location = "http://www.twitter.com";
 	});
 
-	$('#contactUs').click( function() {
+	$('#contactUs').live('click',function(){    
         $("#main").load("./html/contact.html #main");
 	});
 
-	$('#whereAreWe').click( function() {
+	$('#whereAreWe').live('click',function(){    
         $("#main").load("./html/map.html #main");
 	});
 
-	$('#register_link').click( function(){
+	$('#register_link').live('click',function(){    
 		$("#main").load("./html/register.html #main");
 		reloadregisterScript();
 		
 	});
+    
+    $('#MyAccount_opt').live('click',function(){    
+		$("#main").load("./html/myaccount.html #main");
+    });
+    
+    
+    
+      
+    
+    
+
 });
 
 

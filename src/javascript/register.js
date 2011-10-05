@@ -1,5 +1,8 @@
-$('#login_option').click( function(){
-	$(this).animate({
+$(document).ready( function() {
+
+$('#login_option').live('click',function(){    
+	
+    $(this).animate({
 		opacity: 1,
 	}, 400 );	
 	if($('#login_data2').is(":hidden")){
@@ -9,8 +12,18 @@ $('#login_option').click( function(){
 	}
 });
 	
-$('#login_button2').click( function(){
+$('#login_button2').live('click',function(){    
 	$('#login_data2').slideUp();
+    
+       /*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
+        
+        $('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
+        
+        $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
+            
+
+        $("#main").load("./index.html #main");
+
 });
 
 /*Validacion de formulario registro*/
@@ -20,7 +33,6 @@ var LiveValidation = function(element, optionsObj){
 }
 
 
-/** element types constants ****/
 
 LiveValidation.TEXTAREA = 1;
 LiveValidation.TEXT     = 2;
@@ -29,7 +41,6 @@ LiveValidation.CHECKBOX = 4;
 LiveValidation.SELECT   = 5;
 LiveValidation.FILE     = 6;
 
-/****** Static methods *******/
 
 /**
  *	pass an array of LiveValidation objects and it will validate all of them
@@ -660,20 +671,22 @@ email.add( Validate.Presence, { failureMessage: "Please, enter your e-mail" } );
 email.add( Validate.Email );
 });
 $(function(){
-var retypeEmailBar = new LiveValidation( "retypeEmailBar", { validMessage: "Ok!", wait: 500 } );	
+var retypeEmailBar = new LiveValidation( "rmailBar", { validMessage: "Ok!", wait: 500 } );	
 retypeEmailBar.add( Validate.Presence, { failureMessage: "Please, re-type your e-mail" } );
 retypeEmailBar.add( Validate.Email );
 retypeEmailBar.add( Validate.Confirmation, { match: 'emailBar' } );
 });
 $(function(){
-var PasswordBar = new LiveValidation( "PasswordBar", { validMessage: "Ok!", wait: 500 } );	
+var PasswordBar = new LiveValidation( "passBar", { validMessage: "Ok!", wait: 500 } );	
 PasswordBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
 PasswordBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
 });
 $(function(){
-var retipePasswordBar = new LiveValidation( "retipePasswordBar", { validMessage: "Ok!", wait: 500 } );	
+var retipePasswordBar = new LiveValidation( "rpassBar", { validMessage: "Ok!", wait: 500 } );	
 retipePasswordBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
 retipePasswordBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
-retipePasswordBar.add( Validate.Confirmation, { match: 'PasswordBar' } );
+retipePasswordBar.add( Validate.Confirmation, { match: 'passBar' } );
+
+});	
 
 });	
