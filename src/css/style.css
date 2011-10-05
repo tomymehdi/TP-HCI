@@ -102,6 +102,7 @@ body {
 	position: relative;
 	width: 245px;
 	z-index: 3;
+	cursor: pointer;
 }
 
 #carros {
@@ -123,6 +124,7 @@ body {
 	margin-top: 20px;
 	position: relative;
 	width: 200px;
+	cursor: pointer;
 }
 
 #Cart a {
@@ -156,6 +158,7 @@ body {
 	margin-top: 20px;
 	position: relative;
 	width: 200px;
+	cursor: pointer;
 }
 
 #WishList a {
@@ -319,6 +322,18 @@ body {
 	color: black;
 }
 
+.movies_link{
+	cursor: pointer;
+}
+
+.cds_link{
+	cursor: pointer;
+}
+
+.books_link{
+	cursor: pointer;
+}
+
 .text {
 	color: black;
 	float: left;
@@ -335,6 +350,7 @@ body {
 	height: 58%;
 	margin-left: 13px;
 	width: 38%;
+	cursor: pointer;
 }
 
 #myaccount {
@@ -347,6 +363,7 @@ body {
 	width: 60%;
 	background-image: url('../images/home/user.png');
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
 #login {
@@ -356,6 +373,7 @@ body {
 	height: 53%;
 	margin-left: 2px;
 	width: 36%;
+	cursor: pointer;
 }
 #logout{
 	background-image: url("../images/home/logout.png");
@@ -364,6 +382,7 @@ body {
 	height: 53%;
 	margin-left: 2px;
 	width: 36%;
+	cursor: pointer;
 }
 #MyAccount{
 	background-image: url("../images/home/MyAcc.png");
@@ -372,6 +391,7 @@ body {
 	height: 53%;
 	margin-left: 2px;
 	width: 36%;
+	cursor: pointer;
 }
 
 #help {
@@ -381,6 +401,7 @@ body {
 	height: 53%;
 	margin-left: 10px;
 	width: 35%;
+	cursor: pointer;
 }
 
 #help_text {
@@ -402,7 +423,7 @@ body {
 	margin-top: 15px;
 }
 
-#dollar a {
+#dollars a {
 	position: relative;
 	float: right;
 	height: 100%;
@@ -411,7 +432,7 @@ body {
 	background-repeat: no-repeat;
 }
 
-#peso a {
+#pesos a {
 	position: relative;
 	float: right;
 	height: 100%;
@@ -420,7 +441,7 @@ body {
 	background-repeat: no-repeat;
 }
 
-#euro a {
+#euros a {
 	position: relative;
 	float: right;
 	height: 100%;
@@ -458,9 +479,8 @@ body {
 }
 
 #main {
-	background-color: #F5FAFA;	
-	overflow: auto;
-	min-height: 700px;
+	background-color: #F5FAFA;
+	min-height: 750px;
 	position: relative;
 	min-width: 960px;
 	width: 50%;
@@ -888,14 +908,23 @@ h5{
 
 #Price {
     float: right;
-    font-size: 22px;
+    font-size: 14px;
     font-weight: bold;
     height: 20%;
     margin-right: 0;
     margin-top: 30px;
     position: relative;
     text-align: center;
-    width: 70%;
+    width: 80%;
+}
+
+#PriceTag{
+	float: left;
+}
+
+#PriceNumber{
+	float: left;
+	margin-left: 5px;
 }
 
 #Image {

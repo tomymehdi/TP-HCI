@@ -5,6 +5,15 @@ function User(name, password, cart){
 	this.addresses = new Array();
 }
 
+function CoinType(value, string){
+	this.value = value;
+	this.string = string;
+}
+
+CoinType.prototype.toString = function(){
+	return this.string.toString();
+}
+
 function Cart(){
 	this.items = new Array();
 }
@@ -23,7 +32,7 @@ Cart.prototype.total = function (){
 	for(i = 0 ; i < this.items.length; i++){
 		count += parseFloat(this.items[i].price);
 	}
-	return count;
+	return count*currentCoinType.value;
 }
 
 Cart.prototype.addItem = function (item){
@@ -57,7 +66,7 @@ function Subcategory(name, category){
 	category.add(this);
 }
 
-var currentPage;
+// GLOBALES
 pageSize = 10;
 movies = new Category("Movies");
 cds = new Category("CDs");
@@ -85,6 +94,15 @@ while(h < 10){
 	itemList.addItem(new Item("Item " + h.toString(), "Desc", roundNumber((h*3.67), 2).toString(), lots, "IMAGE OVER HERE!"));
 	h++;
 }
+euros = new CoinType("0.75", "E");
+dollars = new CoinType("1", "U$S");
+pesos = new CoinType("4.2", "AR$");
+
+
+// VARIABLES
+var currentPage;
+var currentCategory;
+var currentCoinType;
 
 function buyItem(number){
 	var i = parseInt(document.getElementById("sel" + number).options.selectedIndex);
@@ -111,7 +129,7 @@ function addToWishlist(number){
 
 function actualizeCart(){
 	document.getElementById("itemCount").innerHTML="You have " + cart.items.length + " items";
-	document.getElementById("totalCount").innerHTML="Total: $" + roundNumber(cart.total(), 2);
+	document.getElementById("totalCount").innerHTML="Total: "+ currentCoinType + ' ' + roundNumber(cart.total(), 2);
 }
 
 function actualizeWishlist(){
@@ -120,6 +138,7 @@ function actualizeWishlist(){
 
 function loadItems(category, page){
 	currentPage = 0;
+	currentCategory = category;
 	var i = 0;
 	partialList = new ItemList();
 	while(i < itemList.items.length){
@@ -132,15 +151,10 @@ function loadItems(category, page){
 	i = 0;
 	while(i < partialList.items.length){
 		item = partialList.items[i];
-		$('#Items').append('<div id="Item"><div id="itemName">' + item.name + '</div><div id="Image"> ' + item.imageSource + '</div><div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button><button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button><select id="sel' + i + '" size="1" class="quantity"> <option selected="selected">0 </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price">$' + item.price + '</div></div></div>');
+		$('#Items').append('<div id="Item"><div id="itemName">' + item.name + '</div><div id="Image"> ' + item.imageSource + '</div><div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button><button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button><select id="sel' + i + '" size="1" class="quantity"> <option selected="selected">0 </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +(item.price*currentCoinType.value) + '</div></div></div></div>');
 		i++;
 	}
 }
-
-
-
-
-
 
 //function load(){
 //	urld = "http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=1";

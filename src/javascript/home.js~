@@ -1,9 +1,10 @@
 $(document).ready( function() {	
-
-	currentCoinType = dollars;
-	setTimeout("actualizeCart()", 100);
-	setTimeout("actualizeWishList()", 100);
+	
+	alert("hola");
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
+
+	
+	
 
 	$('.main_opt').css('opacity',opacity).hover(function() {
 	      $(this).animate({
@@ -66,36 +67,6 @@ $(document).ready( function() {
 		    );
 
 		  }
-		
-		$('#pesos').click(function(){
-			var previousCoinType = currentCoinType;
-			currentCoinType = pesos;
-			actualizeCart();
-			$('*').filter('#PriceTag').text(currentCoinType.toString());
-			$('*').filter('#PriceNumber').replaceWith(function(){
-				return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value) , 2)+ '</div>');
-			});
-		});
-		
-		$('#euros').click(function(){
-			var previousCoinType = currentCoinType;
-			currentCoinType = euros; 
-			actualizeCart();
-			$('*').filter('#PriceTag').text(currentCoinType.toString());
-			$('*').filter('#PriceNumber').replaceWith(function(){
-				return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value) , 2)+ '</div>');
-			});
-		});
-		
-		$('#dollars').click(function(){
-			var previousCoinType = currentCoinType;
-			currentCoinType = dollars; 
-			actualizeCart();
-			$('*').filter('#PriceTag').text(currentCoinType.toString());
-			$('*').filter('#PriceNumber').replaceWith(function(){
-				return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value) , 2)+ '</div>');
-			});
-		});
 
   
 	    $('.cds_link').live('click',function(){    

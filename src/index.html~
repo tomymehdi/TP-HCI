@@ -5,10 +5,15 @@
 <title>Art.com</title>
 <link rel="stylesheet" type="text/css" href="./css/style.css" />
 <script  type="text/javascript" src ="./javascript/jQuery.js"> </script>
-<script  id="jsScript" type="text/javascript" src ="./javascript/js.js"> </script>
 <script  id="homeScript" type="text/javascript" src ="./javascript/home.js"> </script>
-<script  id="itemsManagerScript" type="text/javascript" src ="./javascript/itemsManager.js"> </script>
+<script  id="jsScript" type="text/javascript" src ="./javascript/js.js"> </script>
+<script  id="homeScript" type="text/javascript" src ="./javascript/itemsManager.js"> </script>
+<script  id="homeScript" type="text/javascript" src ="./javascript/register.js"> </script>
+<script  id="homeScript" type="text/javascript" src ="./javascript/cart.js"> </script>
+
+<!-- <script  id="changeArticlesScript" type="text/javascript" src ="./javascript/chargeArticles.js"> </script> -->
 <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'></head>
+
 <body>
 	<div id="wrapper">
 		<div id="header">
@@ -23,7 +28,7 @@
 					<h4><a href="#">Cart</a></h4>
 					<div id="data">
 					<h2 id= "itemCount">You have 0 items</h2>
-					<h2 id="totalCount">Total: U$S 0</h2>
+					<h2 id="totalCount">Total: $0</h2>
 					</div>
 					<div id="CartMenu" class="Extendable"><a href="#" ><span class="span">open</span></a></div>
 				</div>
@@ -75,9 +80,9 @@
 				</div>
 
 				<div id="moneda" >
-					<div id="dollars" class="item"><a href="#"><span class="span">dollar</span></a></div>
-					<div id="pesos" class="item"><a href="#"><span class="span">peso</span></a></div>
-					<div id="euros" class="item"><a href="#"><span class="span">euro</span></a></div>
+					<div id="dollar" class="item"><a href="#"><span class="span">dollar</span></a></div>
+					<div id="peso" class="item"><a href="#"><span class="span">peso</span></a></div>
+					<div id="euro" class="item"><a href="#"><span class="span">euro</span></a></div>
 				</div>
 
 		</div>
@@ -103,7 +108,7 @@
 			<div class="main_opt">
 				<div  class="movies_link title" >Movies</div>
 				<div id="movies">
-				<div class="fadein1 movies_link">
+				<div class="fadein1">
   						<div id="SlideMovies1"></div>
   						<div id="SlideMovies2"></div>
 						<div id="SlideMovies3"></div>
@@ -114,7 +119,7 @@
 			<div class="main_opt">
 				<div class="title cds_link">CD'S</div>
 				<div id="cds">
-				<div class="fadein2 cds_link">
+				<div class="fadein2">
   						<div id="SlideCds1"></div>
   						<div id="SlideCds2"></div>
 						<div id="SlideCds3"></div>
@@ -125,7 +130,7 @@
 
 				<div class="title books_link">Books</div>
 				<div id="books">
-					<div class="fadein3 books_link">
+					<div class="fadein3">
   						<div id="SlideBooks1"></div>
   						<div id="SlideBooks2"></div>
 						<div id="SlideBooks3"></div>

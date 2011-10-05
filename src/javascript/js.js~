@@ -2,6 +2,7 @@
 
 $(document).ready( function() {
 
+	alert("hola");
 	$('#CartContainer').live('click',function(){  
     
     $("#main").load("./html/cart.html #main");
