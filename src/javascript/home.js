@@ -55,24 +55,7 @@ $(document).ready( function() {
 	    });	
         
         
-		function initMenu() {
-		  $('#menu ul').hide();
-		  $('#menu ul:first').show();
-		  $('#menu li a').live('click',
-		    function() {
-		      var checkElement = $(this).next();
-		      if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-		        return false;
-		        }
-		      if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-		        $('#menu ul:visible').slideUp('normal');
-		        checkElement.slideDown('normal');
-		        return false;
-		        }
-		      }
-		    );
-
-		  }
+	
 		
 		$('#pesos').click(function(){
 			var previousCoinType = currentCoinType;
@@ -124,6 +107,24 @@ $(document).ready( function() {
             initMenu();
 		});
 
-		
+		/*TODO:no anda*/
+		function initMenu() {
+			  $('#menu ul').hide();
+			  $('#menu ul:first').show();
+			  $('#menu li a').live('click',
+			    function() {
+			      var checkElement = $(this).next();
+			      if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+			        return false;
+			        }
+			      if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+			        $('#menu ul:visible').slideUp('normal');
+			        checkElement.slideDown('normal');
+			        return false;
+			        }
+			      }
+			    );
+
+			  }
 });
 
