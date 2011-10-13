@@ -1,4 +1,4 @@
-@CHARSET "UTF-8";
+/* @CHARSET "UTF-8"; */
 
 /*clear browser default styling*/
 body,div,dl,dt,dd,li,pre,form,fieldset,input,textarea,p,blockquote,th,td,button
@@ -48,7 +48,7 @@ acronym,abbr,fieldset,img {
 	outline: 0;
 }
 
-/*clear browser default styling*/
+clear browser default styling
 .curved {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -62,7 +62,7 @@ body {
 
 #wrapper {
 	background-image: url("../images/home/fondo50.png");
-	align: relative;
+	text-align: center;
 	width: 100%;
 	height: 100%;
 	margin-left: auto;
@@ -172,6 +172,8 @@ body {
 	background-repeat: no-repeat;
 }
 
+
+
 #WishList2 a {
 	position: relative;
     background-image: url("../images/home/wishlist.png");
@@ -183,7 +185,7 @@ body {
     margin-right: 120px;
 }
 
-#data {
+.data {
 	float: right;
 	height: 20px;
 	margin-right: 10px;
@@ -314,12 +316,13 @@ body {
 }
 
 .item {
-	float: right;
-	height: 30%;
-	width: 33%;
-	margin-top: 10px;
-	font-size: 12px;
-	color: black;
+    color: black;
+    float: right;
+    font-size: 12px;
+    height: 30%;
+    margin-right: 15px;
+    margin-top: 10px;
+    width: 18%;
 }
 
 .movies_link{
@@ -335,12 +338,11 @@ body {
 }
 
 .text {
-	color: black;
-	float: left;
-	height: 33%;
-	margin-right: 13px;
-	text-decoration: none;
-	width: 65%;
+    color: black;
+    height: 33%;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
 }
 
 #register {
@@ -348,8 +350,12 @@ body {
 	background-repeat: no-repeat;
 	float: left;
 	height: 58%;
-	margin-left: 13px;
-	width: 38%;
+	margin-left: 25%;
+	width: 75%;
+	cursor: pointer;
+}
+
+.pointer{
 	cursor: pointer;
 }
 
@@ -371,8 +377,8 @@ body {
 	background-repeat: no-repeat;
 	float: left;
 	height: 53%;
-	margin-left: 2px;
-	width: 36%;
+	margin-left: 25%;
+	width: 75%;
 	cursor: pointer;
 }
 #logout{
@@ -380,8 +386,8 @@ body {
 	background-repeat: no-repeat;
 	float: left;
 	height: 53%;
-	margin-left: 2px;
-	width: 36%;
+	margin-left: 25%;
+	width: 75%;
 	cursor: pointer;
 }
 #MyAccount{
@@ -389,8 +395,8 @@ body {
 	background-repeat: no-repeat;
 	float: left;
 	height: 53%;
-	margin-left: 2px;
-	width: 36%;
+	margin-left: 25%;
+	width: 75%;
 	cursor: pointer;
 }
 
@@ -399,13 +405,9 @@ body {
 	background-repeat: no-repeat;
 	float: left;
 	height: 53%;
-	margin-left: 10px;
-	width: 35%;
+	margin-left: 25%;
+	width: 75%;
 	cursor: pointer;
-}
-
-#help_text {
-	margin-left: 10px;
 }
 
 #idioma {
@@ -478,6 +480,7 @@ body {
 	color: #585044;
 }
 
+
 #main {
 	background-color: #F5FAFA;
 	overflow: auto;
@@ -530,6 +533,10 @@ body {
 	height: 70%;
 	width: 100%;
 	margin-top: 100px;
+}
+
+#itemName{
+	font-weight: bold;
 }
 
 #books {
@@ -626,9 +633,7 @@ h3 {
 
 /*para el search*/
 h1 {
-	width: 15%;
 	float: left;
-	margin-right: 10px;
 }
 
 /*para los carts*/
@@ -713,7 +718,7 @@ h5{
 
 }
 #CheckOut{
-	postition:relative;
+	position:relative;
 	float:right;
 	font-size: 24px;
 	font-family: century gothic, serif;	
@@ -813,7 +818,7 @@ h5{
 	width: 80%;
 	height: 50px;
 	margin-left: 30px;
-	background-color: grey;
+	background-color: gray;
 	background-color: #dfdfd9;
 	border-color: #bdbdb7;
 	border-style: groove;
@@ -833,7 +838,7 @@ h5{
 	float: left;
 	width: 60%;
 	height: auto;
-	background-color: grey;
+	background-color: gray;
 }
 
 #MoviesSubsections {
@@ -902,23 +907,25 @@ h5{
 
 .buyButton{
 	float: left;
-    height: 50px;
+    height: 40px;
     margin-left: -95px;
     margin-top: -5px;
     position: relative;
-    width: 50px;
+    width: 40px;
 	background-image: url('../images/home/Cart.png');
+	background-size: 100%;
 	background-repeat: no-repeat;
 }
 
 .addToWishlistButton{
 	float: left;
-    height: 50px;
+    height: 40px;
     margin-left: -25px;
     margin-top: -5px;
     position: relative;
-    width: 50px;
+    width: 40px;
 	background-image: url('../images/home/wishlist.png');
+	background-size: 100%;
 	background-repeat: no-repeat;
 }
 
@@ -953,12 +960,13 @@ h5{
 
 #Image {
 	float: left;
-	height: 85px;
-	width: 85px;
-	margin-left: 10px;
-	margin-top: 10px;
+	height: 105px;
+	width: 105px;
 	margin-right: 10px;
-	margin-bottom: 10px;
+}
+
+#pageContainer{
+	float: right;
 }
 
 #Description {
@@ -986,19 +994,6 @@ h5{
 	margin-bottom: 10px;
 }
 
-
-.HP {
-	position: relative;
-	float: left;
-	background-image: url('../images/itemSelector/hp.png');
-}
-
-.Aladdin {
-	position: relative;
-	float: left;
-	background-image: url('../images/itemSelector/aladdin.png');
-}
-
 #login_data {
 	background-image: url("../images/home/cartContainer.png");
 	border-style: groove;
@@ -1011,17 +1006,44 @@ h5{
 
 #login_data2 {
 	background-image: url("../images/home/cartContainer.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
 	border-style: groove;
 	float: right;
-	width: 200px;
+	width: 250px;
     margin-left: 332px;
     margin-top: -72px;
+}
+
+#login_pass{
+	margin-top: 25px;
+}
+
+#login_button2{
+	margin-top: 50px;
+}
+
+#login_user input{
+	float: right;
+}
+
+#login_user h1{
+	float: left;
+}
+
+#login_pass input{
+	float: right;
+}
+
+#login_pass h1{
+	float: left;
 }
 
 .navigationItem {
 	margin: 10px;
 	font-size: 14px;
 }
+
 
 /************************ FORMS******************************/
 .LV_validation_message {
@@ -1093,7 +1115,7 @@ h5{
 
 #passBar{
 	float:right;
-		margin-right: 100px;
+	margin-right: 100px;
 }
 
 #rpass{
@@ -1108,18 +1130,27 @@ h5{
 #prev{
     float: left;
     margin-left: 40px;
-    width: 25%;
-    margin-top: -23px;
+/*     width: 25%; */
+/*     margin-top: -23px; */
 }
 
 #next{
     float: right;
-    margin-right: 42px;
-    width: 25%;
-    margin-top: -23px;
+    margin-right: 40px;
 }
 
+.pageChange h3{
+	margin-top: 0;
+	margin-bottom: 0;
+    background-color: #DFDFD9;
+    border-color: #BDBDB7;
+    border-style: groove;
+}
 
+#loading{
+	height: 20px;
+	width: 300px;
+}
 
 ul#menu, ul#menu ul {
   list-style-type:none;
@@ -1173,4 +1204,9 @@ ul#menu li ul li a:hover {
 	margin-top:50px;
 
 }
-	
+
+.curved {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	behavior: url(border-radius.htc);
+}

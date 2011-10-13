@@ -15,4 +15,15 @@ function initMenu() {
       }
     );
   }
-$(document).ready(function() {initMenu();});
+$(document).ready(function() {
+	initMenu();
+	
+	$('#pageSize').change(function() {
+		setTimeout("loadItems(currentCategory, 1)", 100);
+	});
+	
+	$('#sort').change(function() {
+		setTimeout("loadItems(currentCategory, 1)", 100);
+	});
+
+});

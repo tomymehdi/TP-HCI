@@ -1,22 +1,10 @@
-
-
 $(document).ready( function() {
-
-	
-
-	$('#CartContainer').live('click',function(){  
-    
-    $("#main").load("./html/cart.html #main");
-    
+	$('#CartContainer').click( function(){
+        $("#main").load("./html/cart.html #main");
 	});
 
-	
-
-	
-	$('#Cart2 a').live('click',function(){   
+	$('#Cart2 a').click( function(){
         $("#main").load("./html/cart.html #main");
-        
-              
 	});
 
 
@@ -33,7 +21,7 @@ $(document).ready( function() {
 	  );
 
 
-	$('#WishListContainer').live('click',function(){    
+	$('#WishListContainer').click( function(){
         $("#main").load("./html/wishlist.html #main");
 	});
 
@@ -48,12 +36,11 @@ $(document).ready( function() {
 	    }
 	  );
 
-	 $('#WishList2 a').live('click',function(){    
-
+	 $('#WishList2 a').click( function(){
 	        $("#main").load("./html/wishlist.html #main");
 		});
 
-	$('#login_opt').live('click',function(){    
+	$('#login_opt').click( function(){
 		$(this).animate({
 			opacity: 1,
 		}, 400 );	
@@ -64,28 +51,10 @@ $(document).ready( function() {
 		}
 	});
 
-	$('#login_button').live('click',function(){    
-		
-        $('#login_data').slideUp();
-        
-        
-        /*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
-        
-        $('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
-        
-        $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
-        
-
+	$('#login_button').click( function(){
+		$('#login_data').slideUp();
 	});
 
-
-    $('#logout').live('click',function(){    
-     
-        $('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
-        
-        $('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
-    
-    });
 
 	$('.item').css('opacity',opacity).hover(function() {
 	      $(this).animate({
@@ -99,13 +68,10 @@ $(document).ready( function() {
 	);
 
 
-    $('.home').live('click',function(){    
-    
+    $('.home').click( function(){
         $("#main").load("./index.html #main");
-
+        reloadhomeScript();
 	});
-    
-    
 
 	$('.footerItem').mouseover( function(){
 		$(this).animate({
@@ -131,96 +97,55 @@ $(document).ready( function() {
  		 }, 100 );			
 	});
 
-	$('#facebook').live('click',function(){    
+	$('#facebook').click( function() {
 		window.location = "http://www.facebook.com";
 	});
 
-	$('#twitter').live('click',function(){    
+	$('#twitter').click( function() {
 		window.location = "http://www.twitter.com";
 	});
 
-	$('#contactUs').live('click',function(){    
+	$('#contactUs').click( function() {
         $("#main").load("./html/contact.html #main");
 	});
 
-	$('#whereAreWe').live('click',function(){    
+	$('#whereAreWe').click( function() {
         $("#main").load("./html/map.html #main");
 	});
 
-	$('#register_link').live('click',function(){    
+	$('#register_link').click( function(){
 		$("#main").load("./html/register.html #main");
 		reloadregisterScript();
-		
 	});
-    
-    $('#MyAccount_opt').live('click',function(){    
-		$("#main").load("./html/myaccount.html #main");
-    });
-    
-    
-    function reloadregisterScript(){
-	if(document.getElementById("registerScript")){
-		$("#registerScript").remove();
+	
+	$('#prev').click(function(){
+		if(currentPage != 1){
+			$('#pageNumber').remove();
+			$('#Items').empty();
+			setTimeout("loadItems(currentCategory, parseInt(currentPage - 1))", 100);
+		}
+	});
+
+	$('#next').click(function(){
+		if(currentPage != getMaxPage()){
+			$('#pageNumber').remove();
+			$('#Items').empty();
+			setTimeout("loadItems(currentCategory, parseInt(currentPage + 1))", 100);
+		}
+	});
+});
+
+function reloadhomeScript(){
+	if(document.getElementById("homeScript")){
+		$("#homeScript").remove();
 	}
 	
 	var ss = document.createElement('script');
 	ss.type = 'text/javascript';
-	ss.src = "./javascript/register.js";
-	ss.id = "registerScript";
+	ss.src = "./javascript/home.js";
+	ss.id = "homeScript";
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
-    }
-      
-    
-  
-    
-    $('#Modify').live('click',function(){    
-    
-    $('.MyAcInp :input').removeAttr('disabled');
-
-    
-    $('#Modify').replaceWith('<div id="Save" class="MyAccButton">Save</div>');
-
-    });
-    
-    $('#Save').live('click',function(){    
-
-   
-    $('.MyAcInp :input').attr('disabled', true);
-    
-    
-    $('#Save').replaceWith('<div id="Modify" class="MyAccButton">Modify</div>');
-
-    
-    });
-    
-    
-    $('#PersonalInfo').live('click',function(){    
-    	
-    	$('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Personal Information</h4><div id="FirstNameInput" class="MyAcInp">First Name <input type="text" disabled="disabled" ></input></div><div id="LastNameInput" class="MyAcInp"> Last Name <input type="text" disabled="disabled" ></input></div><div id="EmailInput"class="MyAcInp">Email <input  type="text" disabled="disabled" ></input></div></div><div id="Modify" class="MyAccButton">Modify</div></div>');
-    	
-    });
-    
-    $('#ShippingInfo').live('click',function(){    
-    	
-        $('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Shipping Information</h4></div>');
-    });
-    
-    $('#PasswordInfo').live('click',function(){    
-    	 $('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Change Password</h4><div id="PassChange" class="MyAcInp">Current Password <input type="text" disabled="disabled" ></div><div id="NPass" class="MyAcInp">New Password <input type="text" disabled="disabled" ></div><div id="RNPass" class="MyAcInp">Re-Type New Password <input type="text" disabled="disabled" ></input></div><div id="Modify" class="MyAccButton">Modify</div></div>');
-
-    });
-
-    $('#PreviousInfo').live('click',function(){
-        $('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Previous Buyings information</h4></div>');
-
-    });
-
-    $('#LastOrderInfo').live('click',function(){
-        $('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Last Order Status</h4></div>');
-
-    });
-
-});
+}
 
 

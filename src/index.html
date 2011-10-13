@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Art.com</title>
-<link rel="stylesheet" type="text/css" href="./css/style.css" />
-<script  id="registerScript" type="text/javascript" src ="./javascript/register.js"> </script>
-<script  type="text/javascript" src ="./javascript/jQuery.js"> </script>
-<script  type="text/javascript" src ="./javascript/js.js"> </script>
-<script  type="text/javascript" src ="./javascript/cart.js"> </script>
-<script  type="text/javascript" src ="./javascript/home.js"> </script>
-<script  type="text/javascript" src ="./javascript/itemsManager.js"> </script>
-<script  type="text/javascript" src ="./javascript/articles.js"> </script>
-
-
-<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'></head>
+	<meta charset="UTF-8"/>
+	<title>Art.com</title>
+	<!--[if !IE]> <link type="text/css" type="text/css" href="./css/firefox.css"> <![endif]-->
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<script type="text/javascript" src ="./javascript/jQuery.js"> </script>
+	<script id="jsScript" type="text/javascript" src ="./javascript/js.js"> </script>
+	<script id="homeScript" type="text/javascript" src ="./javascript/home.js"> </script>
+	<script id="itemsManagerScript" type="text/javascript" src ="./javascript/itemsManager.js"> </script>
+	<script id="servicesScript" type="text/javascript" src ="./javascript/services.js"> </script>
+	<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
+</head>
 <body>
 	<div id="wrapper">
 		<div id="header">
@@ -24,22 +22,22 @@
 			<div id="carros">
 
 				<div id="CartContainer" class="curved" >
-					<div id="Cart"><a href="#" ><span class="span">cart</span></a></div>
-					<h4><a href="#">Cart</a></h4>
-					<div id="data">
+					<div id="Cart"><a class="pointer" ><span class="span">cart</span></a></div>
+					<h4><a class="pointer">Cart</a></h4>
+					<div class="data">
 					<h2 id= "itemCount">You have 0 items</h2>
 					<h2 id="totalCount">Total: U$S 0</h2>
 					</div>
-					<div id="CartMenu" class="Extendable"><a href="#" ><span class="span">open</span></a></div>
+					<div id="CartMenu" class="Extendable"><a class="pointer" ><span class="span">open</span></a></div>
 				</div>
 			
 				<div id="WishListContainer" class="curved" >
-					<div id="WishList"><a href="#" ><span class="span">wishlist</span></a></div>
-					<h4><a href="#">WishList</a></h4>
-					<div id="data">
+					<div id="WishList"><a class="pointer" ><span class="span">wishlist</span></a></div>
+					<h4><a class="pointer">WishList</a></h4>
+					<div class="data">
 					<h2 id="wishedItems">You have: 0 items</h2>
 					</div>
-					<div id="WishListMenu" class="Extendable"><a href="#" ><span class="span">open</span></a></div>
+					<div id="WishListMenu" class="Extendable"><a class="pointer" ><span class="span">open</span></a></div>
 				</div>
 
 
@@ -54,7 +52,7 @@
 				</div>
 				<div class="item">
 					<div class="text" id="help_text">Help</div>
-					<div id="help"><a href="#" ></a></div>
+					<div id="help"><a class="pointer" ></a></div>
 				</div>
 				<div class="item" id="register_link">
 					<div class="text">Register</div>
@@ -64,10 +62,10 @@
 
 					<div id="login_data">
 						<h1>User</h1>
-						<input type="text"></input>
+						<input type="text"/>
 						<h1>Password</h1>
-						<input type="text"></input>
-						<div id="login_button"><a href="#">Login</a></div>
+						<input type="text"/>
+						<div id="login_button"><a class="pointer">Login</a></div>
 					</div>
 
 
@@ -80,26 +78,25 @@
 				</div>
 
 				<div id="moneda" >
-					<div id="dollars" class="item"><a href="#"><span class="span">dollar</span></a></div>
-					<div id="pesos" class="item"><a href="#"><span class="span">peso</span></a></div>
-					<div id="euros" class="item"><a href="#"><span class="span">euro</span></a></div>
+					<div id="dollars" class="item"><a class="pointer"><span class="span">dollar</span></a></div>
+					<div id="pesos" class="item"><a class="pointer"><span class="span">peso</span></a></div>
+					<div id="euros" class="item"><a class="pointer"><span class="span">euro</span></a></div>
 				</div>
 
 		</div>
 
 			<div id="search" >
-				<div id="search_button"><a href="#"></a></div>
-				<input id="searchbar" type="text"></input>
+				<div id="search_button"><a class="pointer"></a></div>
+				<input id="searchbar" type="text"/>
 			</div>
 		</div>
-
 
 
 		<div id="main">
 
 			<div id="navigation">
 				<ul>
-					<li class="navigationItem home"  ><a href="#" >Home</a></li>
+					<li class="navigationItem home"  ><a class="pointer" >Home</a></li>
 					<li class="navigationItem" >></li>
 				</ul>
 			</div>
@@ -148,16 +145,16 @@
 			<div class="column">
 			<h3>Navigate</h3>
 			<ul>
-				<li><a href="#" class="cds_link">CD's</a></li>
-	        	<li><a href="#" class="books_link">Books</a></li>
-    		    <li><a href="#" class="movies_link">Movies</a></li>
+				<li><a class="cds_link pointer">CD's</a></li>
+	        	<li><a class="books_link pointer">Books</a></li>
+    		    <li><a class="movies_link pointer">Movies</a></li>
 			</ul>
 			</div>
 			<div class="column">
 			<h3>Customer Service</h3>
 
 			<ul>
-				<li><a href="#">Help / FAQ's</a></li>
+				<li><a class="pointer">Help / FAQ's</a></li>
 
 
 			</ul>
@@ -166,8 +163,8 @@
 			<div class="column">
 			<h3>Our Company</h3>
 			<ul>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Site Map</a></li>
+				<li><a class="pointer">About Us</a></li>
+				<li><a class="pointer">Site Map</a></li>
 
 			</ul>
 			</div>
@@ -175,22 +172,22 @@
 			<div class="column">
 			<h3>Where Are We</h3>
 			<ul>
-			<li><a href="#" id="whereAreWe" class="footerItem" ></a></li>
+			<li><a id="whereAreWe" class="footerItem pointer" ></a></li>
 			</ul>
 			</div>
 
 			<div class="column">
 				<h3>Contact Us</h3>
 				<ul>
-				<li><a href="#" id="contactUs" class="footerItem"></a></li>
+				<li><a id="contactUs" class="footerItem pointer"></a></li>
 				</ul>
 			</div>
 
 			<div class="column">
 			<h3>Follow Us</h3>
 			<ul>
-				<li><a href="#" id="facebook" class="footerItem"></a></li>
-				<li><a href="#" id="twitter" class="footerItem"></a></li>
+				<li><a id="facebook" class="footerItem pointer"></a></li>
+				<li><a id="twitter" class="footerItem pointer"></a></li>
 			</ul>
 			</div>
 

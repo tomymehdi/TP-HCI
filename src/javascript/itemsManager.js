@@ -14,6 +14,12 @@ CoinType.prototype.toString = function(){
 	return this.string.toString();
 }
 
+function Language(id, code, name){
+	this.id = id;
+	this.code = code;
+	this.name = name;
+}
+
 function Cart(){
 	this.items = new Array();
 }
@@ -51,8 +57,9 @@ function Item(name, description, price, subcategory, imageSource){
 	this.imageSource = imageSource;
 }
 
-function Category(name){
+function Category(name, number){
 	this.name = name;
+	this.number = number;
 	this.subcategories = new Array();
 }
 
@@ -67,42 +74,45 @@ function Subcategory(name, category){
 }
 
 // GLOBALES
-pageSize = 10;
-movies = new Category("Movies");
-cds = new Category("CDs");
-books = new Category("Books");
-magic = new Subcategory("Magia", movies);
-invento = new Subcategory("Invento", books);
-animation = new Subcategory("Animacion", movies);
-lots = new Subcategory("LOTS", cds);
-myItem = new Item("Harry Potter", "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.", "10.50", magic, "Here goes the image");
-myItem2 = new Item("Aladdin", "Aladdin, a street urchin, accidentally meets Princess Jasmine, who is in the city undercover. They love each other, but she can only marry a prince.", "1.99", animation, "Here goes the image");
-myItem3 = new Item("HCI Reloaded", "Epic battle between an eye-tracking robot and an over-sized fingers cell phone user", "149.99", animation, "Here goes the image");
-myItem4 = new Item("Algo", "Algo algo", "12.99", invento, "Here goes the image");
-myItem5 = new Item("Lala", "lalalal", "16.39", invento, "Here goes the image");
+movies = new Category("Movies", 1);
+cds = new Category("CDs", 2);
+books = new Category("Books", 2);
+//magic = new Subcategory("Magia", movies);
+//invento = new Subcategory("Invento", books);
+//animation = new Subcategory("Animacion", movies);
+//lots = new Subcategory("LOTS", cds);
+//myItem = new Item("Harry Potter", "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.", "10.50", magic, "Here goes the image");
+//myItem2 = new Item("Aladdin", "Aladdin, a street urchin, accidentally meets Princess Jasmine, who is in the city undercover. They love each other, but she can only marry a prince.", "1.99", animation, "Here goes the image");
+//myItem3 = new Item("HCI Reloaded", "Epic battle between an eye-tracking robot and an over-sized fingers cell phone user", "149.99", animation, "Here goes the image");
+//myItem4 = new Item("Algo", "Algo algo", "12.99", invento, "Here goes the image");
+//myItem5 = new Item("Lala", "lalalal", "16.39", invento, "Here goes the image");
 cart = new Cart();
 wishlist = new Cart();
 itemList = new ItemList();
 partialList = new ItemList();
-itemList.addItem(myItem);
-itemList.addItem(myItem2);
-itemList.addItem(myItem3);
-itemList.addItem(myItem4);
-itemList.addItem(myItem5);
-var h = 0;
-while(h < 10){
-	itemList.addItem(new Item("Item " + h.toString(), "Desc", roundNumber((h*3.67), 2).toString(), lots, "IMAGE OVER HERE!"));
-	h++;
-}
-euros = new CoinType("0.75", "E");
+languageList = new ItemList();
+//itemList.addItem(myItem);
+//itemList.addItem(myItem2);
+//itemList.addItem(myItem3);
+//itemList.addItem(myItem4);
+//itemList.addItem(myItem5);
+//var h = 0;
+//while(h < 10){
+//	itemList.addItem(new Item("Item " + h.toString(), "Desc", roundNumber((h*3.67), 2).toString(), lots, "IMAGE OVER HERE!"));
+//	h++;
+//}
+euros = new CoinType("0.6", "€");
 dollars = new CoinType("1", "U$S");
-pesos = new CoinType("4.2", "AR$");
+pesos = new CoinType("4", "AR$");
+mains = new Array();
 
 
 // VARIABLES
 var currentPage;
 var currentCategory;
 var currentCoinType;
+var itemQty;
+
 
 function buyItem(number){
 	var i = parseInt(document.getElementById("sel" + number).options.selectedIndex);
@@ -137,48 +147,65 @@ function actualizeWishlist(){
 }
 
 function loadItems(category, page){
-	currentPage = 0;
+	currentPage = page;
 	currentCategory = category;
-	var i = 0;
+	itemList = new ItemList();
+	loadList(itemList, category, page);
+	$('#Items').empty();
+	$('#Items').append('<img id="loading" src="./images/itemSelector/loadbar.gif" />');
+	setTimeout("continueLoading(0)", 1000);
+}
+
+function continueLoading(number){
+	if(itemList.items.length == 0){
+		if(number > 20){
+			alert("We can't establish connection to our servers. Please check out your internet connection.");
+		}
+		setTimeout("continueLoading(itemList)", 1000);
+		return;
+	}
 	partialList = new ItemList();
+	var i = 0;
 	while(i < itemList.items.length){
 		item = itemList.items[i];
-		if(item.subcategory.category == category){
-			partialList.addItem(item);
-		}
+		partialList.addItem(item);
 		i++;
 	}
 	i = 0;
+	$('#Items').empty();
 	while(i < partialList.items.length){
 		item = partialList.items[i];
-		$('#Items').append('<div id="Item"><div id="itemName">' + item.name + '</div><div id="Image"> ' + item.imageSource + '</div><div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button><button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button><select id="sel' + i + '" size="1" class="quantity"> <option selected="selected">0 </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +(item.price*currentCoinType.value) + '</div></div></div></div>');
+		$('#Items').append('<div id="Item"><div id="itemName" onclick="bringInfo(' + i + ')" class="pointer">' + roundString(item.name, 25) + '</div><img id="Image" class="pointer" onclick="bringInfo(' + i + ')" src="'  + item.imageSource + '"></img><div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button><button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button><select id="sel' + i + '" size="1" class="quantity"> <option selected="selected">0 </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +roundNumber(item.price*currentCoinType.value, 2) + '</div></div></div></div>');
 		i++;
 	}
+	$('#pageNumber').remove();
+	$('#prevnext').append('<div id="pageNumber"> PAGE ' + currentPage + ' of ' + getMaxPage() + '</div>');
 }
 
-//function load(){
-//	urld = "http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=1";
-//	var request;
-//	if (window.XMLHttpRequest)
-//	{// code for IE7+, Firefox, Chrome, Opera, Safari
-//		request=new XMLHttpRequest();
-//	}
-//	else
-//	{// code for IE6, IE5
-//		request=new ActiveXObject("Microsoft.XMLHTTP");
-//	}
-//	$.ajax({
-//		url: "http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=1",
-//		type: "GET",
-//		dataType: "xml",
-//		success: alert(request.responseXML.documentElement.getElementByTagName("product")),
-//	});
-//}
+function bringInfo(number){
+	alert(itemList.items[parseInt(number)].name);
+}
 
-function loadLanguages(){
-	url = "http://eiffel.itba.edu.ar/hci/service/Common.groovy?method=GetLanguageList";
+function goTo(src){
+	alert(src);
+	window.location = src;
+}
+
+function roundString(string, num){
+	if(string.length > num){
+		return string.substr(0, num) + "...";
+	}
+	return string;
+}
+
+function getMaxPage(){
+	return parseInt((itemQty/getPageSize()) + 0.99999);
+}
+
+function loadList(response, category, page){
+	url="./service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=" + category.number + "&order=" + getOrder() + "&items_per_page=" + getPageSize() + "&page=" + page;
 	var request;
-	var txt,xx,x,i;
+	var xx,x,i;
 	if (window.XMLHttpRequest)
 	{
 		request=new XMLHttpRequest();
@@ -189,40 +216,29 @@ function loadLanguages(){
 	}
 	request.onreadystatechange=function(){
 		if (request.readyState==4 && request.status==200){
-			alert(request.status);
-			txt="<table border='100'><tr><th>Name</th><th>code</th></tr>";
-			x=request.responseXML.documentElement.getElementsByTagName("language");
+			x=request.responseXML.documentElement.getElementsByTagName("product");
 			for (i=0;i<x.length;i++)
 			{
-				txt=txt + "<tr>";
-				xx=x[i].getElementsByTagName("name");
-				{
-					try
-					{
-						txt=txt + "<td>" + xx[0].firstChild.nodeValue + "</td>";
-					}
-					catch (er)
-					{
-						txt=txt + "<td>&nbsp;</td>";
-					}
-				}
-				xx=x[i].getElementsByTagName("code");
-				{
-					try
-					{
-						txt=txt + "<td>" + xx[0].firstChild.nodeValue + "</td>";
-					}
-					catch (er)
-					{
-						txt=txt + "<td>&nbsp;</td>";
-					}
-				}
-				txt=txt + "</tr>";
+				xx = x[i];
+				product = new Item(xx.getElementsByTagName("name")[0].firstChild.nodeValue, "desc", xx.getElementsByTagName("price")[0].firstChild.nodeValue, xx.getElementsByTagName("subcategory_id")[0].firstChild.nodeValue, xx.getElementsByTagName("image_url")[0].firstChild.nodeValue);
+				response.addItem(product);
 			}
-			txt=txt + "</table>";
-			document.getElementById("Items").innerHTML=txt;
+			itemQty= request.responseXML.documentElement.getElementsByTagName("products")[0].getAttribute("size");
 		}
 	}
 	request.open("GET",url,true);
 	request.send();
+}
+
+function getOrder(){
+//	alert(document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value);
+	return document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value;
+}
+
+function getPageSize(){
+	return document.getElementById("pageSize").options[document.getElementById("pageSize").options.selectedIndex].value;
+}
+
+function get(parent, tag){
+	return parent.getElementsByTagName(tag)[0].firstChild.nodeValue;
 }

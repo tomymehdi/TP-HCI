@@ -2,7 +2,7 @@
 	<div id="navigation">
 		<ul>
 			<li id="home_nav" class="navigationItem"><a href="#" class="home">Home</a></li>
-			<li class="navigationItem">></li>
+			<li class="navigationItem">&gt;</li>
 			<li id="movies_nav" class="navigationItem"><a href ="#" >Movies</a>
 		</ul>
 	</div>
@@ -45,20 +45,30 @@
 		</ul>
 		
 		</div>
-
+		
 		<div id="SortBy">
 		Sort by:
-		<select>
-		  	<option value="english">A-Z</option>
-		   	<option value="spanish">Z-A</option>
-		   	<option value="spanish">Low-Up price</option>
-		   	<option value="spanish">Up-Low price</option>
+		<select id="sort">
+		  <option value="ASC">A-Z</option>
+		  <option value="DESC">Z-A</option>
 		</select>
 		</div>
-
-		<div id="Items"></div>
+		<div id="pageSizeSelector">
+		Page size:
+		 <select id="pageSize">
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6" selected="selected">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		 </select>
+		</div>
+		<div id="Items">
+		</div>
 		<div id="prevnext">
-		<div id="prev"><a href="#" ><h3>< Previous</h3></a></div>
-		<div id="next"><a href="#" ><h3>Next ></h3></a></div>
+		<div id="prev" class="pageChange pointer"><h3>&lt; Previous</h3></div>
+		<div id="next" class="pageChange pointer"><h3>Next &gt;</h3></div>
 		</div>
 </div>
