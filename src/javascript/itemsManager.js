@@ -11,7 +11,7 @@ function CoinType(value, string){
 }
 
 CoinType.prototype.toString = function(){
-	return this.string.toString();
+	return this.string;
 }
 
 function Language(id, code, name){
@@ -101,7 +101,7 @@ languageList = new ItemList();
 //	itemList.addItem(new Item("Item " + h.toString(), "Desc", roundNumber((h*3.67), 2).toString(), lots, "IMAGE OVER HERE!"));
 //	h++;
 //}
-euros = new CoinType("0.6", "€");
+euros = new CoinType("0.6", "&euro;");
 dollars = new CoinType("1", "U$S");
 pesos = new CoinType("4", "AR$");
 mains = new Array();
@@ -158,10 +158,11 @@ function loadItems(category, page){
 
 function continueLoading(number){
 	if(itemList.items.length == 0){
-		if(number > 20){
+		if(number > 10){
 			alert("We can't establish connection to our servers. Please check out your internet connection.");
 		}
-		setTimeout("continueLoading(itemList)", 1000);
+		newNumber = number + 1;
+		setTimeout("continueLoading(newNumber)", 1000);
 		return;
 	}
 	partialList = new ItemList();
