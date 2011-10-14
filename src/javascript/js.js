@@ -1,12 +1,11 @@
 $(document).ready( function() {
 	$('#CartContainer').click( function(){
-        $("#main").load("./html/cart.html #main");
+        $("#main").load("./html/cart.html #main > *");
 	});
 
 	$('#Cart2 a').click( function(){
-        $("#main").load("./html/cart.html #main");
+        $("#main").load("./html/cart.html #main > *");
 	});
-
 
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
 	 $('#CartContainer').css('opacity',opacity).hover(function() {
@@ -22,7 +21,7 @@ $(document).ready( function() {
 
 
 	$('#WishListContainer').click( function(){
-        $("#main").load("./html/wishlist.html #main");
+        $("#main").load("./html/wishlist.html #main > *");
 	});
 
 	 $('#WishListContainer').css('opacity',opacity).hover(function() {
@@ -37,7 +36,7 @@ $(document).ready( function() {
 	  );
 
 	 $('#WishList2 a').click( function(){
-	        $("#main").load("./html/wishlist.html #main");
+	        $("#main").load("./html/wishlist.html #main > *");
 		});
 
 	$('#login_opt').click( function(){
@@ -68,11 +67,18 @@ $(document).ready( function() {
 	);
 
 
-    $('.home').click( function(){
-        $("#main").load("./index.html #main");
-        reloadhomeScript();
-	});
 
+    $('.home').click( function(){
+    
+
+        $("#main").load("./html/home.html #main > *");
+        reloadhomeScript();
+        
+        
+    });
+    
+    
+  
 	$('.footerItem').mouseover( function(){
 		$(this).animate({
     	opacity: 0.5,
@@ -106,7 +112,7 @@ $(document).ready( function() {
 	});
 
 	$('#contactUs').click( function() {
-        $("#main").load("./html/contact.html #main");
+        $("#main").load("./html/contact.html #main > *");
 	});
 
 	$('#whereAreWe').click( function() {
@@ -114,7 +120,7 @@ $(document).ready( function() {
 	});
 
 	$('#register_link').click( function(){
-		$("#main").load("./html/register.html #main");
+		$("#main").load("./html/register.html #main > *");
 		reloadregisterScript();
 	});
 	
@@ -149,3 +155,21 @@ function reloadhomeScript(){
 }
 
 
+
+    function appendCats(){    
+
+    var j=0;
+    var cate;
+    
+    $('#main_opt').remove();
+    $('#FooterCat').empty();
+    
+    while(j < CategoriesList.categories.length){
+		cate = CategoriesList.categories[j];
+        $('#main').append('<div id="main_opt"><div  class="'+cate.name+'_link  title" >'+cate.name+'</div>');
+        $('#FooterCat').append('<li><a  class="'+cate.name+'_link pointer">'+cate.name+'</a></li>');
+		j++;
+    
+    
+    }
+}

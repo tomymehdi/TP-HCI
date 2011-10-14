@@ -226,13 +226,16 @@ body {
 	width: 95px;
 }
 
-.fadein1, .fadein2, .fadein3 {
-	position: relative;
-	width: 300px;
+.fadein1{
+	position:relative;
+	margin-top:300px;
+	margin-left:100px;
+	float:left;
+	width: 60%;
 	height: 300px;
 }
 
-.fadein1 div, .fadein2 div, .fadein3 div {
+.fadein1 div{
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -499,7 +502,7 @@ body {
 	word-spacing: 0.1em;
 	position: relative;
 	text-align: center;
-	height: 10%;
+	height: 80%;
 	width: 100%;
 	font-size: 48px;
 	font-family: 'Irish Grover', thaoma, century gothic, serif;
@@ -507,12 +510,14 @@ body {
 	color: #585044;
 }
 
-.main_opt {
-	float: right;
-	height: auto;
-	margin-top: 3%;
+#main_opt {
+	float: left;
+	text-align: center;
+	height: 100px;
+	width: 30%;
+	margin: 50px;
 	position: relative;
-	width: 33%; 
+	
 }
 
 #movies {

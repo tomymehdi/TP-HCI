@@ -1,11 +1,16 @@
+
+loadMainCategories();
+
+setTimeout("reloadhomeScript()",2000);
+
 function Common(basicURL){
 	this.basicURL = basicURL;
 }
 
 Common.prototype.getLanguages = function(response){
 	response = new Array();
-//	url = this.basicURL + "method=getLanguageList";
-//	loadLanguages(url, response);
+	url = this.basicURL + "method=getLanguageList";
+	loadLanguages(url, response);
 	loadLanguages(this.basicURL + "method=GetLanguageList", response);
 	var i = 0;
 }
@@ -60,3 +65,4 @@ function myLanguages(languages){
 		alert(languages.items[i]);
 	}
 }
+

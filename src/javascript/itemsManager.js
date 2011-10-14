@@ -1,3 +1,5 @@
+
+
 function User(name, password, cart){
 	this.name = name;
 	this.password = password;
@@ -31,6 +33,14 @@ function ItemList(){
 ItemList.prototype.addItem = function(item){
 	this.items.push(item);
 }
+function CategoriesList(){
+	this.categories = new Array();
+}
+
+CategoriesList.prototype.addCategory = function(cat){
+	this.categories.push(cat);
+}
+
 
 Cart.prototype.total = function (){
 	var count = 0;
@@ -74,33 +84,18 @@ function Subcategory(name, category){
 }
 
 // GLOBALES
-movies = new Category("Movies", 1);
+
+/* movies = new Category("Movies", 1);
 cds = new Category("CDs", 2);
-books = new Category("Books", 2);
-//magic = new Subcategory("Magia", movies);
-//invento = new Subcategory("Invento", books);
-//animation = new Subcategory("Animacion", movies);
-//lots = new Subcategory("LOTS", cds);
-//myItem = new Item("Harry Potter", "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry.", "10.50", magic, "Here goes the image");
-//myItem2 = new Item("Aladdin", "Aladdin, a street urchin, accidentally meets Princess Jasmine, who is in the city undercover. They love each other, but she can only marry a prince.", "1.99", animation, "Here goes the image");
-//myItem3 = new Item("HCI Reloaded", "Epic battle between an eye-tracking robot and an over-sized fingers cell phone user", "149.99", animation, "Here goes the image");
-//myItem4 = new Item("Algo", "Algo algo", "12.99", invento, "Here goes the image");
-//myItem5 = new Item("Lala", "lalalal", "16.39", invento, "Here goes the image");
+books = new Category("Books", 2); */
+
 cart = new Cart();
 wishlist = new Cart();
 itemList = new ItemList();
 partialList = new ItemList();
 languageList = new ItemList();
-//itemList.addItem(myItem);
-//itemList.addItem(myItem2);
-//itemList.addItem(myItem3);
-//itemList.addItem(myItem4);
-//itemList.addItem(myItem5);
-//var h = 0;
-//while(h < 10){
-//	itemList.addItem(new Item("Item " + h.toString(), "Desc", roundNumber((h*3.67), 2).toString(), lots, "IMAGE OVER HERE!"));
-//	h++;
-//}
+CategoriesList = new CategoriesList();
+
 euros = new CoinType("0.6", "&euro;");
 dollars = new CoinType("1", "U$S");
 pesos = new CoinType("4", "AR$");
@@ -112,7 +107,8 @@ var currentPage;
 var currentCategory;
 var currentCoinType;
 var itemQty;
-
+var currentCategory;
+var currentLanguage=1;
 
 function buyItem(number){
 	var i = parseInt(document.getElementById("sel" + number).options.selectedIndex);
@@ -156,7 +152,11 @@ function loadItems(category, page){
 	setTimeout("continueLoading(0)", 1000);
 }
 
+    
+
+
 function continueLoading(number){
+
 	if(itemList.items.length == 0){
 		if(number > 10){
 			alert("We can't establish connection to our servers. Please check out your internet connection.");
@@ -165,6 +165,7 @@ function continueLoading(number){
 		setTimeout("continueLoading(newNumber)", 1000);
 		return;
 	}
+    
 	partialList = new ItemList();
 	var i = 0;
 	while(i < itemList.items.length){
@@ -204,7 +205,7 @@ function getMaxPage(){
 }
 
 function loadList(response, category, page){
-	url="./service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=" + category.number + "&order=" + getOrder() + "&items_per_page=" + getPageSize() + "&page=" + page;
+	url='./hci/service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=' + category.number + '&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page=' + page;
 	var request;
 	var xx,x,i;
 	if (window.XMLHttpRequest)
@@ -243,3 +244,50 @@ function getPageSize(){
 function get(parent, tag){
 	return parent.getElementsByTagName(tag)[0].firstChild.nodeValue;
 }
+
+
+
+
+function loadMainCategories(){
+    
+    
+url='./service/Catalog.groovy?method=GetCategoryList&language_id='+currentLanguage;
+
+var request;
+var j=0;
+var cate;
+var xx,x,i;
+
+    
+	if (window.XMLHttpRequest)
+	{
+		request=new XMLHttpRequest();
+	}
+	else
+	{
+		request=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+    
+	request.onreadystatechange=function(){
+    
+		if (request.readyState==4 && request.status==200){
+        
+			x=request.responseXML.documentElement.getElementsByTagName("category");
+			
+            for (i=0;i<x.length;i++)
+			{
+				xx = x[i];
+				cat = new Category(xx.getElementsByTagName("name")[0].firstChild.nodeValue, xx.getAttribute("id"));
+				CategoriesList.addCategory(cat);
+			}
+			
+		}
+	}
+    
+	request.open("GET",url,true);
+	request.send();
+        
+    
+}
+
+
