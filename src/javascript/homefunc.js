@@ -2,19 +2,18 @@
     $('.Books_link').click(function(){
 	
 		$("#main").load("./html/articles.html #main > *");
-		reloadArticlesScript();
+		reloadArticlesScript(CategoriesList.categories[1].name);
 		reloadItemsManagerScript();
 		reloadjsScript();
-		setTimeout("loadItems(books, 1)", 100);
+		setTimeout("loadItems(CategoriesList.categories[1], 1)", 100);
 	});
 
 	$('.DVD_link').click(function(){
 		$("#main").load("./html/articles.html #main > *");
-		reloadArticlesScript();
+		reloadArticlesScript(CategoriesList.categories[0].name);
 		reloadItemsManagerScript();
-		reloadjsScript(movies.name);
-		reloadServiceScript();
-		setTimeout("loadItems(movies, 1)", 100);
+		reloadjsScript();
+		setTimeout("loadItems(CategoriesList.categories[0], 1)", 100);
 		
 	});
 	

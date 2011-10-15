@@ -57,14 +57,25 @@ $(document).ready( function() {
 	$('#login_button').click( function(){
 		$('#login_data').slideUp();
 		
-		 /*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
+		/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
        
-		
 		$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
         
         $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
+	if(!($('#login_data2').is(":hidden"))){
+		$('#login_data2').slideUp();
+	}
 		
 	});
+	
+	$('#Logout_opt').live('click',function(){
+     
+        $('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
+        
+        $('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
+    
+    });
+	
 
 
 	$('.item').css('opacity',opacity).hover(function() {
@@ -111,6 +122,27 @@ $(document).ready( function() {
  		 }, 100 );			
 	});
 
+	$('#facebook').click( function() {
+		window.location = "http://www.facebook.com";
+	});
+
+	$('#twitter').click( function() {
+		window.location = "http://www.twitter.com";
+	});
+
+	$('#contactUs').click( function() {
+        $("#main").load("./html/contact.html #main > *");
+	});
+
+	$('#whereAreWe').click( function() {
+        $("#main").load("./html/map.html #main");
+	});
+
+	$('#register_link').click( function(){
+		$("#main").load("./html/register.html #main > *");
+		reloadregisterScript();
+	});
+	
 	$('#prev').click(function(){
 		if(currentPage != 1){
 			$('#pageNumber').remove();
@@ -129,13 +161,10 @@ $(document).ready( function() {
 
 });
 
-
 function initMenu(name) {
-	
 
-	
-  loadMenu();
- 
+
+  setTimeout("loadMenu()", 200);
   
 	
   var id= '#'+name+'_sm';
@@ -156,9 +185,29 @@ function initMenu(name) {
         }
       }
     );
- }
+}
 
+function loadMenu(){
 
+	var w=0;
+	var e=0;
+
+	while(w <  CategoriesList.categories.length){
+
+	$('#menu').append('<li><a href="#">'+CategoriesList.categories[w].name+'</a><ul id="'+CategoriesList.categories[w].name+'_sm">');
+
+	while(e <  CategoriesList.categories[w].subcategories.length){	
+
+	$('#menu').append('<li><a href="#" >'+CategoriesList.categories[w].subcategories.name+'</a></li>');
+
+	e++;
+	}
+	e=0;
+	$('#menu').append('</ul></li>');
+
+	w++;
+	}
+}
 
 function reloadhomeScript(){
 	if(document.getElementById("homeScript")){
@@ -186,6 +235,7 @@ function reloadhomeFunc(){
 }
 
 function reloadjsScript(){
+	
 	if(document.getElementById("jsScript")){
 		$("#jsScript").remove();
 	}
@@ -197,20 +247,9 @@ function reloadjsScript(){
 	hh.appendChild(ss);
 	
 }
-function reloadServiceScript(){
 
-	if(document.getElementById("ServiceScript")){
-		$("#ServiceScript").remove();
-	}
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/services.js";
-	ss.id = "servicesScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
+function reloadArticlesScript(n){
 	
-}
-function reloadArticlesScript(name){
 	
     if(document.getElementById("articlesScript")){
 		$("#articlesScript").remove();
@@ -222,7 +261,8 @@ function reloadArticlesScript(name){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 	
-	initMenu(name);
+	initMenu(n);
+	
 	
 }
 

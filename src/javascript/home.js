@@ -35,22 +35,18 @@ $(document).ready( function() {
         
 		$('.Books_link').click(function(){
 			$("#main").load("./html/articles.html #main > *");
-			reloadArticlesScript();
+			reloadArticlesScript(CategoriesList.categories[0].name);
 			reloadItemsManagerScript();
-			reloadjsScript();
-			//loadMenu(books);
-			
-			setTimeout("loadItems(books, 1)", 100);
+			reloadjsScript();			
+			setTimeout("loadItems((CategoriesList.categories[0], 1)", 100);
 		});
 
 		$('.DVD_link').click(function(){
 			$("#main").load("./html/articles.html #main > *");
-			reloadArticlesScript();
+			reloadArticlesScript(CategoriesList.categories[1].name);
 			reloadItemsManagerScript();
-			reloadjsScript();
-			//loadMenu(movies);
-			
-			setTimeout("loadItems(movies, 1)", 100);
+			reloadjsScript();			
+			setTimeout("loadItems(CategoriesList.categories[1], 1)", 100);
 			
 		});
 		
