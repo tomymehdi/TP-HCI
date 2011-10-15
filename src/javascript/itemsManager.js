@@ -1,90 +1,5 @@
 
 
-function User(name, password, cart){
-	this.name = name;
-	this.password = password;
-	this.cart = cart;
-	this.addresses = new Array();
-}
-
-function CoinType(value, string){
-	this.value = value;
-	this.string = string;
-}
-
-CoinType.prototype.toString = function(){
-	return this.string;
-}
-
-function Language(id, code, name){
-	this.id = id;
-	this.code = code;
-	this.name = name;
-}
-
-function Cart(){
-	this.items = new Array();
-}
-
-function ItemList(){
-	this.items = new Array();
-}
-
-ItemList.prototype.addItem = function(item){
-	this.items.push(item);
-}
-function CategoriesList(){
-	this.categories = new Array();
-}
-
-CategoriesList.prototype.addCategory = function(cat){
-	this.categories.push(cat);
-}
-
-
-Cart.prototype.total = function (){
-	var count = 0;
-	var i = 0;
-	for(i = 0 ; i < this.items.length; i++){
-		count += parseFloat(this.items[i].price);
-	}
-	return count*currentCoinType.value;
-}
-
-Cart.prototype.addItem = function (item){
-	this.items.push(item);
-}
-
-Cart.prototype.getItemCount = function() {
-	return this.items.length;
-}
-
-function Item(name, description, price, subcategory, imageSource){
-	this.name = name;
-	this.description = description;
-	this.price = price;
-	this.subcategory = subcategory;
-	this.imageSource = imageSource;
-}
-
-function Category(name, number){
-	this.name = name;
-	this.number = number;
-	this.subcategories = new Array();
-}
-
-Category.prototype.add = function (category){
-	this.subcategories.push(category);
-}
-
-function Subcategory(name, category, number){
-	this.name = name;
-	this.category = category;
-	this.number = number;
-	category.add(this);
-}
-
-
 
 function buyItem(number){
 	var i = parseInt(document.getElementById("sel" + number).options.selectedIndex);
@@ -202,7 +117,6 @@ function loadList(response, c, page){
 	request.open("GET",url,true);
 	request.send();
 }
-
 
 function getOrder(){
 //	alert(document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value);

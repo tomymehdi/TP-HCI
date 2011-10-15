@@ -1,20 +1,21 @@
 $(document).ready( function() {	
 	
+	
+	var opacity = 1;
+	var toOpacity = 0.5;
+	var duration = 2500;
+	
+	currentCoinType = dollars;
+	
+	//setTimeout("actualizeCart()", 100);
+	//setTimeout("actualizeWishlist()", 100);
+	
     $("#main").load("./html/home.html #main > *");   
 
-   //SI pongo este aparece pero no llega a tener el link….. setTimeout("appendCats()",10);
-
-    //appendCats();
-
-        
-	currentCoinType = dollars;
-	setTimeout("actualizeCart()", 100);
-	setTimeout("actualizeWishlist()", 100);
-    
-    
-
-    
-	var opacity = 1, toOpacity = 0.5, duration = 2500;
+   	setTimeout("appendCats()",500);
+	
+	setTimeout("reloadhomeFunc()",2000);
+	
 
 	$('.main_opt').css('opacity',opacity).hover(function() {
 	      $(this).animate({
@@ -37,7 +38,7 @@ $(document).ready( function() {
 			reloadArticlesScript();
 			reloadItemsManagerScript();
 			reloadjsScript();
-			loadMenu(books);
+			//loadMenu(books);
 			
 			setTimeout("loadItems(books, 1)", 100);
 		});
@@ -47,7 +48,7 @@ $(document).ready( function() {
 			reloadArticlesScript();
 			reloadItemsManagerScript();
 			reloadjsScript();
-			loadMenu(movies);
+			//loadMenu(movies);
 			
 			setTimeout("loadItems(movies, 1)", 100);
 			
@@ -87,54 +88,29 @@ $(document).ready( function() {
 
 });
 
-function reloadjsScript(){
-	if(document.getElementById("jsScript")){
-		$("#jsScript").remove();
-	}
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/js.js";
-	ss.id = "jsScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
 	
+ });
+
+
+function appendCats(){    
+
+	var j=0;
+	var cate;
+
+	if(document.getElementById("main_opt")){
+	}
+	else{
+		
+		$('#FooterCat').empty(); 
+		
+		while(j < CategoriesList.categories.length){
+			cate = CategoriesList.categories[j];
+		    $('#main').append('<div id="main_opt"><div  class="'+cate.name+'_link  title" >'+cate.name+'</div>');
+		    $('#FooterCat').append('<li><a  class="'+cate.name+'_link pointer">'+cate.name+'</a></li>');
+			j++;
+
+			}
+	
+	} 
 }
 
-function reloadArticlesScript(){
-	
-    if(document.getElementById("articlesScript")){
-		$("#articlesScript").remove();
-	}
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/articles.js";
-	ss.id = "articlesScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
-}
-
-function reloadItemsManagerScript(){
-	if(document.getElementById("itemsManagerScript")){
-		$("#itemsManagerScript").remove();
-	}
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/itemsManager.js";
-	ss.id = "itemsManagerScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
-}
-
-function reloadregisterScript(){
-	if(document.getElementById("registerScript")){
-		$("#registerScript").remove();
-	}
-	
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/register.js";
-	ss.id = "registerScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
-}
-});
