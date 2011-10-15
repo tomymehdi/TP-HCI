@@ -1,9 +1,19 @@
 $(document).ready( function() {	
 	
+    $("#main").load("./html/home.html #main > *");   
+
+   //SI pongo este aparece pero no llega a tener el link….. setTimeout("appendCats()",10);
+
+    appendCats();
+
+        
 	currentCoinType = dollars;
 	setTimeout("actualizeCart()", 100);
-	setTimeout("actualizeWishList()", 100);
+	setTimeout("actualizeWishlist()", 100);
+    
+    
 
+    
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
 
 	$('.main_opt').css('opacity',opacity).hover(function() {
@@ -16,63 +26,31 @@ $(document).ready( function() {
 			}, 100 );
 	    }
 	);
+    
+    $(document).ready( function() {	
 
 
-//	  $(function(){
-//	   $('.fadein1 div:gt(0)').hide();
-//	    setInterval(function(){
-//	      $('.fadein1 :first-child').fadeOut()
-//	         .next('div').fadeIn()
-//	         .end().appendTo('.fadein1');}, 
-//	      3000);
-//	    });	
-//
-//
-//        $(function(){
-//	   $('.fadein2 div:gt(0)').hide();
-//	    setInterval(function(){
-//	      $('.fadein2 :first-child').fadeOut()
-//	         .next('div').fadeIn()
-//	         .end().appendTo('.fadein2');}, 
-//	      3000);
-//	    });	
-//        
-//        
-//        
-//        $(function(){
-//	   $('.fadein3 div:gt(0)').hide();
-//	    setInterval(function(){
-//	      $('.fadein3 :first-child').fadeOut()
-//	         .next('div').fadeIn()
-//	         .end().appendTo('.fadein3');}, 
-//	      3000);
-//	    });	
-
-	    $('.cds_link').click(function(){
-	    	$("#main").load("./html/articles.html #main");
+        //HACERLO GENERICO!!!!//
+        
+		$('.Books_link').click(function(){
+			$("#main").load("./html/articles.html #main > *");
 			reloadArticlesScript();
 			reloadItemsManagerScript();
 			reloadjsScript();
-			setTimeout("loadItems(cds, 1)", 100);
-	    });
-	     
-		$('.books_link').click(function(){
-			$("#main").load("./html/articles.html #main");
-			reloadArticlesScript();
-			reloadItemsManagerScript();
-			reloadjsScript();
-			setTimeout("loadItems(books, 1)", 100);
+			setTimeout("loadItems(CategoriesList.categories[1], 1)", 100);
 		});
 
-		$('.movies_link').click(function(){
-			$("#main").load("./html/articles.html #main");
+		$('.DVD_link').click(function(){
+			$("#main").load("./html/articles.html #main > *");
 			reloadArticlesScript();
 			reloadItemsManagerScript();
 			reloadjsScript();
-			setTimeout("loadItems(movies, 1)", 100);
+			
+			setTimeout("loadItems(CategoriesList.categories[0], 1)", 100);
 		});
 		
-		$('#pesos').click(function(){
+		
+        $('#pesos').click(function(){
 			var previousCoinType = currentCoinType;
 			currentCoinType = pesos;
 			actualizeCart();
@@ -119,7 +97,8 @@ function reloadjsScript(){
 }
 
 function reloadArticlesScript(){
-	if(document.getElementById("articlesScript")){
+	
+    if(document.getElementById("articlesScript")){
 		$("#articlesScript").remove();
 	}
 	var ss = document.createElement('script');
@@ -154,3 +133,4 @@ function reloadregisterScript(){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
+});

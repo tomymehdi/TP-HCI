@@ -1,11 +1,44 @@
+// GLOBALES, hay que sacarlas
+
+movies = new Category("Movies", 1);
+cds = new Category("CDs", 2);
+books = new Category("Books", 2);
+
+
+cart = new Cart();
+wishlist = new Cart();
+itemList = new ItemList();
+partialList = new ItemList();
+languageList = new ItemList();
+CategoriesList = new CategoriesList();
+
+euros = new CoinType("0.6", "&euro;");
+dollars = new CoinType("1", "U$S");
+pesos = new CoinType("4", "AR$");
+mains = new Array();
+
+
+// VARIABLES
+var currentPage;
+var currentCategory;
+var currentCoinType;
+var itemQty;
+var currentCategory;
+var currentLanguage=1;
+
+
+loadMainCategories();
+
+setTimeout("reloadhomeScript()",2000);
+
 function Common(basicURL){
 	this.basicURL = basicURL;
 }
 
 Common.prototype.getLanguages = function(response){
 	response = new Array();
-//	url = this.basicURL + "method=getLanguageList";
-//	loadLanguages(url, response);
+	url = this.basicURL + "method=getLanguageList";
+	loadLanguages(url, response);
 	loadLanguages(this.basicURL + "method=GetLanguageList", response);
 	var i = 0;
 }
@@ -60,3 +93,4 @@ function myLanguages(languages){
 		alert(languages.items[i]);
 	}
 }
+

@@ -4,12 +4,17 @@
 	<meta charset="UTF-8"/>
 	<title>Art.com</title>
 	<!--[if !IE]> <link type="text/css" type="text/css" href="./css/firefox.css"> <![endif]-->
+	
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 	<script type="text/javascript" src ="./javascript/jQuery.js"> </script>
 	<script id="jsScript" type="text/javascript" src ="./javascript/js.js"> </script>
-	<script id="homeScript" type="text/javascript" src ="./javascript/home.js"> </script>
 	<script id="itemsManagerScript" type="text/javascript" src ="./javascript/itemsManager.js"> </script>
 	<script id="servicesScript" type="text/javascript" src ="./javascript/services.js"> </script>
+	<!--<script id="homeScript" type="text/javascript" src ="./javascript/home.js"> </script>-->
+	
+	
+		
+	
 	<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -94,49 +99,6 @@
 
 		<div id="main">
 
-			<div id="navigation">
-				<ul>
-					<li class="navigationItem home"  ><a class="pointer" >Home</a></li>
-					<li class="navigationItem" >></li>
-				</ul>
-			</div>
-
-
-			<div class="main_opt">
-				<div  class="movies_link title" >Movies</div>
-				<div id="movies">
-				<div class="fadein1 movies_link">
-  						<div id="SlideMovies1"></div>
-  						<div id="SlideMovies2"></div>
-						<div id="SlideMovies3"></div>
-				</div>
-				</div>
-			</div>			
-
-			<div class="main_opt">
-				<div class="title cds_link">CD'S</div>
-				<div id="cds">
-				<div class="fadein2 cds_link">
-  						<div id="SlideCds1"></div>
-  						<div id="SlideCds2"></div>
-						<div id="SlideCds3"></div>
-					</div>
-				</div>
-			</div>	
-			<div class="main_opt">
-
-				<div class="title books_link">Books</div>
-				<div id="books">
-					<div class="fadein3 books_link">
-  						<div id="SlideBooks1"></div>
-  						<div id="SlideBooks2"></div>
-						<div id="SlideBooks3"></div>
-					</div>
-
-
-				</div>
-			</div>	
-
 
 		</div>
 
@@ -144,10 +106,7 @@
 		<div id="footer">
 			<div class="column">
 			<h3>Navigate</h3>
-			<ul>
-				<li><a class="cds_link pointer">CD's</a></li>
-	        	<li><a class="books_link pointer">Books</a></li>
-    		    <li><a class="movies_link pointer">Movies</a></li>
+			<ul id="FooterCat">
 			</ul>
 			</div>
 			<div class="column">
@@ -196,4 +155,5 @@
 
 
 </body>
+
 </html>
