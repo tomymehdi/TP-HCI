@@ -1,19 +1,22 @@
 
     $('.Books_link').click(function(){
 	
+		currentCategory=CategoriesList.categories[1];
 		$("#main").load("./html/articles.html #main > *");
-		reloadArticlesScript(CategoriesList.categories[1].name);
+		reloadArticlesScript(currentCategory.name);
 		reloadItemsManagerScript();
 		reloadjsScript();
-		setTimeout("loadItems(CategoriesList.categories[1], 1)", 100);
+		setTimeout("loadItems(currentCategory, 1)", 100);
 	});
 
 	$('.DVD_link').click(function(){
+		
+		currentCategory=CategoriesList.categories[0];
 		$("#main").load("./html/articles.html #main > *");
-		reloadArticlesScript(CategoriesList.categories[0].name);
+		reloadArticlesScript(currentCategory.name);
 		reloadItemsManagerScript();
 		reloadjsScript();
-		setTimeout("loadItems(CategoriesList.categories[0], 1)", 100);
+		setTimeout("loadItems(currentCategory, 1)", 100);
 		
 	});
 	

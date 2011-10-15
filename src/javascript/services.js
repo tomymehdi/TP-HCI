@@ -111,7 +111,6 @@ function Subcategory(name, category, number){
 	this.name = name;
 	this.category = category;
 	this.number = number;
-	category.add(this);
 }
 
 
