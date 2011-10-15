@@ -1,13 +1,19 @@
+$(document).ready( function() {
+
+	setTimeout("chargeCartItems()", 500);
+	
+});
+
 function chargeCartItems(){
 	var items = new Array();
 	$('#ListIt').empty();
 	for(var i = 0; i < cart.getItemCount() ; i++){
 		var flag = true;
-		for(var j = 0; flag && j < cart.getItemCount() ; j++){
+	/*	for(var j = 0; flag && j < cart.getItemCount() ; j++){
 			if(items[j] == cart.getItems[j].name){
 				flag = false;
 			}
-		}
+		} */
 		$('#ListIt').append('<div id="OnCartItem">' +
 			'<div id="itemName" onclick="bringInfo(' + i + ')" class="pointer">' 
 			+ roundString(item.name, 25) + 

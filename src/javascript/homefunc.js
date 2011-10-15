@@ -46,4 +46,6 @@
 		$('*').filter('#PriceNumber').replaceWith(function(){
 			return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value), 2)+ '</div>');
 		});
+		
+		
 	});

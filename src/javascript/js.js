@@ -1,12 +1,22 @@
 $(document).ready( function() {
 	
+
 	$('#CartContainer').click( function(){
         $("#main").load("./html/cart.html #main > *");
-		setTimeout("reloadCartScript()",2500);
-		chargeCartItems();
+		reloadCartScript();
+		
 	});
-
+	
+	$('#WishListContainer').click( function(){
+        $("#main").load("./html/wishlist.html #main > *");
+	});
+	$('#WishList2 a').click( function(){
+	        $("#main").load("./html/wishlist.html #main > *");
+	});
+	
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
+	
+	
 	
 	 $('#CartContainer').css('opacity',opacity).hover(function() {
 	   
@@ -22,10 +32,7 @@ $(document).ready( function() {
 	);
 
 
-	$('#WishListContainer').click( function(){
-        $("#main").load("./html/wishlist.html #main > *");
-	});
-
+	
 	$('#WishListContainer').css('opacity',opacity).hover(function() {
 	      $(this).animate({
 				opacity: toOpacity,
@@ -37,9 +44,7 @@ $(document).ready( function() {
 	    }
 	  );
 
-	 $('#WishList2 a').click( function(){
-	        $("#main").load("./html/wishlist.html #main > *");
-	});
+	 
 
 	$('#login_opt').live('click', function(){
 		$(this).animate({
@@ -52,7 +57,7 @@ $(document).ready( function() {
 		}
 	});
 
-$('#login_button').live('click', function(){
+	$('#login_button').live('click', function(){
 	$('#login_data').slideUp();
 	
 	/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
@@ -320,6 +325,19 @@ function reloadMenuScript(){
 	ss.type = 'text/javascript';
 	ss.src = "./javascript/menu.js";
 	ss.id = "MenuScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+}
+function reloadCartScript(){
+	
+	if(document.getElementById("CartScript")){
+		$("#CartScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/cart.js";
+	ss.id = "CartScript";
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
