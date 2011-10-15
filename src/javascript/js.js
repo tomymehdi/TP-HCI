@@ -70,10 +70,8 @@ $(document).ready( function() {
 
     $('.home').click( function(){
     
-
         $("#main").load("./html/home.html #main > *");
-        reloadhomeScript();
-        
+        reloadhomeScript();    
         
     });
     
@@ -156,20 +154,4 @@ function reloadhomeScript(){
 
 
 
-    function appendCats(){    
-
-    var j=0;
-    var cate;
-    
-    $('#main_opt').remove();
-    $('#FooterCat').empty();
-    
-    while(j < CategoriesList.categories.length){
-		cate = CategoriesList.categories[j];
-        $('#main').append('<div id="main_opt"><div  class="'+cate.name+'_link  title" >'+cate.name+'</div>');
-        $('#FooterCat').append('<li><a  class="'+cate.name+'_link pointer">'+cate.name+'</a></li>');
-		j++;
-    
-    
-    }
-}
+   

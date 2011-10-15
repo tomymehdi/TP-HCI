@@ -77,9 +77,10 @@ Category.prototype.add = function (category){
 	this.subcategories.push(category);
 }
 
-function Subcategory(name, category){
+function Subcategory(name, category, number){
 	this.name = name;
 	this.category = category;
+	this.number = number;
 	category.add(this);
 }
 
@@ -217,48 +218,5 @@ function get(parent, tag){
 }
 
 
-
-
-function loadMainCategories(){
-    
-    
-url='./service/Catalog.groovy?method=GetCategoryList&language_id='+currentLanguage;
-
-var request;
-var j=0;
-var cate;
-var xx,x,i;
-
-    
-	if (window.XMLHttpRequest)
-	{
-		request=new XMLHttpRequest();
-	}
-	else
-	{
-		request=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-    
-	request.onreadystatechange=function(){
-    
-		if (request.readyState==4 && request.status==200){
-        
-			x=request.responseXML.documentElement.getElementsByTagName("category");
-			
-            for (i=0;i<x.length;i++)
-			{
-				xx = x[i];
-				cat = new Category(xx.getElementsByTagName("name")[0].firstChild.nodeValue, xx.getAttribute("id"));
-				CategoriesList.addCategory(cat);
-			}
-			
-		}
-	}
-    
-	request.open("GET",url,true);
-	request.send();
-        
-    
-}
 
 

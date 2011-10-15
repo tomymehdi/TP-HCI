@@ -4,7 +4,7 @@ $(document).ready( function() {
 
    //SI pongo este aparece pero no llega a tener el link….. setTimeout("appendCats()",10);
 
-    appendCats();
+    //appendCats();
 
         
 	currentCoinType = dollars;
@@ -37,7 +37,9 @@ $(document).ready( function() {
 			reloadArticlesScript();
 			reloadItemsManagerScript();
 			reloadjsScript();
-			setTimeout("loadItems(CategoriesList.categories[1], 1)", 100);
+			loadMenu(books);
+			
+			setTimeout("loadItems(books, 1)", 100);
 		});
 
 		$('.DVD_link').click(function(){
@@ -45,8 +47,10 @@ $(document).ready( function() {
 			reloadArticlesScript();
 			reloadItemsManagerScript();
 			reloadjsScript();
+			loadMenu(movies);
 			
-			setTimeout("loadItems(CategoriesList.categories[0], 1)", 100);
+			setTimeout("loadItems(movies, 1)", 100);
+			
 		});
 		
 		
