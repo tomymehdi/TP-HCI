@@ -142,13 +142,10 @@ $(document).ready( function() {
 
 });
 
-
 function initMenu(name) {
-	
 
-	
-  loadMenu();
- 
+
+  setTimeout("loadMenu()", 200);
   
 	
   var id= '#'+name+'_sm';
@@ -169,9 +166,29 @@ function initMenu(name) {
         }
       }
     );
- }
+}
 
+function loadMenu(){
 
+	var w=0;
+	var e=0;
+
+	while(w <  CategoriesList.categories.length){
+
+	$('#menu').append('<li><a href="#">'+CategoriesList.categories[w].name+'</a><ul id="'+CategoriesList.categories[w].name+'_sm">');
+
+	while(e <  CategoriesList.categories[w].subcategories.length){	
+
+	$('#menu').append('<li><a href="#" >'+CategoriesList.categories[w].subcategories.name+'</a></li>');
+
+	e++;
+	}
+	e=0;
+	$('#menu').append('</ul></li>');
+
+	w++;
+	}
+}
 
 function reloadhomeScript(){
 	if(document.getElementById("homeScript")){
@@ -199,6 +216,7 @@ function reloadhomeFunc(){
 }
 
 function reloadjsScript(){
+	
 	if(document.getElementById("jsScript")){
 		$("#jsScript").remove();
 	}
@@ -210,20 +228,9 @@ function reloadjsScript(){
 	hh.appendChild(ss);
 	
 }
-function reloadServiceScript(){
 
-	if(document.getElementById("ServiceScript")){
-		$("#ServiceScript").remove();
-	}
-	var ss = document.createElement('script');
-	ss.type = 'text/javascript';
-	ss.src = "./javascript/services.js";
-	ss.id = "servicesScript";
-	var hh = document.getElementsByTagName('head')[0];
-	hh.appendChild(ss);
+function reloadArticlesScript(n){
 	
-}
-function reloadArticlesScript(name){
 	
     if(document.getElementById("articlesScript")){
 		$("#articlesScript").remove();
@@ -235,7 +242,8 @@ function reloadArticlesScript(name){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 	
-	initMenu(name);
+	initMenu(n);
+	
 	
 }
 

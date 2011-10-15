@@ -125,15 +125,23 @@ var currentCategory;
 var currentLanguage=1;
 var currentCountry;
 
+var cart;
+var wishlist;
+var itemList;
+var partialList;
+var languageList;
+var CategoriesList;
+var CountriesList;
+
+var euros;
+var dollars;
+var pesos;
+var mains;
+
+
 $(document).ready( function() {
 	
 	
-	// GLOBALES, hay que sacarlas
-
-	movies = new Category("Movies", 1);
-	cds = new Category("CDs", 2);
-	books = new Category("Books", 2);
-
 
 	cart = new Cart();
 	wishlist = new Cart();
@@ -363,24 +371,5 @@ function loadSubCategories(categ){
 }
 
 
-function loadMenu(){
 
-	var w=0;
-	var e=0;
-
-	while(w <  CategoriesList.categories.length){
-
-	$('#menu').append('<li><a href="#">'+CategoriesList.categories[w].name+'</a><ul id="'+CategoriesList.categories[w].name+'_sm">');
-
-	while(e <  CategoriesList.categories[w].subcategories.length){	
-
-	$('#menu').append('<li><a href="#" >'+CategoriesList.categories[w].subcategories.name+'</a></li>');
-
-	e++;
-	}
-	e=0;
-	$('#menu').append('</ul></li>');
-
-	}
-}
 
