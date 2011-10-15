@@ -1,12 +1,12 @@
 $(document).ready( function() {
 
-	setTimeout("chargeCartItems()", 500);
+	setTimeout("chargeWishlistItems()", 500);
 	
 });
-
-function chargeCartItems(){
-	var cartItems = cart.getItems();
-	var cant = cart.getItemCount();
+//TODO aca tengo q seguir!!! no tocar
+function chargeWishlistItems(){
+	var wishlistItems = wishlist.getItems();
+	var cant = wishlist.getItemCount();
 	var itemsNoRepeat = new Array();
 	var countEachItem = new Array();
 	var numEachItem = new Array();

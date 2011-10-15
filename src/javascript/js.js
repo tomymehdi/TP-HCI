@@ -9,9 +9,7 @@ $(document).ready( function() {
 	
 	$('#WishListContainer').click( function(){
         $("#main").load("./html/wishlist.html #main > *");
-	});
-	$('#WishList2 a').click( function(){
-	        $("#main").load("./html/wishlist.html #main > *");
+        reloadWishlistScript();
 	});
 	
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
@@ -338,6 +336,20 @@ function reloadCartScript(){
 	ss.type = 'text/javascript';
 	ss.src = "./javascript/cart.js";
 	ss.id = "CartScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+}
+
+function reloadWishlistScript(){
+	
+	if(document.getElementById("WishlistScript")){
+		$("#WishlistScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/wishlist.js";
+	ss.id = "WishlistScript";
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
