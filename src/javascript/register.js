@@ -646,39 +646,34 @@ var Validate = {
 }
 
 $(function(){
-var nameBar = new LiveValidation( "nameBar", { validMessage: "Ok!", wait: 500 } );	
-nameBar.add( Validate.Presence, { failureMessage: "Please, enter your name" } );
+var name = new LiveValidation( "nameBar", { validMessage: "Ok!", wait: 500 } );	
+name.add( Validate.Presence, { failureMessage: "Please, enter your name" } );
 });
-
-
 $(function(){
-var lastnameBar = new LiveValidation( "lastnameBar", { validMessage: "Ok!", wait: 500 } );	
-lastnameBar.add( Validate.Presence, { failureMessage: "Please, enter your last name" } );
-});
-
-$(function(){
-var emailBar = new LiveValidation( "emailBar", { validMessage: "Ok!", wait: 500 } );	
-emailBar.add( Validate.Presence, { failureMessage: "Please, enter your e-mail" } );
-emailBar.add( Validate.Email );
+var LastName = new LiveValidation( "lastnameBar", { validMessage: "Ok!", wait: 500 } );	
+LastName.add( Validate.Presence, { failureMessage: "Please, enter your last name" } );
 });
 
 $(function(){
-var rmailBar = new LiveValidation( "rmailBar", { validMessage: "Ok!", wait: 500 } );	
-rmailBar.add( Validate.Presence, { failureMessage: "Please, re-type your e-mail" } );
-rmailBar.add( Validate.Email );
-rmailBar.add( Validate.Confirmation, { match: 'emailBar' } );
+var email = new LiveValidation( "emailBar", { validMessage: "Ok!", wait: 500 } );	
+email.add( Validate.Presence, { failureMessage: "Please, enter your e-mail" } );
+email.add( Validate.Email );
 });
-
 $(function(){
-var passBar = new LiveValidation( "passBar", { validMessage: "Ok!", wait: 500 } );	
-passBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
-passBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
+var retypeEmailBar = new LiveValidation( "retypeEmailBar", { validMessage: "Ok!", wait: 500 } );	
+retypeEmailBar.add( Validate.Presence, { failureMessage: "Please, re-type your e-mail" } );
+retypeEmailBar.add( Validate.Email );
+retypeEmailBar.add( Validate.Confirmation, { match: 'emailBar' } );
 });
-
 $(function(){
-var rpassBar = new LiveValidation( "rpassBar", { validMessage: "Ok!", wait: 500 } );	
-rpassBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
-rpassBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
-rpassBar.add( Validate.Confirmation, { match: 'passBar' } );
+var PasswordBar = new LiveValidation( "PasswordBar", { validMessage: "Ok!", wait: 500 } );	
+PasswordBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
+PasswordBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
+});
+$(function(){
+var retipePasswordBar = new LiveValidation( "retipePasswordBar", { validMessage: "Ok!", wait: 500 } );	
+retipePasswordBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
+retipePasswordBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
+retipePasswordBar.add( Validate.Confirmation, { match: 'PasswordBar' } );
 
 });	
