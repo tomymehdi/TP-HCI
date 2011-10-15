@@ -52,6 +52,14 @@ $(document).ready( function() {
 
 	$('#login_button').click( function(){
 		$('#login_data').slideUp();
+		
+		 /*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
+       
+		
+		$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
+        
+        $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
+		
 	});
 
 
@@ -101,27 +109,6 @@ $(document).ready( function() {
  		 }, 100 );			
 	});
 
-	$('#facebook').click( function() {
-		window.location = "http://www.facebook.com";
-	});
-
-	$('#twitter').click( function() {
-		window.location = "http://www.twitter.com";
-	});
-
-	$('#contactUs').click( function() {
-        $("#main").load("./html/contact.html #main > *");
-	});
-
-	$('#whereAreWe').click( function() {
-        $("#main").load("./html/map.html #main");
-	});
-
-	$('#register_link').click( function(){
-		$("#main").load("./html/register.html #main > *");
-		reloadregisterScript();
-	});
-	
 	$('#prev').click(function(){
 		if(currentPage != 1){
 			$('#pageNumber').remove();
@@ -137,7 +124,43 @@ $(document).ready( function() {
 			setTimeout("loadItems(currentCategory, parseInt(currentPage + 1))", 100);
 		}
 	});
+$('#logout').live('click',function(){
+     
+        $('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
+        
+        $('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
+    
 });
+
+$('#facebook').live('click',function(){
+	window.location = "http://www.facebook.com";
+});
+
+$('#twitter').live('click',function(){
+	window.location = "http://www.twitter.com";
+});
+
+$('#contactUs').live('click',function(){
+    $("#main").load("./html/contact.html #main");
+});
+
+$('#whereAreWe').live('click',function(){
+        $("#main").load("./html/map.html #main");
+});
+
+$('#register_link').live('click',function(){
+	$("#main").load("./html/register.html #main");
+	reloadregisterScript();
+});
+    
+$('#MyAccount_opt').live('click',function(){
+	$("#main").load("./html/myaccount.html #main");
+});
+});
+
+
+//termina el documentready aca
+
 
 function reloadhomeScript(){
 	if(document.getElementById("homeScript")){
@@ -151,6 +174,7 @@ function reloadhomeScript(){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
+
 
 
 

@@ -1001,12 +1001,13 @@ h5{
 
 #login_data {
 	background-image: url("../images/home/cartContainer.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
 	border-style: groove;
 	float: left;
-	margin-left: -7px;
-	margin-top: -2px;
-	width: 200px;
-	display: none;
+	margin-left: -25px;
+	margin-top: 75px;
+	width: 250px;
 }
 
 #login_data2 {
