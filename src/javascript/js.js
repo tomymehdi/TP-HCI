@@ -139,6 +139,11 @@ $('#login_button').live('click', function(){
 		reloadregisterScript();
 	});
 	
+	$('#MyAccount_opt').live('click', function(){
+		$("#main").load("./html/myaccount.html #main > *");
+		reloadregisterScript();
+	});
+	
 	$('#prev').click(function(){
 		if(currentPage != 1){
 			$('#pageNumber').remove();
