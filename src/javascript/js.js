@@ -131,7 +131,7 @@ $('#login_button').live('click', function(){
 	});
 
 	$('#whereAreWe').click( function() {
-        $("#main").load("./html/map.html #main");
+        $("#main").load("./html/whereAreWe.html #main");
 	});
 
 	$('#register_link').live('click', function(){
