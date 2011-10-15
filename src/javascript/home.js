@@ -7,9 +7,7 @@ $(document).ready( function() {
 	
 	currentCoinType = dollars;
 	
-	//setTimeout("actualizeCart()", 100);
-	//setTimeout("actualizeWishlist()", 100);
-	
+
     $("#main").load("./html/home.html #main > *");   
 
    	setTimeout("appendCats()",500);
@@ -27,7 +25,7 @@ $(document).ready( function() {
 			}, 100 );
 	    }
 	);
- });
+});
 
 
 function appendCats(){    

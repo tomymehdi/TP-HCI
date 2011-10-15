@@ -157,50 +157,68 @@ $('#login_button').live('click', function(){
 
 });
 
-function initMenu(name) {
+function initMenu(n) {
 
 
-  setTimeout("loadMenu()", 200);
+ setTimeout("loadMenu()", 500);
   
-	
-  var id= '#'+name+'_sm';
-	
-  $('#menu ul').hide();
-  $(id).show();
+ 
+ setTimeout("setStart()",500);
 
-  $('#menu li a').click(
-    function() {
-      var checkElement = $(this).next();
-      if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-        return false;
-        }
-      if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-        $('#menu ul:visible').slideUp('normal');
-        checkElement.slideDown('normal');
-        return false;
-        }
-      }
-    );
+	
+}
+
+function setStart(){
+	
+
+	$('#menu ul').hide();
+
+	$('#menu li a').click(
+	function() {
+	  var checkElement = $(this).next();
+	  if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+	    return false;
+	    }
+	  if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+	    $('#menu ul:visible').slideUp('normal');
+	    checkElement.slideDown('normal');
+	    return false;
+	    }
+	});
+
+if(currentCategory.name=="DVD"){
+	$('#menu ul:first').show();
+}
+else{
+	$('#menu ul:last').show();
+}
+
+
 }
 
 function loadMenu(){
-
+	
+	$('#menu').empty();
+	
 	var w=0;
 	var e=0;
 
 	while(w <  CategoriesList.categories.length){
 
-	$('#menu').append('<li><a href="#">'+CategoriesList.categories[w].name+'</a><ul id="'+CategoriesList.categories[w].name+'_sm">');
+		var id='#'+CategoriesList.categories[w].name+'_sm';	
+		
+			$('#menu').append('<li><a href="#">'+CategoriesList.categories[w].name+'</a><ul id="'+CategoriesList.categories[w].name+'_sm"></ul></li>');
+		
 
 	while(e <  CategoriesList.categories[w].subcategories.length){	
-
-	$('#menu').append('<li><a href="#" >'+CategoriesList.categories[w].subcategories.name+'</a></li>');
-
+		
+	var id='#'+CategoriesList.categories[w].name+'_sm';	
+	$(id).append('<li><a href="#" >'+CategoriesList.categories[w].subcategories[e].name+'</a></li>');
 	e++;
+	
 	}
 	e=0;
-	$('#menu').append('</ul></li>');
-
+	
 	w++;
 	}
 }
@@ -287,16 +305,16 @@ function reloadregisterScript(){
 	hh.appendChild(ss);
 }
 
-function reloadCartScript(){
-	if(document.getElementById("cartScript")){
-		$("#cartScript").remove();
+function reloadMenuScript(){
+	
+	if(document.getElementById("MenuScript")){
+		$("#MenuScript").remove();
 	}
 	
 	var ss = document.createElement('script');
 	ss.type = 'text/javascript';
-	ss.src = "./javascript/cart.js";
-	ss.id = "cartScript";
+	ss.src = "./javascript/menu.js";
+	ss.id = "MenuScript";
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
-   
