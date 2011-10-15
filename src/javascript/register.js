@@ -9,7 +9,7 @@ $('#login_option').click( function(){
 	}
 });
 	
-$('#login_button2').click( function(){
+$('#login_button2').live('click', function(){
 	$('#login_data2').slideUp();
 	
 	/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */

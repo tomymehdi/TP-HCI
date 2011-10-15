@@ -2,10 +2,8 @@ $(document).ready( function() {
 	
 	$('#CartContainer').click( function(){
         $("#main").load("./html/cart.html #main > *");
-	});
-
-	$('#Cart2 a').click( function(){
-        $("#main").load("./html/cart.html #main > *");
+		setTimeout("reloadCartScript()",2500);
+		chargeCartItems();
 	});
 
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
@@ -43,7 +41,7 @@ $(document).ready( function() {
 	        $("#main").load("./html/wishlist.html #main > *");
 	});
 
-	$('#login_opt').click( function(){
+	$('#login_opt').live('click', function(){
 		$(this).animate({
 			opacity: 1,
 		}, 400 );	
@@ -54,19 +52,19 @@ $(document).ready( function() {
 		}
 	});
 
-	$('#login_button').click( function(){
-		$('#login_data').slideUp();
-		
-		/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
+$('#login_button').live('click', function(){
+	$('#login_data').slideUp();
+	
+	/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
        
 		$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
         
         $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
-	if(!($('#login_data2').is(":hidden"))){
+	
+	if(!($('#login_data2').is("hidden"))){
 		$('#login_data2').slideUp();
 	}
-		
-	});
+});
 	
 	$('#Logout_opt').live('click',function(){
      
@@ -92,10 +90,8 @@ $(document).ready( function() {
 
 
     $('.home').click( function(){
-    
         $("#main").load("./html/home.html #main > *");
         reloadhomeScript();    
-        
     });
       
 	$('.footerItem').mouseover( function(){
@@ -138,7 +134,7 @@ $(document).ready( function() {
         $("#main").load("./html/map.html #main");
 	});
 
-	$('#register_link').click( function(){
+	$('#register_link').live('click', function(){
 		$("#main").load("./html/register.html #main > *");
 		reloadregisterScript();
 	});
@@ -287,6 +283,19 @@ function reloadregisterScript(){
 	ss.type = 'text/javascript';
 	ss.src = "./javascript/register.js";
 	ss.id = "registerScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+}
+
+function reloadCartScript(){
+	if(document.getElementById("cartScript")){
+		$("#cartScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/cart.js";
+	ss.id = "cartScript";
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }

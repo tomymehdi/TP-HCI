@@ -1,4 +1,3 @@
-
     $('.Books_link').click(function(){
 	
 		$("#main").load("./html/articles.html #main > *");
@@ -14,9 +13,7 @@
 		reloadItemsManagerScript();
 		reloadjsScript();
 		setTimeout("loadItems(CategoriesList.categories[0], 1)", 100);
-		
 	});
-	
 	
     $('#pesos').click(function(){
 		var previousCoinType = currentCoinType;
@@ -45,6 +42,5 @@
 		$('*').filter('#PriceTag').text(currentCoinType.toString());
 		$('*').filter('#PriceNumber').replaceWith(function(){
 			return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value), 2)+ '</div>');
+		});
 	});
-	});
-	

@@ -86,6 +86,9 @@ Cart.prototype.addItem = function (item){
 Cart.prototype.getItemCount = function() {
 	return this.items.length;
 }
+Cart.prototype.getItems = function(){
+	return this.items;
+}
 
 
 

@@ -1006,8 +1006,9 @@ h5{
 	border-style: groove;
 	float: right;
 	width: 250px;
-	margin-left: -7px;
-	margin-top: -2px;
+	margin-left: -25px;
+	margin-top: 75px;
+	z-index: 5;
 	display: none;
 }
 

@@ -1,6 +1,3 @@
-
-
-
 function buyItem(number){
 	var i = parseInt(document.getElementById("sel" + number).options.selectedIndex);
 	while(i > 0){
