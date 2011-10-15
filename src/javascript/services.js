@@ -120,12 +120,12 @@ function Subcategory(name, category, number){
 
 // VARIABLES
 var currentPage;
-var currentCategory;
 var currentCoinType;
 var itemQty;
 var currentCategory;
 var currentLanguage=1;
 var currentCountry;
+var CurrentSubCategory;
 
 var cart;
 var wishlist;
@@ -212,11 +212,8 @@ function loadCountries(){
 
 		request.open("GET",url,true);
 		request.send();
-
-	
-	
-	
 }
+
 function loadStates(country){
 	
 	
