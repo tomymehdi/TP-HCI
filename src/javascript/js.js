@@ -56,7 +56,26 @@ $(document).ready( function() {
 
 	$('#login_button').click( function(){
 		$('#login_data').slideUp();
+		
+		/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
+       
+		$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
+        
+        $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
+	if(!($('#login_data2').is(":hidden"))){
+		$('#login_data2').slideUp();
+	}
+		
 	});
+	
+	$('#Logout_opt').live('click',function(){
+     
+        $('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
+        
+        $('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
+    
+    });
+	
 
 
 	$('.item').css('opacity',opacity).hover(function() {
@@ -174,6 +193,7 @@ function loadMenu(){
 	var e=0;
 
 	while(w <  CategoriesList.categories.length){
+
 
 	$('#menu').append('<li><a href="#">'+CategoriesList.categories[w].name+'</a><ul id="'+CategoriesList.categories[w].name+'_sm">');
 
