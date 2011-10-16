@@ -73,20 +73,19 @@ function modifyAccount(email,uname,fname,bir){
 	}
 	
 	request.onreadystatechange = function(){
-		
 		if(request.readyState==4 && request.status==200){
-			
-				var stat=$(request.responseXML).find('response').attr('status');
-				if(stat=="ok"){
-
+			stat=$(request.responseXML).find("response").attr("status");
+			if(stat == "ok"){
 				alert('You have modified your account succesfully.');
-				}
-				
-
-
+			} else if(stat == "fail"){
+				var string = "";
+				$(request.responseXML).find("error").each(function(){
+					string += $(this).attr("message") + "\n";
+				});
+				alert(string);
+			}
 		}
 	}
 	request.open("POST",url,true);
 	request.send();
-
 }
