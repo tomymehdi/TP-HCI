@@ -3,7 +3,6 @@
 		$("#main").load("./html/articles.html #main > *");
 		reloadArticlesScript(currentCategory.name);
 		reloadItemsManagerScript();
-		reloadjsScript();
 		setTimeout("loadItems(currentCategory, 1)", 100);
 	});
 
@@ -13,8 +12,6 @@
 		
 		reloadArticlesScript(currentCategory.name);
 		reloadItemsManagerScript();
-		
-		reloadjsScript();
 		setTimeout("loadItems(currentCategory, 1)", 100);
 	});
 	

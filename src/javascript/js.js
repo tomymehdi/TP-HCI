@@ -279,7 +279,6 @@ function reloadhomeFunc(){
 }
 
 function reloadjsScript(){
-	
 	if(document.getElementById("jsScript")){
 		$("#jsScript").remove();
 	}
@@ -293,8 +292,6 @@ function reloadjsScript(){
 }
 
 function reloadArticlesScript(n){
-	
-	
     if(document.getElementById("articlesScript")){
 		$("#articlesScript").remove();
 	}
@@ -349,7 +346,6 @@ function reloadmyaccountScript(){
 }
 
 function reloadMenuScript(){
-	
 	if(document.getElementById("MenuScript")){
 		$("#MenuScript").remove();
 	}
@@ -362,7 +358,6 @@ function reloadMenuScript(){
 	hh.appendChild(ss);
 }
 function reloadCartScript(){
-	
 	if(document.getElementById("CartScript")){
 		$("#CartScript").remove();
 	}
@@ -387,7 +382,6 @@ function reloadSDscript(){
 	hh.appendChild(ss);
 }
 function reloadCreateAccountScript(){
-	
 	if(document.getElementById("CreateAccountScript")){
 		$("#CreateAccountScript").remove();
 	}
@@ -401,7 +395,6 @@ function reloadCreateAccountScript(){
 	
 }
 function reloadWishlistScript(){
-	
 	if(document.getElementById("WishlistScript")){
 		$("#WishlistScript").remove();
 	}

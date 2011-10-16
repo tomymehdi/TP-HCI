@@ -1,7 +1,4 @@
-
 $(document).ready(function() {
-	
-	
 	
 	$('#pageSize').change(function() {
 		loadItems(currentCategory, 1)

@@ -165,7 +165,6 @@ $(document).ready( function() {
 	loadCommons();
 	loadMainCategories();
 	
-//	setTimeout("appendCats()",2000);
 	reloadhomeScript();
 	
 });
