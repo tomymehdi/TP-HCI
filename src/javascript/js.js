@@ -141,10 +141,53 @@ $(document).ready( function() {
 	});
 	
 	$('#MyAccount_opt').live('click', function(){
+		
+
 		$("#main").load("./html/myaccount.html #main > *");
-		reloadmyaccountScript();
+		getAccount();
+		setTimeout("reloadmyaccountScript()",1000);
+		
 	});
+	
 });
+function getAccount(){
+	
+	url='./service/Security.groovy?method=GetAccount&username='+CurrentUsername+'&authentication_token='+CurrentToken;
+	
+	var request;
+	var xx,x,i;
+	
+	if (window.XMLHttpRequest)
+	{
+		request=new XMLHttpRequest();
+	}
+	else
+	{
+		request=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	request.onreadystatechange=function(){
+		
+		if (request.readyState==4 && request.status==200){
+			
+			var email=request.responseXML.documentElement.getElementsByTagName("email")[0].firstChild.nodeValue;
+			var uname=request.responseXML.documentElement.getElementsByTagName("username")[0].firstChild.nodeValue; 
+			var name=request.responseXML.documentElement.getElementsByTagName("name")[0].firstChild.nodeValue;
+			var birth=request.responseXML.documentElement.getElementsByTagName("birth_date")[0].firstChild.nodeValue;
+			
+			
+			$('#EmailInput').attr('value',email);
+			$('#UserNameInput').attr('value',uname);
+			$('#FirstNameInput').attr('value',name);
+			$('#BirthInput').attr('value',birth);
+			
+			
+			
+		}
+	}
+	request.open("GET",url,true);
+	request.send();
+}
 
 function initializeMap() {
 	$('#main').empty();
@@ -332,6 +375,7 @@ function reloadregisterScript(){
 }
 
 function reloadmyaccountScript(){
+	
 	if(document.getElementById("myaccountScript")){
 		$("#myaccountScript").remove();
 	}
@@ -470,8 +514,8 @@ function logout(){
 					}	
 				}
 			}
-			request.open("GET",url,true);
-			request.send();
+		request.open("GET",url,true);
+		request.send();
 		$('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
 		$('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
 }
