@@ -59,12 +59,14 @@ function ItemList(){
 ItemList.prototype.addItem = function(item){
 	this.items.push(item);
 }
-function Item(name, description, price, subcategory, imageSource){
+function Item(name, description, price, subcategory, imageSource,number,categoryId){
 	this.name = name;
 	this.description = description;
 	this.price = price;
 	this.subcategory = subcategory;
 	this.imageSource = imageSource;
+	this.number=number;
+	this.categoryId=categoryId;
 }
 
 
@@ -125,7 +127,7 @@ var itemQty;
 var currentCategory;
 var currentLanguage=1;
 var currentCountry;
-var CurrentSubCategory;
+var CurrentSubCategory=undefined;
 
 var cart;
 var wishlist;

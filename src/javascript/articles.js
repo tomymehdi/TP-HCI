@@ -4,11 +4,12 @@ $(document).ready(function() {
 	
 	
 	$('#pageSize').change(function() {
-		setTimeout("loadItems(currentCategory, 1)", 100);
+		loadItems(currentCategory, 1);
 	});
 	
 	$('#sort').change(function() {
-		setTimeout("loadItems(currentCategory, 1)", 100);
+		
+		loadItems(currentCategory,1);
 	});
 
 

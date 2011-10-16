@@ -340,6 +340,18 @@ function reloadCartScript(){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
+function reloadSDscript(){
+	if(document.getElementById("SDScript")){
+		$("#SDScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/jquery.simpledialog.0.1.js";
+	ss.id = "SDScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+}
 
 function reloadWishlistScript(){
 	

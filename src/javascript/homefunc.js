@@ -20,25 +20,25 @@
 	
 	
 	$('.subitem').click(function(){
-		
-		
-		var name=$(this).attr('id');
-		var cs=null;
-	
-	
-	//VAR MAÑANAAAAAAA  ver por que refresca mal y aparece el menu de books.
-	
-		addNavigation(name);
-		
-		cs=searchSC(name);		
-	
-		$("#main").load("./html/articles.html #main > *");
-		reloadArticlesScript('DVD');
-		reloadItemsManagerScript();
-		reloadjsScript();		
-		loadItems(cs, 1);
 
-	});
+
+			var name=$(this).attr('id');
+			var cs=null;
+
+
+			cs=searchSC(name);	
+			CurrentSubCategory=cs;	
+
+			$("#main").load("./html/articles.html #main > *");
+
+			loadItems(cs, 1);
+			currentCategory=cs.category;
+			initMenu();	
+			// NO ANDA     $("#Horror").css({'background':'#aaa','border-left' : '5px #6D929B solid' , 'padding-left' : '15px'});
+			setTimeout("addNavigation(\'"+cs.name+"\')",500);
+			
+
+		});
 	
     $('#pesos').click(function(){
 		var previousCoinType = currentCoinType;
@@ -93,11 +93,15 @@
 	}
 	
 	function addNavigation(name){
-			
-			
-		if(document.getElementById("Sc")){
-			$("#Sc").remove();
-		}	
-		$('#navigation ul').append('<li class="navigationItem"> &gt; </li>');
-		$('#navigation ul').append('<li id="Sc" class="navigationItem" >'+ name+'</li>');
-	}
+
+
+			if(document.getElementById("Sc")){
+				$("#Sc").remove();
+			}	
+			$('#navigation ul').append('<li class="navigationItem"> &gt; </li>');
+			$('#navigation ul').append('<li id="Sc" class="navigationItem" >'+ name+'</li>'); 
+
+
+		}
+
+
