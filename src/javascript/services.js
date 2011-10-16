@@ -135,6 +135,8 @@ var partialList;
 var languageList;
 var CategoriesList;
 var CountriesList;
+var CurrentUsername;
+var CurrentToken;
 
 var euros;
 var dollars;

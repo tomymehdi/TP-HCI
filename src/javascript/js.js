@@ -57,24 +57,23 @@ $(document).ready( function() {
 	});
 
 	$('#login_button').live('click', function(){
-	$('#login_data').slideUp();
+		
+		$('#login_data').slideUp();
+      	
+		var u= $('#login_user_input2').val();
+		var pa= document.getElementById("login_pass_input2").value;
+		login(u,pa);
+		
 	
-	/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
-       
-		$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
-        
-        $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
-	
-	if(!($('#login_data2').is("hidden"))){
-		$('#login_data2').slideUp();
-	}
-});
+		if(!($('#login_data2').is("hidden"))){
+				$('#login_data2').slideUp();
+		}
+	});
 	
 	$('#Logout_opt').live('click',function(){
-     
-        $('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
+		
+     logout();
         
-        $('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
     
     });
 	
@@ -413,3 +412,96 @@ function reloadWishlistScript(){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
+
+
+function login(username,pass){
+		
+		url='./service/Security.groovy?method=SignIn&username='+username+'&password='+pass;
+
+		var request;
+		var j=0;
+		var cn;
+		var xx,x,i;
+
+			if (window.XMLHttpRequest)
+			{
+				request=new XMLHttpRequest();
+			}
+			else
+			{
+				request=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			request.onreadystatechange=function(){
+
+				if (request.readyState==4 && request.status==200){
+					
+				//	var stat=request.responseXML.documentElement.getElementsByTagName("response")[0];
+				
+				
+				
+				
+				//SI ESTA BIEN EL LOGUEO, guardar en la variable CurrentUsername y CurrentToken lo que corresponde y seguir, si no, decir que no se logueo bien o el error q corresponda
+				
+				//	var token=request.responseXML.documentElement.getElementsByTagName("token")[0].firstChild.nodeValue;
+
+					}
+
+				}
+			
+
+			request.open("GET",url,true);
+			request.send();
+		
+	
+	alert('Hello '+username+' you have login correctly');
+	
+	$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
+    $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
+
+	
+	
+}
+
+
+function logout(){
+	
+	
+		url='./service/Security.groovy?method=SignIn&username='+CurrentUsername+'&authentication_token='+CurrentToken;
+
+		var request;
+		var j=0;
+		var cn;
+		var xx,x,i;
+
+			if (window.XMLHttpRequest)
+			{
+				request=new XMLHttpRequest();
+			}
+			else
+			{
+				request=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			request.onreadystatechange=function(){
+
+				if (request.readyState==4 && request.status==200){
+					
+						//PREGUNTAR SI LA RESPUESTA ES OK ENTONCES SEGUIR EJECUTANDO
+
+					}
+
+				}
+			
+
+			request.open("GET",url,true);
+			request.send();
+		
+	
+			alert('Godbye '+ CurrentUsername+' you have logout correctly');
+	
+	$('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
+	$('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
+	
+}
+

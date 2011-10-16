@@ -10,13 +10,15 @@ $('#login_option').click( function(){
 });
 	
 $('#login_button2').live('click', function(){
-	$('#login_data2').slideUp();
 	
-	/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
+		$('#login_data2').slideUp();
+	
        
-		$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
-        
-        $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
+		$('#login_data').slideUp();
+      	
+		var u= $('#login_user_input').val();
+		var pa= document.getElementById("login_pass_input").value;
+		login(u,pa);
 	
 	if(!($('#login_data').is("hidden"))){
 		$('#login_data').slideUp();
