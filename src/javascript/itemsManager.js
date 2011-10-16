@@ -1,5 +1,5 @@
 function buyItem(number){
-	var i = parseInt(document.getElementById("sel" + number).options.selectedIndex);
+	var i = parseInt(document.getElementById("sel" + number).options[parseInt(document.getElementById("sel" + number).options.selectedIndex)].value);
 	while(i > 0){
 		cart.addItem(partialList.items[parseInt(number)]);
 		i--;
@@ -86,7 +86,7 @@ function continueLoading(number){
 	$('#Items').empty();
 	while(i < partialList.items.length){
 		item = partialList.items[i];
-		$('#Items').append('<div id="Item"><div id="itemName" onclick="bringInfo(' + i + ')" class="pointer">' + roundString(item.name, 25) + '</div><img id="Image" class="pointer" onclick="bringInfo(' + i + ')" src="'  + item.imageSource + '"></img><div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button><button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button><select id="sel' + i + '" size="1" class="quantity"><option>1 </option selected="selected"> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +roundNumber(item.price*currentCoinType.value, 2) + '</div></div></div></div>');
+		$('#Items').append('<div id="Item"><div id="itemName" onclick="bringInfo(' + i + ')" class="pointer">' + roundString(item.name, 25) + '</div><img id="Image" class="pointer" onclick="bringInfo(' + i + ')" src="'  + item.imageSource + '"></img><div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button><button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button><select id="sel' + i + '" size="1" class="quantity"><option value="1">1 </option selected="selected"> <option value="2">2 </option> <option value="3">3 </option><option value="4">4 </option><option value="5">5 </option><option value="6">6 </option><option value="7">7 </option><option value="8">8 </option><option value="9">9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +roundNumber(item.price*currentCoinType.value, 2) + '</div></div></div></div>');
 		i++;
 	}
 	$('#pageNumber').remove();

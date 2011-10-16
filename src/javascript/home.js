@@ -55,3 +55,9 @@ function appendCats(seconds){
 //	} 
 }
 
+$(function(){
+	$('.fadein1 div:gt(0)').hide();
+	setInterval(function(){
+	$('.fadein1 :first-child').fadeOut().next('div').fadeIn().end().appendTo('.fadein1');},
+	3000);
+}); 
