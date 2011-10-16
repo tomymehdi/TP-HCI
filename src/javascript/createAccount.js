@@ -8,7 +8,6 @@ $(document).ready( function() {
 		var pass=$('#passBar').val();
 		var email=$('#emailBar').val();
 		var birth=$('#birthBar').val();
-		
 		createAccount(username,name,pass,email,birth);
     });
 });
@@ -26,39 +25,36 @@ function createAccount(username,name,pass,email,birth){
 
 	url='./service/Security.groovy?method=CreateAccount&account='+accHtml;
 	
-	var x,stat,xx;
+	var stat;
 	var request;
 	if (window.XMLHttpRequest){
 		request=new XMLHttpRequest();
 	}else {
 		request=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	
 	request.onreadystatechange = function(){
-		
 		if(request.readyState==4 && request.status==200){
-			alert("lalala");
-			
 			stat=$(request.responseXML).find("response").attr("status");
-		
-			alert(stat);
-			
 			if(stat=="ok"){ 
-				
 				alert('You have completed your registration succesfully. Now you will be able to start buying.');
-				
 				$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
-
 			    $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
-				
-					currentCategory=CategoriesList.categories[0];
-					$("#main").load("./html/articles.html #main > *");
-					reloadArticlesScript(currentCategory.name);
-					reloadItemsManagerScript();
-					setTimeout("loadItems(currentCategory, 1)", 100);
+				currentCategory=CategoriesList.categories[0];
+				$("#main").load("./html/articles.html #main > *");
+				reloadArticlesScript(currentCategory.name);
+				reloadItemsManagerScript();
+				setTimeout("loadItems(currentCategory, 1)", 100);
+			} else if(stat=="fail"){
+				var string = "";
+				$(request.responseXML).find("error").each(function(){
+    				string += $(this).attr("message") + "\n";
+  				});
+  				alert(string);
 			}
 		}
-		request.open("POST",url,true);
-		request.send();
 	}
+	request.open("POST",url,true);
+	request.send();
+	
+	
 }
