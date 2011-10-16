@@ -27,43 +27,76 @@ $(document).ready( function() {
 	
 	appendLanguages();
 	
-	$('#idioma_select').change(function(){
+/*	$('#idioma_select').change(function(){
+		var url = "languages.xml";
+		var xmlhttp;
 		if (window.XMLHttpRequest)
-		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  {
 		  xmlhttp=new XMLHttpRequest();
 		  }
 		else
-		  {// code for IE6, IE5
+		  {
 		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 		  }
-		xmlhttp.open("GET","languages.xml",false);
+		xmlhttp.onreadystatechange=function()
+		  {
+		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    {
+		    changeLanguage(xmlhttp.responseXML.documentElement);
+		    }
+		  }
+		xmlhttp.open("GET",url,true);
 		xmlhttp.send();
-		xmlDoc=xmlhttp.responseXML;
-		var toChange = document.getElementsByTagName('*');
-		var i = 0;
-		while(i < toChange.length){
-			if(toChange[i].getAttribute("lang")){
-				toChange[i].innerHTML = "";
-				words = xmlDoc.getElementsByTagName("language")[getCurrentLanguage().id];
-				var j = 0;
-				var stop = false;
-				while(!stop && j < words.length){
-					alert(words[j].text());
-					if(toChange[i].getAttribute("lang") == words[j].getAttribute("id")){
-						toChange[i].append(words[j].text());
-						stop = true;
-						alert("llego hasta aca");
-					}
-					j++;
-				}
-			}
-			i++;
-		}
-	})
+	})*/
+	
+	$('#idioma_select').change(translate);
 });
 
-function getCurrentLanguage(){
-	return languageList.items[0];
+function translate(){
+	var url = "languages.xml";
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    changeLanguage(xmlhttp.responseXML.documentElement);
+	    }
+	  }
+	xmlhttp.open("GET",url,true);
+	xmlhttp.send();
+}
+
+function changeLanguage(doc){
+	var toChange = document.getElementsByTagName('*');
+	var i = 0;
+	while(i < toChange.length){
+		if(toChange[i].getAttribute("lang")){
+			toChange[i].innerHTML = "";
+			words = doc.getElementsByTagName("language")[getCurrentLanguageId()-1].getElementsByTagName('*');
+			var j = 0;
+			var stop = false;
+			while(!stop && j < words.length){
+				if(toChange[i].getAttribute("lang") == words[j].getAttribute("id")){
+					toChange[i].innerHTML = words[j].firstChild.nodeValue;
+					stop = true;
+				}
+				j++;
+			}
+		}
+		i++;
+	}
+}
+
+function getCurrentLanguageId(){
+	return parseInt(document.getElementById("idioma_select").options[parseInt(document.getElementById("idioma_select").options.selectedIndex)].value);
 }
 
 function appendLanguages(seconds){

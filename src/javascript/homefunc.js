@@ -67,7 +67,6 @@
 		});
 		
 	$('#whereAreWe').click(function(){
-		alert("hollo");
 		initializeMap();
 	});
 		

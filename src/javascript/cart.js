@@ -6,6 +6,14 @@ $(document).ready( function() {
 		
 	});
 	
+	$('#removeAll').click(function() {
+		$('*.OnCartItem').remove();
+		while(cart.items.length > 0){
+			cart.items.shift();
+		}
+		actualizeCart();
+	}
+	
 });
 
 function chargeWishlistItems(){
