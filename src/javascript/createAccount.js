@@ -1,13 +1,37 @@
-function createAccount(){
+$(document).ready( function() {	
+	
+	
+	$('#Submit_register').click( function(){
+       
+		
+		
+		var username= $('#userNameBar').val();
+		var name=$('#nameBar').val();
+		var pass=$('#passBar').val();
+		var email=$('#rmailBar').val();
+		var birth=$('#birthBar').val();
+		
+		createAccount(username,name,pass,email,birth);
+
+
+    });
+	
+
+	
+});
+
+
+function createAccount(username,name,pass,email,birth){
+	
 			var accHtml='<account>' +
-					'<username>hci</username>' +
-					'<name>HCI 2009</name>' +
-					'<password>itba1234</password>' +
-					'<email>hci@it.itba.edu.ar</email>' +
-					'<birth_date>2009-08-18</birth_date>' +
+					'<username>'+username+'</username>' +
+					'<name>'+name+'</name>' +
+					'<password>'+pass+'</password>' +
+					'<email>'+email+'</email>' +
+					'<birth_date>'+birth+'</birth_date>' +
 				'</account>';
 
-	url='./service/Security.groovy?method=CreateAccount&account=' + accHtml;
+	url='./service/Security.groovy?method=CreateAccount&account='+accHtml;
 	
 	var request;
 	if (window.XMLHttpRequest){
@@ -17,7 +41,9 @@ function createAccount(){
 	}
 	request.onreadystatechange = function(){
 		if(request.readyState==4 && request.status==200){
+			
 			alert(request.responseXML.documentElement.getElementsByTagName("response"));
+
 		}
 	}
 	request.open("POST",url,true);

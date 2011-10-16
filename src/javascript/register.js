@@ -656,6 +656,11 @@ var Validate = {
 }
 
 $(function(){
+var userNameBar = new LiveValidation( "userNameBar", { validMessage: "Ok!", wait: 500 } );	
+userNameBar.add( Validate.Presence, { failureMessage: "Please, enter your User name" } );
+});
+
+$(function(){
 var nameBar = new LiveValidation( "nameBar", { validMessage: "Ok!", wait: 500 } );	
 nameBar.add( Validate.Presence, { failureMessage: "Please, enter your name" } );
 });
@@ -692,3 +697,8 @@ rpassBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
 rpassBar.add( Validate.Confirmation, { match: 'passBar' } );
 
 });	
+
+$(function(){
+var birthBar = new LiveValidation( "birthBar", { validMessage: "Ok!", wait: 500 } );	
+birthBar.add( Validate.Presence, { failureMessage: "Please, enter your birthay like: aaaa-mm-dd" } );
+});
