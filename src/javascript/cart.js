@@ -1,10 +1,14 @@
 $(document).ready( function() {
 
-	setTimeout("chargeCartItems()", 500);
+	setTimeout("chargeWishlistItems()", 500);
+	
+	$('#selCount').change(function() {
+		
+	});
 	
 });
 
-function chargeCartItems(){
+function chargeWishlistItems(){
 	var cartItems = cart.getItems();
 	var cant = cart.getItemCount();
 	var itemsNoRepeat = new Array();
@@ -49,9 +53,9 @@ function chargeCartItems(){
 			'<img id="ImageOnCart" class="pointer" onclick="bringInfo(' + 
 			numEachItem[i] + ')" src="'  + itemsNoRepeat[i].imageSource + '"></img>' +
 			'<div id="PriceNumberOnCart" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
-			'<div id="countItem">'  + countEachItem[i] + '</div>' + 
-			'<div id="totalItem">'  + roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
-			'<div id="removeItem"/>' +
+			'<select id="selCount" size="1" class="quantity"> <option selected="selected">'+ countEachItem[i]+' </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select>' +
+			'<div id="totalItemOnCart">'  + roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
+			'<div id="removeItem" href="#"/>' +
 			'</div>');
 	}
 }

@@ -3,7 +3,7 @@ $(document).ready( function() {
 	setTimeout("chargeWishlistItems()", 500);
 	
 });
-//TODO aca tengo q seguir!!! no tocar
+
 function chargeWishlistItems(){
 	var wishlistItems = wishlist.getItems();
 	var cant = wishlist.getItemCount();
@@ -15,12 +15,12 @@ function chargeWishlistItems(){
 	for(var i = 0; i < cant ; i++){
 		flag = true;
 		for(var j = 0; j < itemsNoRepeat.length ; j++){
-			if(itemsNoRepeat[j] == cartItems[i]){
+			if(itemsNoRepeat[j] == wishlistItems[i]){
 				flag = false;
 			}
 		}
 		if(flag){
-			itemsNoRepeat.push(cartItems[i]);
+			itemsNoRepeat.push(wishlistItems[i]);
 		}
 	}
 	
@@ -30,7 +30,7 @@ function chargeWishlistItems(){
 	
 	for(var i = 0 ; i < cant ; i++){
 		for(var j = 0; j < itemsNoRepeat.length ; j++){
-			if(cartItems[i] == itemsNoRepeat[j]){
+			if(wishlistItems[i] == itemsNoRepeat[j]){
 				countEachItem[j]++;
 			}
 		}
@@ -45,13 +45,15 @@ function chargeWishlistItems(){
 	}
 	
 	for(var i = 0 ; i < itemsNoRepeat.length ; i++){
-		$('#ListIt').append('<div id="OnCartItem">' +
-			'<img id="ImageOnCart" class="pointer" onclick="bringInfo(' + 
+		$('#ListIt').append('<div id="OnWishlistItem">' +
+			'<img id="ImageOnWishlist" class="pointer" onclick="bringInfo(' + 
 			numEachItem[i] + ')" src="'  + itemsNoRepeat[i].imageSource + '"></img>' +
-			'<div id="PriceNumberOnCart" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
+			'<div id="PriceNumberOnWishlist" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
 			'<div id="countItem">'  + countEachItem[i] + '</div>' + 
 			'<div id="totalItem">'  + roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
-			'<div id="removeItem"/>' +
+			'<button id="buyButtonOnWishlist" onclick="buyItem(' + i +')" class="buyButton"></button>' +
 			'</div>');
 	}
+	
+	document.getElementById("itemOnWishlistCount").innerHTML="You have " + wishlist.items.length + " items";
 }

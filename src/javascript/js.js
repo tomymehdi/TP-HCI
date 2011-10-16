@@ -4,12 +4,13 @@ $(document).ready( function() {
 	$('#CartContainer').click( function(){
         $("#main").load("./html/cart.html #main > *");
 		reloadCartScript();
-		
+		reloadItemsManagerScript();
 	});
 	
 	$('#WishListContainer').click( function(){
         $("#main").load("./html/wishlist.html #main > *");
         reloadWishlistScript();
+        reloadItemsManagerScript();
 	});
 	
 	var opacity = 1, toOpacity = 0.5, duration = 2500;
@@ -144,25 +145,9 @@ $(document).ready( function() {
 	
 	$('#MyAccount_opt').live('click', function(){
 		$("#main").load("./html/myaccount.html #main > *");
-		reloadregisterScript();
+		reloadmyaccountScript();
 	});
 	
-	$('#prev').click(function(){
-		if(currentPage != 1){
-			$('#pageNumber').remove();
-			$('#Items').empty();
-			setTimeout("loadItems(currentCategory, parseInt(currentPage - 1))", 100);
-		}
-	});
-
-	$('#next').click(function(){
-		if(currentPage != getMaxPage()){
-			$('#pageNumber').remove();
-			$('#Items').empty();
-			setTimeout("loadItems(currentCategory, parseInt(currentPage + 1))", 100);
-		}
-	});
-
 });
 
 function initMenu(n) {
@@ -310,6 +295,19 @@ function reloadregisterScript(){
 	ss.type = 'text/javascript';
 	ss.src = "./javascript/register.js";
 	ss.id = "registerScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+}
+
+function reloadmyaccountScript(){
+	if(document.getElementById("myaccountScript")){
+		$("#myaccountScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/myaccount.js";
+	ss.id = "myaccountScript";
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }

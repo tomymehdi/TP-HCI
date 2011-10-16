@@ -694,6 +694,15 @@ h5{
 	margin-bottom: 15px;
 }
 
+#WishlistItems{
+	position:relative;
+	float:left;
+	width:75%;
+	height: 60%;
+	margin-top:30px;
+	margin-bottom: 15px;
+}
+
 .CartsItems{
 	position:relative;
 	float:left;
@@ -969,6 +978,12 @@ h5{
 	margin-top: 50px;
 }
 
+#PriceNumberOnWishlist{
+	float: left;
+	margin-left: 55px;
+	margin-top: 50px;
+}
+
 #countItem {
     float: left;
     margin-left: 136px;
@@ -981,6 +996,17 @@ h5{
     margin-top: 50px;
 }
 
+#totalItemOnCart {
+    float: right;
+    margin-right: -180px;
+    margin-top: 50px;
+}
+
+#selCount {
+	margin-right: 307px;
+    margin-top: 43px;
+}
+
 #removeItem{
 	background-image: url('../images/home/x.png');
 	float: left;
@@ -988,17 +1014,45 @@ h5{
 	width: 25px;
 	margin-top: -20px;
 	margin-left: 480px;
+}
 
+#buyButtonOnWishlist{
+	float: left;
+	margin-top: -30px;
+	margin-left: 480px;
+}
+
+#MenuSelection{
+	float: left;
+	width: 40%;
+	margin-left: 75px;
+}
+
+#NPass{
+    margin-left: 57px;
+    width: 100%;
+}
+#RNPass{    
+	margin-left: 25px;
+    width: 100%;
 }
 
 #Image {
 	float: left;
-	height: 105px;
-	width: 105px;
-	margin-top: -10px;
+	height: 85px;
+	width: 85px;
+	margin-top: 0px;
 }
 
 #ImageOnCart {
+	float: left;
+	height: 105px;
+	width: 105px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#ImageOnWishlist {
 	float: left;
 	height: 105px;
 	width: 105px;
@@ -1036,6 +1090,19 @@ h5{
 }
 
 #OnCartItem{
+	float: left;
+	margin-left: 15px;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	height: 125px;
+	border-color: #bdbdb7;
+	border-style: groove;
+	background-color: #a0a09a;
+	width: 95%;
+}
+
+#OnWishlistItem{
 	float: left;
 	margin-left: 15px;
 	margin-top: 10px;
@@ -1118,6 +1185,8 @@ h5{
 
 .LV_invalid {
 	color: #CC0000;
+    float: left;
+    margin-left: 50px;
 }
 
 .LV_valid_field,input.LV_valid_field:hover,input.LV_valid_field:active,textarea.LV_valid_field:hover,textarea.LV_valid_field:active
@@ -1258,12 +1327,13 @@ ul#menu li ul li a:hover {
 
 
 .MyAcInp{
-	
 	float:left;
-	margin-left:200px;
-	width:50%;
 	margin-top:50px;
+	margin-left: 100px;
+}
 
+#EmailInput{
+	margin-left: 134px;
 }
 
 .curved {

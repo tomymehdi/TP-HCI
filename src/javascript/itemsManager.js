@@ -7,6 +7,15 @@ function buyItem(number){
 	actualizeCart();
 }
 
+function removeItemFromCart(item){
+	var items = cart.getItems();
+	for(var i = 0; i < cart.getItemCount() ; i++){
+		if(items[i] == item){
+			items.splice(1,i);
+		}
+	}
+}
+
 function roundNumber(num, dec) {
 	var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
 	return result;
@@ -58,6 +67,7 @@ function continueLoading(number){
 	}
 	partialList = new ItemList();
 	var i = 0;
+	var item;
 	while(i < itemList.items.length){
 		item = itemList.items[i];
 		partialList.addItem(item);
@@ -67,7 +77,12 @@ function continueLoading(number){
 	$('#Items').empty();
 	while(i < partialList.items.length){
 		item = partialList.items[i];
-		$('#Items').append('<div id="Item"><div id="itemName" onclick="bringInfo(' + i + ')" class="pointer">' + roundString(item.name, 25) + '</div><img id="Image" class="pointer" onclick="bringInfo(' + i + ')" src="'  + item.imageSource + '"></img><div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button><button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button><select id="sel' + i + '" size="1" class="quantity"> <option selected="selected">0 </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +roundNumber(item.price*currentCoinType.value, 2) + '</div></div></div></div>');
+		$('#Items').append('<div id="Item">'+
+		'<div id="itemName" onclick="bringInfo(' + i + ')" class="pointer">' + roundString(item.name, 25) + '</div>'+
+		'<img id="Image" class="pointer" onclick="bringInfo(' + i + ')" src="'  + item.imageSource + '"></img>'+
+		'<div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button>'+
+		'<button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button>'+
+		'<select id="sel' + i + '" size="1" class="quantity"> <option selected="selected">0 </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +roundNumber(item.price*currentCoinType.value, 2) + '</div></div></div></div>');
 		i++;
 	}
 	$('#pageNumber').remove();
@@ -165,7 +180,3 @@ function getPageSize(){
 function get(parent, tag){
 	return parent.getElementsByTagName(tag)[0].firstChild.nodeValue;
 }
-
-
-
-
