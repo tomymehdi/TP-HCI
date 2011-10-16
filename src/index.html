@@ -10,7 +10,10 @@
 	<script id="jsScript" type="text/javascript" src ="./javascript/js.js"> </script>
 
 	<script id="itemsManagerScript" type="text/javascript" src ="./javascript/itemsManager.js"> </script>
-	<script id="servicesScript" type="text/javascript" src ="./javascript/services.js"> </script>
+	<script id="servicesScript" type="text/javascript" src ="./javascript/services.js"> </script>	
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+
 				
 	
 	<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
@@ -133,7 +136,7 @@
 			<div class="column">
 			<h3>Where Are We</h3>
 			<ul>
-			<li><a id="whereAreWe" class="footerItem pointer" ></a></li>
+			<li><a id="whereAreWe" onclick="initializeMap()" class="footerItem pointer"></a></li>
 			</ul>
 			</div>
 

@@ -10,7 +10,7 @@ $(document).ready( function() {
 
     $("#main").load("./html/home.html #main > *");   
 
-   	setTimeout("appendCats()",500);
+   	appendCats(0);
 	
 	setTimeout("reloadhomeFunc()",2000);
 	
@@ -28,23 +28,31 @@ $(document).ready( function() {
 });
 
 
-function appendCats(){    
+function appendCats(seconds){
+	if(CategoriesList.categories.length == 0){
+		if(seconds == 10){
+			alert("The connection with our server is slow or is not connected at all. Please check our your internet connection.");
+		}
+		newSeconds = seconds+1;
+		setTimeout("appendCats(newSeconds)", 1000);
+		return;
+	}
 
 	var j=0;
 	var cate;
 
-	if(document.getElementById("main_opt")){
-	}
-	else{
+//	if(document.getElementById("main_opt")){
+//	}
+//	else{
 		
 		$('#FooterCat').empty(); 
 		
 		while(j < CategoriesList.categories.length){
 			cate = CategoriesList.categories[j];
-		    $('#main').append('<div id="main_opt"><div  class="'+cate.name+'_link  title" >'+cate.name+'</div>');
+		    $('#main').append('<div class="main_opt"><div  class="'+cate.name+'_link  title pointer" >'+cate.name+'</div>');
 		    $('#FooterCat').append('<li><a  class="'+cate.name+'_link pointer">'+cate.name+'</a></li>');
 			j++;
 			}
-	} 
+//	} 
 }
 

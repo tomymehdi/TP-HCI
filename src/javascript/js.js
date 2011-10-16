@@ -134,9 +134,9 @@ $(document).ready( function() {
         $("#main").load("./html/contact.html #main > *");
 	});
 
-	$('#whereAreWe').click( function() {
-        $("#main").load("./html/whereAreWe.html #main");
-	});
+//	$('#whereAreWe').click( function() {
+//        $("#main").load("./html/whereAreWe.html #main");
+//	});
 
 	$('#register_link').live('click', function(){
 		$("#main").load("./html/register.html #main > *");
@@ -147,8 +147,46 @@ $(document).ready( function() {
 		$("#main").load("./html/myaccount.html #main > *");
 		reloadmyaccountScript();
 	});
-	
 });
+
+function initializeMap() {
+	$('#main').empty();
+  	var latlng = new google.maps.LatLng(-34.602929, -58.367862);
+  	var myOptions = {
+    zoom: 18,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+	navigationControl: true,
+	mapTypeControl: true,
+	scaleControl: true
+  	};
+  	var map = new google.maps.Map(document.getElementById("main"), myOptions);
+	var contentString = '<div id="content">'+
+	'<div id="siteNotice">'+
+	'</div>'+
+	'<h1 id="firstHeading" class="firstHeading">ART</h1>'+
+	'<div id="bodyContent">'+
+	'<p><b>ART</b> staff is integrated by 3 students from ITBA (Technology Institute of Buenos Aires). Their names are '+
+	'(by alphabetical order): Alan Pierri - Luciana Reznik - Tomás Mehdi. They are all from Buenos Aires, Argentina, and ' + 
+	'by means of this work they are on their search for HCI approval. Please give us feedback at fakemail@alu.itba.edu.ar</p>' + 
+	'<p>Address: Eduardo Madero 399, <a href="http://www.itba.edu.ar">'+
+	'ITBA</a></p>'+
+	'</div>'+
+	'</div>';
+	
+	var infowindow = new google.maps.InfoWindow({
+	content: contentString
+	});
+	var marker = new google.maps.Marker({
+	position: latlng,
+	map: map,
+	title: "ART"
+	});
+	google.maps.event.addListener(marker, 'click', function() {
+	infowindow.open(map,marker);
+	});
+	infowindow.open(map,marker);
+}
 
 function initMenu(n) {
 
