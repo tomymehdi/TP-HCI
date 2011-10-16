@@ -1,20 +1,27 @@
-$(document).ready( function() {
-	$('#login_data2').hide();
-	$('#login_option').click( function(){
-		$(this).animate({
-			opacity: 1,
-		}, 400 );	
-		if($('#login_data2').is(":hidden")){
-			$('#login_data2').slideDown();
-		} else{
-			$('#login_data2').slideUp();
-		}
-	});
-
-$('#login_button2').click( function(){
-	$('#login_data2').slideUp();
+$('#login_option').click( function(){
+	$(this).animate({
+		opacity: 1,
+	}, 400 );	
+	if($('#login_data2').is(":hidden")){
+		$('#login_data2').slideDown();
+	} else{
+		$('#login_data2').slideUp();
+	}
 });
-
+	
+$('#login_button2').live('click', function(){
+	$('#login_data2').slideUp();
+	
+	/*Decaparece la opcion de login y pasa a ser MyAccount, faltaira validar el usuario si es necesario */
+       
+		$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
+        
+        $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
+	
+	if(!($('#login_data').is("hidden"))){
+		$('#login_data').slideUp();
+	}
+});
 
 /*Validacion de formulario registro*/
 
@@ -649,36 +656,39 @@ var Validate = {
 }
 
 $(function(){
-var name = new LiveValidation( "nameBar", { validMessage: "Ok!", wait: 500 } );	
-name.add( Validate.Presence, { failureMessage: "Please, enter your name" } );
+var nameBar = new LiveValidation( "nameBar", { validMessage: "Ok!", wait: 500 } );	
+nameBar.add( Validate.Presence, { failureMessage: "Please, enter your name" } );
 });
+
+
 $(function(){
-var LastName = new LiveValidation( "lastnameBar", { validMessage: "Ok!", wait: 500 } );	
-LastName.add( Validate.Presence, { failureMessage: "Please, enter your last name" } );
+var lastnameBar = new LiveValidation( "lastnameBar", { validMessage: "Ok!", wait: 500 } );	
+lastnameBar.add( Validate.Presence, { failureMessage: "Please, enter your last name" } );
 });
 
 $(function(){
-var email = new LiveValidation( "emailBar", { validMessage: "Ok!", wait: 500 } );	
-email.add( Validate.Presence, { failureMessage: "Please, enter your e-mail" } );
-email.add( Validate.Email );
+var emailBar = new LiveValidation( "emailBar", { validMessage: "Ok!", wait: 500 } );	
+emailBar.add( Validate.Presence, { failureMessage: "Please, enter your e-mail" } );
+emailBar.add( Validate.Email );
 });
+
 $(function(){
-var retypeEmailBar = new LiveValidation( "retypeEmailBar", { validMessage: "Ok!", wait: 500 } );	
-retypeEmailBar.add( Validate.Presence, { failureMessage: "Please, re-type your e-mail" } );
-retypeEmailBar.add( Validate.Email );
-retypeEmailBar.add( Validate.Confirmation, { match: 'emailBar' } );
+var rmailBar = new LiveValidation( "rmailBar", { validMessage: "Ok!", wait: 500 } );	
+rmailBar.add( Validate.Presence, { failureMessage: "Please, re-type your e-mail" } );
+rmailBar.add( Validate.Email );
+rmailBar.add( Validate.Confirmation, { match: 'emailBar' } );
 });
+
 $(function(){
-var PasswordBar = new LiveValidation( "PasswordBar", { validMessage: "Ok!", wait: 500 } );	
-PasswordBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
-PasswordBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
+var passBar = new LiveValidation( "passBar", { validMessage: "Ok!", wait: 500 } );	
+passBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
+passBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
 });
+
 $(function(){
-var retipePasswordBar = new LiveValidation( "retipePasswordBar", { validMessage: "Ok!", wait: 500 } );	
-retipePasswordBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
-retipePasswordBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
-retipePasswordBar.add( Validate.Confirmation, { match: 'PasswordBar' } );
+var rpassBar = new LiveValidation( "rpassBar", { validMessage: "Ok!", wait: 500 } );	
+rpassBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
+rpassBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
+rpassBar.add( Validate.Confirmation, { match: 'passBar' } );
 
 });	
-
-});

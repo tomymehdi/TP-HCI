@@ -1,4 +1,4 @@
-@CHARSET "UTF-8";
+/* @CHARSET "UTF-8"; */
 
 /*clear browser default styling*/
 body,div,dl,dt,dd,li,pre,form,fieldset,input,textarea,p,blockquote,th,td,button
@@ -48,7 +48,7 @@ acronym,abbr,fieldset,img {
 	outline: 0;
 }
 
-/*clear browser default styling*/
+clear browser default styling
 .curved {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -62,7 +62,7 @@ body {
 
 #wrapper {
 	background-image: url("../images/home/fondo50.png");
-	align: relative;
+	text-align: center;
 	width: 100%;
 	height: 100%;
 	margin-left: auto;
@@ -102,6 +102,7 @@ body {
 	position: relative;
 	width: 245px;
 	z-index: 3;
+	cursor: pointer;
 }
 
 #carros {
@@ -123,6 +124,7 @@ body {
 	margin-top: 20px;
 	position: relative;
 	width: 200px;
+	cursor: pointer;
 }
 
 #Cart a {
@@ -156,6 +158,7 @@ body {
 	margin-top: 20px;
 	position: relative;
 	width: 200px;
+	cursor: pointer;
 }
 
 #WishList a {
@@ -169,6 +172,8 @@ body {
 	background-repeat: no-repeat;
 }
 
+
+
 #WishList2 a {
 	position: relative;
     background-image: url("../images/home/wishlist.png");
@@ -180,7 +185,7 @@ body {
     margin-right: 120px;
 }
 
-#data {
+.data {
 	float: right;
 	height: 20px;
 	margin-right: 10px;
@@ -221,13 +226,16 @@ body {
 	width: 95px;
 }
 
-.fadein1, .fadein2, .fadein3 {
-	position: relative;
-	width: 300px;
+.fadein1{
+	position:relative;
+	margin-top:300px;
+	margin-left:100px;
+	float:left;
+	width: 60%;
 	height: 300px;
 }
 
-.fadein1 div, .fadein2 div, .fadein3 div {
+.fadein1 div{
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -311,21 +319,33 @@ body {
 }
 
 .item {
-	float: right;
-	height: 30%;
-	width: 33%;
-	margin-top: 10px;
-	font-size: 12px;
-	color: black;
+    color: black;
+    float: right;
+    font-size: 12px;
+    height: 30%;
+    margin-right: 15px;
+    margin-top: 10px;
+    width: 18%;
+}
+
+.movies_link{
+	cursor: pointer;
+}
+
+.cds_link{
+	cursor: pointer;
+}
+
+.books_link{
+	cursor: pointer;
 }
 
 .text {
-	color: black;
-	float: left;
-	height: 33%;
-	margin-right: 13px;
-	text-decoration: none;
-	width: 65%;
+    color: black;
+    height: 33%;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
 }
 
 #register {
@@ -333,8 +353,13 @@ body {
 	background-repeat: no-repeat;
 	float: left;
 	height: 58%;
-	margin-left: 13px;
-	width: 38%;
+	margin-left: 25%;
+	width: 75%;
+	cursor: pointer;
+}
+
+.pointer{
+	cursor: pointer;
 }
 
 #myaccount {
@@ -347,6 +372,7 @@ body {
 	width: 60%;
 	background-image: url('../images/home/user.png');
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
 #login {
@@ -354,8 +380,27 @@ body {
 	background-repeat: no-repeat;
 	float: left;
 	height: 53%;
-	margin-left: 2px;
-	width: 36%;
+	margin-left: 25%;
+	width: 75%;
+	cursor: pointer;
+}
+#logout{
+	background-image: url("../images/home/logout.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 53%;
+	margin-left: 25%;
+	width: 75%;
+	cursor: pointer;
+}
+#MyAccount{
+	background-image: url("../images/home/MyAcc.png");
+	background-repeat: no-repeat;
+	float: left;
+	height: 53%;
+	margin-left: 25%;
+	width: 75%;
+	cursor: pointer;
 }
 
 #help {
@@ -363,12 +408,9 @@ body {
 	background-repeat: no-repeat;
 	float: left;
 	height: 53%;
-	margin-left: 10px;
-	width: 35%;
-}
-
-#help_text {
-	margin-left: 10px;
+	margin-left: 25%;
+	width: 75%;
+	cursor: pointer;
 }
 
 #idioma {
@@ -386,7 +428,7 @@ body {
 	margin-top: 15px;
 }
 
-#dollar a {
+#dollars a {
 	position: relative;
 	float: right;
 	height: 100%;
@@ -395,7 +437,7 @@ body {
 	background-repeat: no-repeat;
 }
 
-#peso a {
+#pesos a {
 	position: relative;
 	float: right;
 	height: 100%;
@@ -404,7 +446,7 @@ body {
 	background-repeat: no-repeat;
 }
 
-#euro a {
+#euros a {
 	position: relative;
 	float: right;
 	height: 100%;
@@ -441,10 +483,11 @@ body {
 	color: #585044;
 }
 
+
 #main {
-	background-color: #F5FAFA;	
+	background-color: #F5FAFA;
 	overflow: auto;
-	min-height: 700px;
+	min-height: 750px;
 	position: relative;
 	min-width: 960px;
 	width: 50%;
@@ -459,7 +502,7 @@ body {
 	word-spacing: 0.1em;
 	position: relative;
 	text-align: center;
-	height: 10%;
+	height: 80%;
 	width: 100%;
 	font-size: 48px;
 	font-family: 'Irish Grover', thaoma, century gothic, serif;
@@ -467,12 +510,14 @@ body {
 	color: #585044;
 }
 
-.main_opt {
-	float: right;
-	height: auto;
-	margin-top: 3%;
+#main_opt {
+	float: left;
+	text-align: center;
+	height: 100px;
+	width: 30%;
+	margin: 50px;
 	position: relative;
-	width: 33%; 
+	
 }
 
 #movies {
@@ -493,6 +538,10 @@ body {
 	height: 70%;
 	width: 100%;
 	margin-top: 100px;
+}
+
+#itemName{
+	font-weight: bold;
 }
 
 #books {
@@ -589,9 +638,7 @@ h3 {
 
 /*para el search*/
 h1 {
-	width: 15%;
 	float: left;
-	margin-right: 10px;
 }
 
 /*para los carts*/
@@ -616,6 +663,103 @@ h4 {
 	margin-left: 60px;
 	color: #6D929B;
 }
+h5{
+	color: #585044;
+	text-decoration: none;
+	float: left;
+	font-size: 24px;
+	font-family: century gothic, serif;
+	text-align: right;
+	margin-left:50px;
+	
+}
+
+#upOptions{
+	position:relative;
+	float:left;
+	background-color:#c4dcd8;
+	width: 100%;
+	height: 30px;
+}
+#itemCount{
+	text-align: center;
+		
+}
+#CartItems{
+	position:relative;
+	float:left;
+	width:75%;
+	height: 60%;
+	margin-top:30px;
+	margin-bottom: 15px;
+}
+
+.CartsItems{
+	position:relative;
+	float:left;
+	width:100%;
+	height:100%;
+}
+#CartCount{
+	position:relative;
+	float:left;
+	width:75%;
+	height:30px;
+	margin-bottom: 15px;
+}
+#Buttons{
+	position:relative;
+	float:left;
+	width: 25%;
+	height: 60%;
+	margin-top:30px;	
+}
+#ListIt{
+	
+	position:relative;
+	float:left;
+	width: 100%;
+	height: 100%;
+
+}
+#CheckOut{
+	position:relative;
+	float:right;
+	font-size: 24px;
+	font-family: century gothic, serif;	
+	color: #585044;
+	margin-right: 200px;
+}
+	
+.CartButton{
+	position: relative;
+	float:right;
+	margin:30px;
+	height: 50px;
+	width: 110px;
+	font-size: 18px;
+	text-align: center;
+	font-family: century gothic, serif;
+	color: #585044;
+	background-color: #c4dcd8;
+	border-style:double;
+}
+
+.MyAccButton{
+	
+	position: relative;
+	float:right;
+	margin:30px;
+	height: 30px;
+	width: 80px;
+	font-size: 18px;
+	text-align: center;
+	font-family: century gothic, serif;
+	color: #585044;
+	background-color: #c4dcd8;
+	border-style:double;
+	
+}
 
 .Registration_title {
 	float:left;
@@ -637,7 +781,9 @@ h4 {
 	margin-top: 15px;
 	width: 66%;
 }
-/*********************************** MOVIES ********************************************/
+
+
+/*********************************** ARTICLES ********************************************/
 #Categories {
 	position: relative;
 	float: left;
@@ -677,7 +823,7 @@ h4 {
 	width: 80%;
 	height: 50px;
 	margin-left: 30px;
-	background-color: grey;
+	background-color: gray;
 	background-color: #dfdfd9;
 	border-color: #bdbdb7;
 	border-style: groove;
@@ -697,7 +843,7 @@ h4 {
 	float: left;
 	width: 60%;
 	height: auto;
-	background-color: grey;
+	background-color: gray;
 }
 
 #MoviesSubsections {
@@ -757,21 +903,75 @@ h4 {
 	margin-top: 10px;
 	margin-right: 10px;
 	margin-bottom: 10px;
-	height: 100px;
+	height: 125px;
 	border-color: #bdbdb7;
 	border-style: groove;
 	background-color: #a0a09a;
-	width: 93%;
+	width: 45%;
+}
+
+.buyButton{
+	float: left;
+    height: 40px;
+    margin-left: -95px;
+    margin-top: -5px;
+    position: relative;
+    width: 40px;
+	background-image: url('../images/home/Cart.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.addToWishlistButton{
+	float: left;
+    height: 40px;
+    margin-left: -25px;
+    margin-top: -5px;
+    position: relative;
+    width: 40px;
+	background-image: url('../images/home/wishlist.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.quantity {
+    float: right;
+    font-size: 20px;
+    height: 30px;
+    margin-top: 0;
+    width: 50px;
+}
+
+#Price {
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    height: 20%;
+    margin-right: 0;
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    width: 80%;
+}
+
+#PriceTag{
+	float: left;
+}
+
+#PriceNumber{
+	float: left;
+	margin-left: 5px;
 }
 
 #Image {
 	float: left;
-	height: 85px;
-	width: 85px;
-	margin-left: 10px;
-	margin-top: 10px;
+	height: 105px;
+	width: 105px;
 	margin-right: 10px;
-	margin-bottom: 10px;
+}
+
+#pageContainer{
+	float: right;
 }
 
 #Description {
@@ -799,50 +999,67 @@ h4 {
 	margin-bottom: 10px;
 }
 
-#Price {
-    float: right;
-    height: 20%;
-    margin-right: 17px;
-    position: relative;
-    text-align: right;
-    width: 136%;
-    font-size: 32px;
-}
-
-.HP {
-	position: relative;
-	float: left;
-	background-image: url('../images/itemSelector/hp.png');
-}
-
-.Aladdin {
-	position: relative;
-	float: left;
-	background-image: url('../images/itemSelector/aladdin.png');
+#OnCartItem{
+	
 }
 
 #login_data {
 	background-image: url("../images/home/cartContainer.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
 	border-style: groove;
-	float: left;
-	margin-left: -7px;
-	margin-top: -2px;
-	width: 200px;
+	float: right;
+	width: 250px;
+	margin-left: -25px;
+	margin-top: 75px;
+	z-index: 5;
+	display: none;
 }
 
 #login_data2 {
 	background-image: url("../images/home/cartContainer.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
 	border-style: groove;
 	float: right;
-	width: 200px;
-    margin-right: 92px;
-    margin-top: -57px;
+	width: 250px;
+    margin-left: 332px;
+    margin-top: -72px;
+}
+
+#login_pass{
+	margin-top: 25px;
+}
+
+#login_button{
+	margin-top: 50px;
+}
+
+#login_button2{
+	margin-top: 50px;
+}
+
+#login_user input{
+	float: right;
+}
+
+#login_user h1{
+	float: left;
+}
+
+#login_pass input{
+	float: right;
+}
+
+#login_pass h1{
+	float: left;
 }
 
 .navigationItem {
 	margin: 10px;
 	font-size: 14px;
 }
+
 
 /************************ FORMS******************************/
 .LV_validation_message {
@@ -914,7 +1131,7 @@ h4 {
 
 #passBar{
 	float:right;
-		margin-right: 100px;
+	margin-right: 100px;
 }
 
 #rpass{
@@ -929,18 +1146,27 @@ h4 {
 #prev{
     float: left;
     margin-left: 40px;
-    width: 25%;
-    margin-top: -23px;
+/*     width: 25%; */
+/*     margin-top: -23px; */
 }
 
 #next{
     float: right;
-    margin-right: 42px;
-    width: 25%;
-    margin-top: -23px;
+    margin-right: 40px;
 }
 
+.pageChange h3{
+	margin-top: 0;
+	margin-bottom: 0;
+    background-color: #DFDFD9;
+    border-color: #BDBDB7;
+    border-style: groove;
+}
 
+#loading{
+	height: 20px;
+	width: 300px;
+}
 
 ul#menu, ul#menu ul {
   list-style-type:none;
@@ -978,4 +1204,25 @@ ul#menu li ul li a:hover {
   background: #aaa;
   border-left: 5px #6D929B solid;
   padding-left: 15px;
+}
+
+.hidden {
+  display: none;
+  position: absolute;
+}
+
+
+.MyAcInp{
+	
+	float:left;
+	margin-left:200px;
+	width:50%;
+	margin-top:50px;
+
+}
+
+.curved {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	behavior: url(border-radius.htc);
 }

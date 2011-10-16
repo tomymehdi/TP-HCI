@@ -3,12 +3,10 @@
 		<div id="navigation">
 			<ul>
 				<li class="navigationItem"><a href="#" class="home" >Home</a></li>
-				<li class="navigationItem">></li>
+				<li class="navigationItem">&gt;</li>
 				<li class="navigationItem"><a href="#">Register</a>
 			</ul>
 		</div>
-
-
 		<br />
 	<div>
 
@@ -20,14 +18,19 @@
 		<br />
 		<h2>* Required fields.</h2>
 		<br />
-					<div id="login_data2">
-						<h1>User</h1>
-						<input type="text"></input>
-						<h1>Password</h1>
-						<input type="text"></input>
-						<div id="login_button2"><a href="#">Login</a></div>
+					<div id="login_data2" class="hidden">
+						<div id="login_user">
+							<h1>User</h1>
+							<input type="text"></input>
+						</div>
+						<div id="login_pass">
+							<h1>Password</h1>
+							<input type="password"></input>
+						</div>
+						<div id="login_button2" class="pointer"><a href="#">Login</a></div>
 					</div>
 	</div>
+	
 	<div id="registration_form">
 		<form>
 			<div class="form" id="name">
@@ -58,7 +61,6 @@
 				<h2>Re-type Password *</h2>
 				<input type="password" id="rpassBar" class=" LV_invalid_field"></input>
 			</div>
-
 		</form>
 		</div>
 	</div>

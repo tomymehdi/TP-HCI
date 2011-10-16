@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Art direction</title>
+
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAhJvNRwdHCzNPZU_I7Rw6IxQ4Cg8uvp3HuRtP3UdsoSF7xQyJ4lBGSea-ar0o_vtVLOwmGoyLQ"
+type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+var contador = 1; // contador para marcar puntos de interes
+
+// Creates a marker at the given point with the given number label
+function createMarker(point, number) {
+var marker = new GMarker(point);
+GEvent.addListener(marker, "click", function() {
+marker.openInfoWindowHtml("Marcador#<b>" + number + "<br>Pos " + point.toString() + "</b>");
+});
+return marker;
+}
+
+
+function load() {
+if (GBrowserIsCompatible()) {
+var map = new GMap2(document.getElementById("map"),"hybrid");
+
+// insertar los controles
+map.addControl(new GSmallMapControl());
+map.addControl(new GMapTypeControl());
+
+
+// establecer el listener para actualizar la posición del punto central
+GEvent.addListener(map, "moveend", function() {
+var center = map.getCenter();
+document.getElementById("message").innerHTML = center.toString();
+});
+
+// establecer el punto origen, nivel de zoom y tipo de mapa
+map.setCenter(new GLatLng(12.594174919360,+3.70773553842666),15, G_SATELLITE_MAP);
+
+// establecer marcadores
+GEvent.addListener(map, "click", function(marker, point) {
+if (marker) {
+map.removeOverlay(marker);
+} else {
+map.addOverlay(createMarker(point, contador));
+contador = contador + 1;
+}
+});
+
+// poner el texto de aquí esta Autentia
+map.openInfoWindow(map.getCenter(),document.createTextNode("Aqui esta Art"));
+}
+}
+
+//]]>
+</script>
+</head>
+<div id="main">
+<center>
+<div id="map" style="width: 800px; height: 600px"></div>
+<div id="message"></div>
+</center>
+</div>
+</html>
