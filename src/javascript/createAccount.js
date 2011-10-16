@@ -2,8 +2,6 @@ $(document).ready( function() {
 	
 	
 	$('#Submit_register').click( function(){
-       
-		
 		
 		var username= $('#userNameBar').val();
 		var name=$('#nameBar').val();
@@ -12,12 +10,7 @@ $(document).ready( function() {
 		var birth=$('#birthBar').val();
 		
 		createAccount(username,name,pass,email,birth);
-
-
     });
-	
-
-	
 });
 
 
@@ -44,15 +37,13 @@ function createAccount(username,name,pass,email,birth){
 	request.onreadystatechange = function(){
 		
 		if(request.readyState==4 && request.status==200){
+			alert("lalala");
 			
-			
-		/*	x=request.responseXML.documentElement.getElementsByTagName("response");
-			xx=x[0];
-			stat=xx.getAttribute("status")
+			stat=$(request.responseXML).find("response").attr("status");
 		
 			alert(stat);
 			
-			if(stat=="ok"){ */
+			if(stat=="ok"){ 
 				
 				alert('You have completed your registration succesfully. Now you will be able to start buying.');
 				
@@ -62,16 +53,12 @@ function createAccount(username,name,pass,email,birth){
 				
 					currentCategory=CategoriesList.categories[0];
 					$("#main").load("./html/articles.html #main > *");
-
 					reloadArticlesScript(currentCategory.name);
 					reloadItemsManagerScript();
-
 					setTimeout("loadItems(currentCategory, 1)", 100);
-				
-			
-
+			}
 		}
+		request.open("POST",url,true);
+		request.send();
 	}
-	request.open("POST",url,true);
-	request.send();
 }
