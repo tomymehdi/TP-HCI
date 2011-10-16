@@ -353,6 +353,10 @@ body {
 	cursor: pointer;
 }
 
+.pointer{
+	cursor: pointer;
+}
+
 .text {
     color: black;
     height: 33%;
@@ -1100,7 +1104,7 @@ h5{
 	margin-bottom: 10px;
 }
 
-#OnCartItem{
+.OnCartItem{
 	float: left;
 	margin-left: 15px;
 	margin-top: 10px;

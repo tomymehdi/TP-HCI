@@ -47,15 +47,69 @@ function chargeWishlistItems(){
 			}
 		}
 	}
-	
 	for(var i = 0 ; i < itemsNoRepeat.length ; i++){
-		$('#ListIt').append('<div id="OnCartItem">' +
+		$('#ListIt').append('<div id="OnCartItem' + i +'" class="OnCartItem">' +
 			'<img id="ImageOnCart" class="pointer" onclick="bringInfo(' + 
 			numEachItem[i] + ')" src="'  + itemsNoRepeat[i].imageSource + '"></img>' +
 			'<div id="PriceNumberOnCart" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
-			'<select id="selCount" size="1" class="quantity"> <option selected="selected">'+ countEachItem[i]+' </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select>' +
+			'<div class="eachCount"><button onclick="decrease(' + i + ', ' + itemsNoRepeat[i].number + ')"> &lt; </button><div id="eachCountNumber' + i +'">'+ countEachItem[i]+'</div><button onclick="increase(' + i + ', ' + itemsNoRepeat[i].number + ')">&gt;</button></div>'+
 			'<div id="totalItemOnCart">'  + roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
-			'<div id="removeItem" href="#"/>' +
+			'<button id="removeItem" onclick="removeItem('+ i + ', ' + itemsNoRepeat[i].number + ')"/>' +
 			'</div>');
 	}
+}
+
+function decrease(i, target_id){
+	if(parseInt($('#eachCountNumber' + i)) == 0){
+		alert("El prod " + i + " es 0!!  o sea es " + $('#eachCountNumber' + i));
+		return;
+	}
+	flag = false;
+	var item;
+	while(!flag){
+		item = cart.items.shift();
+		if(item.number == target_id){
+			previousNumber = parseInt($('#eachCountNumber' + i ).text());
+			$('#eachCountNumber' + i ).empty();
+			$('#eachCountNumber' + i ).append("" + (previousNumber-1));
+			actualizeCart();
+			if(previousNumber == 1){
+				$('#OnCartItem' + i).remove();
+			}
+			return;
+		}
+		cart.items.push(item);
+	}
+}
+
+function increase(i, target_id){
+	flag = false;
+	var item;
+	while(!flag){
+		item = cart.items.shift();
+		if(item.number == target_id){
+			previousNumber = parseInt($('#eachCountNumber' + i ).text());
+			$('#eachCountNumber' + i ).empty();
+			$('#eachCountNumber' + i ).append("" + (previousNumber+1));
+			cart.items.push(item);
+			cart.items.push(item);
+			actualizeCart();
+			return;
+		}
+		cart.items.push(item);
+	}
+}
+
+function removeItem(listNumber, target_id){
+	var i = 0;
+	var len = cart.items.length;
+	while(i < len){
+		item = cart.items.shift();
+		if(item.number != target_id){
+			cart.items.push(item);
+		}
+		i++;
+	}
+	actualizeCart();
+	$('#OnCartItem' + listNumber).remove();
 }

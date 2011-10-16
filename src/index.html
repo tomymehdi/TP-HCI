@@ -18,6 +18,16 @@
 	
 	<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
 </head>
+<noscript>     
+<body scroll=no style="text-align: center"><center><table border="0" style="height: 100%; width: 100%; right: 1%; left: 1%; background: #FF0000;; position: fixed">
+                                     <tr><td align="center">
+<div style="position: fixed; font-size: 18px; z-index: 2; cursor: help; background: #FF0000; width: 480px; color: black; padding: 5px 5px 5px 5px; border: 1px solid; border-color: #FFDD00; height: auto; text-align: left; left: 20%">
+<span style="font: bold 20px Arial; color:#000000; background: #FF0000; vertical-align: middle">NO SCRIPT ERROR:</span><br> 
+     Sorry this site will not function properly without the use of scripts.
+     The scripts are safe and will not harm your computer in anyway. 
+     Adjust your settings to allow scripts for this site and reload the site.</div> 
+          </td></tr></table></center> 
+</noscript>
 <body>
 	<div id="wrapper">
 		<div id="header">
@@ -29,18 +39,18 @@
 
 				<div id="CartContainer" class="curved" >
 					<div id="Cart"><a class="pointer" ><span class="span">cart</span></a></div>
-					<h4><a class="pointer">Cart</a></h4>
+					<h4><a lang="cart" class="pointer">Cart</a></h4>
 					<div class="data">
-					<h2 id= "itemCount">You have 0 items</h2>
-					<h2 id="totalCount">Total: U$S 0</h2>
+					<h2 id="itemCount" lang="itemQty">You have 0 items</h2>
+					<h2 id="totalCount" lang="totalCount">Total: U$S 0</h2>
 					</div>
 				</div>
 			
 				<div id="WishListContainer" class="curved" >
 					<div id="WishList"><a class="pointer" ><span class="span">wishlist</span></a></div>
-					<h4><a class="pointer">WishList</a></h4>
+					<h4><a lang="wishList" class="pointer">WishList</a></h4>
 					<div class="data">
-					<h2 id="wishedItems">You have: 0 items</h2>
+					<h2 id="wishedItems" lang="wishedItems">You have: 0 items</h2>
 					</div>
 				</div>
 
@@ -50,16 +60,16 @@
 			<div id="opciones" >
 
 				<div id="login_opt" class="item">
-					<div id="text_login" class="text">Login</div>
+					<div id="text_login" lang="login" class="text">Login</div>
 					<div id="login"></div>
 
 				</div>
 				<div class="item">
-					<div class="text" id="help_text">Help</div>
+					<div class="text" lang="help" id="help_text">Help</div>
 					<div id="help"><a class="pointer" ></a></div>
 				</div>
 				<div class="item" id="register_link">
-					<div class="text">Register</div>
+					<div lang="register" class="text">Register</div>
 					<div id="register"></div>					
 				</div>
 
@@ -73,15 +83,13 @@
 							<h1>Password</h1>
 							<input type="password" id="login_pass_input2"></input>
 						</div>
-						<div id="login_button" class="pointer"><a href="#">Login</a></div>
+						<div id="login_button" lang="login" class="pointer"><a href="#">Login</a></div>
 					</div>
 
 
 
 				<div id="idioma">
 					<select id="idioma_select">
- 						<option value="english">English</option>
- 						<option value="spanish">Spanish</option>
 					</select>
 				</div>
 
@@ -108,45 +116,45 @@
 
 		<div id="footer">
 			<div class="column">
-			<h3>Navigate</h3>
+			<h3 lang="navigate">Navigate</h3>
 			<ul id="FooterCat">
 			</ul>
 			</div>
 			<div class="column">
-			<h3>Customer Service</h3>
+			<h3 lang="customer_service">Customer Service</h3>
 
 			<ul>
-				<li><a class="pointer">Help / FAQ's</a></li>
+				<li><a lang="helpFAQ" class="pointer">Help / FAQ's</a></li>
 
 
 			</ul>
 			</div>
 
 			<div class="column">
-			<h3>Our Company</h3>
+			<h3 lang="our_company">Our Company</h3>
 			<ul>
-				<li><a class="pointer">About Us</a></li>
-				<li><a class="pointer">Site Map</a></li>
+				<li><a lang="about_us" class="pointer">About Us</a></li>
+				<li><a lang="site_map" class="pointer">Site Map</a></li>
 
 			</ul>
 			</div>
 
 			<div class="column">
-			<h3>Where Are We</h3>
+			<h3 lang="where_we_are">Where Are We</h3>
 			<ul>
 			<li><a id="whereAreWe" onclick="initializeMap()" class="footerItem pointer"></a></li>
 			</ul>
 			</div>
 
 			<div class="column">
-				<h3>Contact Us</h3>
+				<h3 lang="contact_us">Contact Us</h3>
 				<ul>
 				<li><a id="contactUs" class="footerItem pointer"></a></li>
 				</ul>
 			</div>
 
 			<div class="column">
-			<h3>Follow Us</h3>
+			<h3 lang="follow_us">Follow Us</h3>
 			<ul>
 				<li><a id="facebook" class="footerItem pointer"></a></li>
 				<li><a id="twitter" class="footerItem pointer"></a></li>
@@ -156,5 +164,5 @@
 		</div>
 	</div>
 
-
-</html>
+</body>
+</html>>
