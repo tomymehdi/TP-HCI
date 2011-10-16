@@ -69,6 +69,11 @@
 			return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value), 2)+ '</div>');
 		});
 		
+	$('#whereAreWe').click(function(){
+		alert("hollo");
+		initializeMap();
+	});
+		
 		
 	});
 	

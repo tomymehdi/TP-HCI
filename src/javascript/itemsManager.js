@@ -34,14 +34,7 @@ function loadItems(c, page){
 	currentPage = page;
 	currentCategory = c;
 	itemList = new ItemList();
-	
-	if(c.category){
-		loadListBSC(itemList, c, page);
-		
-	}
-	else{
-		loadListBC(itemList, c, page);
-	}
+	loadList(itemList, c, page);
 	$('#Items').empty();
 	$('#Items').append('<img id="loading" src="./images/itemSelector/loadbar.gif" />');
 	setTimeout("continueLoading(0)", 1000);
@@ -49,7 +42,7 @@ function loadItems(c, page){
 
 function continueLoading(number){
 	if(itemList.items.length == 0){
-		if(number > 10){
+		if(number == 10){
 			alert("We can't establish connection to our servers. Please check out your internet connection.");
 		}
 		newNumber = number + 1;
@@ -58,6 +51,7 @@ function continueLoading(number){
 	}
 	partialList = new ItemList();
 	var i = 0;
+	var item;
 	while(i < itemList.items.length){
 		item = itemList.items[i];
 		partialList.addItem(item);
@@ -94,8 +88,8 @@ function getMaxPage(){
 	return parseInt((itemQty/getPageSize()) + 0.99999);
 }
 
-function loadListBC(response, c, page){
-	url='./service/Catalog.groovy?method=GetProductListByCategory&language_id='+currentLanguage+'&category_id=' + c.number + '&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page='+ page;
+function loadList(response, c, page){
+	url="./service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=" + c.number + "&order=" + getOrder() + "&items_per_page=" + getPageSize() + "&page=" + page;
 	var request;
 	var xx,x,i;
 	if (window.XMLHttpRequest)
@@ -112,7 +106,7 @@ function loadListBC(response, c, page){
 			for (i=0;i<x.length;i++)
 			{
 				xx = x[i];
-				product = new Item(xx.getElementsByTagName("name")[0].firstChild.nodeValue, "desc", xx.getElementsByTagName("price")[0].firstChild.nodeValue, xx.getElementsByTagName("subcategory_id")[0].firstChild.nodeValue, xx.getElementsByTagName("image_url")[0].firstChild.nodeValue);
+				product = new Item(get(xx, "name"), "desc", get(xx, "price"), get(xx, "subcategory_id"), get(xx, "image_url"));
 				response.addItem(product);
 			}
 			itemQty= request.responseXML.documentElement.getElementsByTagName("products")[0].getAttribute("size");
@@ -121,37 +115,6 @@ function loadListBC(response, c, page){
 	request.open("GET",url,true);
 	request.send();
 }
-
-
-function loadListBSC(response, sc, page){
-	
-	url='./service/Catalog.groovy?method=GetProductListBySubcategory&language_id='+currentLanguage+'&category_id=' + sc.category.number + '&subcategory_id=' + sc.number+'&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page='+ page;
-	var request;
-	var xx,x,i;
-	if (window.XMLHttpRequest)
-	{
-		request=new XMLHttpRequest();
-	}
-	else
-	{
-		request=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	request.onreadystatechange=function(){
-		if (request.readyState==4 && request.status==200){
-			x=request.responseXML.documentElement.getElementsByTagName("product");
-			for (i=0;i<x.length;i++)
-			{
-				xx = x[i];
-				product = new Item(xx.getElementsByTagName("name")[0].firstChild.nodeValue, "desc", xx.getElementsByTagName("price")[0].firstChild.nodeValue, xx.getElementsByTagName("subcategory_id")[0].firstChild.nodeValue, xx.getElementsByTagName("image_url")[0].firstChild.nodeValue);
-				response.addItem(product);
-			}
-			itemQty= request.responseXML.documentElement.getElementsByTagName("products")[0].getAttribute("size");
-		}
-	}
-	request.open("GET",url,true);
-	request.send();
-}
-
 
 function getOrder(){
 //	alert(document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value);

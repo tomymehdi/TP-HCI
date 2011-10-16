@@ -245,54 +245,63 @@ body {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/movie1.png");
+	background-repeat: no-repeat;
 }
 
 #SlideMovies2 {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/movie2.png");
+	background-repeat: no-repeat;
 }
 
 #SlideMovies3 {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/movie3.png");
+	background-repeat: no-repeat;
 }
 
 #SlideCds1 {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/cds1.png");
+	background-repeat: no-repeat;
 }
 
 #SlideCds2 {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/cds2.png");
+	background-repeat: no-repeat;
 }
 
 #SlideCds3 {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/cds3.png");
+	background-repeat: no-repeat;
 }
 
 #SlideBooks1 {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/books1.png");
+	background-repeat: no-repeat;
 }
 
 #SlideBooks2 {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/books2.png");
+	background-repeat: no-repeat;
 }
 
 #SlideBooks3 {
 	width: 100%;
 	height: 100%;
 	background-image: url("../images/home/books3.png");
+	background-repeat: no-repeat;
 }
 
 #search_button a {
@@ -510,7 +519,7 @@ body {
 	color: #585044;
 }
 
-#main_opt {
+.main_opt {
 	float: left;
 	text-align: center;
 	height: 100px;
@@ -995,7 +1004,6 @@ h5{
 	float: left;
 	height: 105px;
 	width: 105px;
-	margin-top: -10px;
 }
 
 #ImageOnCart {
