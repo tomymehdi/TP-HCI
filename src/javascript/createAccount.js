@@ -66,7 +66,6 @@ function createAccount(username,name,pass,email,birth){
 					reloadArticlesScript(currentCategory.name);
 					reloadItemsManagerScript();
 
-					reloadjsScript();
 					setTimeout("loadItems(currentCategory, 1)", 100);
 				
 			
