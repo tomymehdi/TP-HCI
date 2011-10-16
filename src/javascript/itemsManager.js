@@ -40,10 +40,26 @@ function actualizeWishlist(){
 }
 
 function loadItems(c, page){
+	
 	currentPage = page;
-	currentCategory = c;
+	if(c.category){
+		
+		currentCategory = c.category;
+		
+	}
+	else{
+		currentCategory=c;
+		CurrentSubCategory=undefined;
+	}
+	
 	itemList = new ItemList();
-	loadList(itemList, c, page);
+	
+	if(c.category){
+		loadListBSC(itemList, c, page);
+	}
+	else{
+		loadListBC(itemList, c, page);
+	}
 	$('#Items').empty();
 	$('#Items').append('<img id="loading" src="./images/itemSelector/loadbar.gif" />');
 	setTimeout("continueLoading(0)", 1000);
@@ -70,20 +86,66 @@ function continueLoading(number){
 	$('#Items').empty();
 	while(i < partialList.items.length){
 		item = partialList.items[i];
-		$('#Items').append('<div id="Item">'+
-		'<div id="itemName" onclick="bringInfo(' + i + ')" class="pointer">' + roundString(item.name, 25) + '</div>'+
-		'<img id="Image" class="pointer" onclick="bringInfo(' + i + ')" src="'  + item.imageSource + '"></img>'+
-		'<div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button>'+
-		'<button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button>'+
-		'<select id="sel' + i + '" size="1" class="quantity"> <option selected="selected">0 </option> <option>1 </option> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +roundNumber(item.price*currentCoinType.value, 2) + '</div></div></div></div>');
+		$('#Items').append('<div id="Item"><div id="itemName" onclick="bringInfo(' + i + ')" class="pointer">' + roundString(item.name, 25) + '</div><img id="Image" class="pointer" onclick="bringInfo(' + i + ')" src="'  + item.imageSource + '"></img><div id="Options"><button onclick="buyItem(' + i +')" class="buyButton"></button><button onclick="addToWishlist(' + i + ')" class="addToWishlistButton"></button><select id="sel' + i + '" size="1" class="quantity"><option>1 </option selected="selected"> <option>2 </option> <option>3 </option><option>4 </option><option>5 </option><option>6 </option><option>7 </option><option>8 </option><option>9</option></select><div id="Price"><div id="PriceTag">' + currentCoinType + '</div><div id="PriceNumber" >' +roundNumber(item.price*currentCoinType.value, 2) + '</div></div></div></div>');
 		i++;
 	}
 	$('#pageNumber').remove();
 	$('#prevnext').append('<div id="pageNumber"> PAGE ' + currentPage + ' of ' + getMaxPage() + '</div>');
 }
 
-function bringInfo(number){
-	alert(itemList.items[parseInt(number)].name);
+function bringInfo(n){
+	
+	
+	url='./service/Catalog.groovy?method=GetProduct&product_id='+itemList.items[parseInt(n)].number;
+
+	var request;
+
+		if (window.XMLHttpRequest)
+		{
+			request=new XMLHttpRequest();
+		}
+		else
+		{
+			request=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		request.onreadystatechange=function(){
+
+			if (request.readyState==4 && request.status==200){
+				
+				if(itemList.items[parseInt(n)].categoryId==1){
+					
+					var actors=request.responseXML.documentElement.getElementsByTagName("actors")[0].firstChild.nodeValue;
+					var lang=request.responseXML.documentElement.getElementsByTagName("language")[0].firstChild.nodeValue;
+					var subt=request.responseXML.documentElement.getElementsByTagName("subtitles")[0].firstChild.nodeValue;
+					var region=request.responseXML.documentElement.getElementsByTagName("region")[0].firstChild.nodeValue;
+					var release_date=request.responseXML.documentElement.getElementsByTagName("release_date")[0].firstChild.nodeValue;
+					var run_time=request.responseXML.documentElement.getElementsByTagName("run_time")[0].firstChild.nodeValue;
+					
+				alert('Title: '+itemList.items[parseInt(n)].name+'\n\n Actors: '+actors+'\n\n Language: '+lang+' \n\n Subtitles: '+subt+' \n\n Region: '+region+' \n\n Release_date: '+release_date+'\n\n Duration: '+run_time);
+
+				}
+				if(itemList.items[parseInt(n)].categoryId==2){
+					
+					var authors=request.responseXML.documentElement.getElementsByTagName("authors")[0].firstChild.nodeValue;
+					var publisher=request.responseXML.documentElement.getElementsByTagName("publisher")[0].firstChild.nodeValue;
+					var pub_date=request.responseXML.documentElement.getElementsByTagName("published_date")[0].firstChild.nodeValue;
+					var lang= request.responseXML.documentElement.getElementsByTagName("language")[0].firstChild.nodeValue;
+					
+				
+				alert('Title: '+itemList.items[parseInt(n)].name+'\n\n Authors: '+authors+'\n\n Publisher: '+publisher+' \n\n Published date: '+pub_date+'\n\n Language: '+lang);
+					
+				}
+
+	           
+
+			}
+		}
+
+		request.open("GET",url,true);
+		request.send();
+			
+	
 }
 
 function goTo(src){
@@ -102,8 +164,8 @@ function getMaxPage(){
 	return parseInt((itemQty/getPageSize()) + 0.99999);
 }
 
-function loadList(response, c, page){
-	url="./service/Catalog.groovy?method=GetProductListByCategory&language_id=1&category_id=" + c.number + "&order=" + getOrder() + "&items_per_page=" + getPageSize() + "&page=" + page;
+function loadListBC(response, c, page){
+	url='./service/Catalog.groovy?method=GetProductListByCategory&language_id='+currentLanguage+'&category_id=' + c.number + '&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page='+ page;
 	var request;
 	var xx,x,i;
 	if (window.XMLHttpRequest)
@@ -120,7 +182,36 @@ function loadList(response, c, page){
 			for (i=0;i<x.length;i++)
 			{
 				xx = x[i];
-				product = new Item(get(xx, "name"), "desc", get(xx, "price"), get(xx, "subcategory_id"), get(xx, "image_url"));
+				product = new Item(xx.getElementsByTagName("name")[0].firstChild.nodeValue, "desc", xx.getElementsByTagName("price")[0].firstChild.nodeValue, xx.getElementsByTagName("subcategory_id")[0].firstChild.nodeValue, xx.getElementsByTagName("image_url")[0].firstChild.nodeValue, xx.getAttribute("id"), xx.getElementsByTagName("category_id")[0].firstChild.nodeValue);
+				response.addItem(product);
+			}
+			itemQty= request.responseXML.documentElement.getElementsByTagName("products")[0].getAttribute("size");
+		}
+	}
+	request.open("GET",url,true);
+	request.send();
+}
+
+function loadListBSC(response, sc, page){
+	
+	url='./service/Catalog.groovy?method=GetProductListBySubcategory&language_id='+currentLanguage+'&category_id=' + sc.category.number + '&subcategory_id=' + sc.number+'&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page='+ page;
+	var request;
+	var xx,x,i;
+	if (window.XMLHttpRequest)
+	{
+		request=new XMLHttpRequest();
+	}
+	else
+	{
+		request=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	request.onreadystatechange=function(){
+		if (request.readyState==4 && request.status==200){
+			x=request.responseXML.documentElement.getElementsByTagName("product");
+			for (i=0;i<x.length;i++)
+			{
+				xx = x[i];
+				product = new Item(xx.getElementsByTagName("name")[0].firstChild.nodeValue, "desc", xx.getElementsByTagName("price")[0].firstChild.nodeValue, xx.getElementsByTagName("subcategory_id")[0].firstChild.nodeValue, xx.getElementsByTagName("image_url")[0].firstChild.nodeValue,xx.getAttribute("id"),xx.getElementsByTagName("category_id")[0].firstChild.nodeValue);
 				response.addItem(product);
 			}
 			itemQty= request.responseXML.documentElement.getElementsByTagName("products")[0].getAttribute("size");
@@ -131,8 +222,9 @@ function loadList(response, c, page){
 }
 
 function getOrder(){
-//	alert(document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value);
+
 	return document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value;
+
 }
 
 function getPageSize(){
