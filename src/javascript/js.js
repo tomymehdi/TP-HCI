@@ -134,10 +134,6 @@ $(document).ready( function() {
         $("#main").load("./html/contact.html #main > *");
 	});
 
-//	$('#whereAreWe').click( function() {
-//        $("#main").load("./html/whereAreWe.html #main");
-//	});
-
 	$('#register_link').live('click', function(){
 		$("#main").load("./html/register.html #main > *");
 		reloadregisterScript();
