@@ -24,7 +24,65 @@ $(document).ready( function() {
 			}, 100 );
 	    }
 	);
+	
+	appendLanguages();
+	
+	$('#idioma_select').change(function(){
+		if (window.XMLHttpRequest)
+		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+		  xmlhttp=new XMLHttpRequest();
+		  }
+		else
+		  {// code for IE6, IE5
+		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  }
+		xmlhttp.open("GET","languages.xml",false);
+		xmlhttp.send();
+		xmlDoc=xmlhttp.responseXML;
+		var toChange = document.getElementsByTagName('*');
+		var i = 0;
+		while(i < toChange.length){
+			if(toChange[i].getAttribute("lang")){
+				toChange[i].innerHTML = "";
+				words = xmlDoc.getElementsByTagName("language")[getCurrentLanguage().id];
+				var j = 0;
+				var stop = false;
+				while(!stop && j < words.length){
+					alert(words[j].text());
+					if(toChange[i].getAttribute("lang") == words[j].getAttribute("id")){
+						toChange[i].append(words[j].text());
+						stop = true;
+						alert("llego hasta aca");
+					}
+					j++;
+				}
+			}
+			i++;
+		}
+	})
 });
+
+function getCurrentLanguage(){
+	return languageList.items[0];
+}
+
+function appendLanguages(seconds){
+	if(languageList.items.length == 0 || languageList.items.length == undefined){
+		if(seconds == 10){
+			alert("The connection with our server is slow or is not connected at all. Please check our your internet connection.");
+		}
+		newSeconds = seconds+1;
+		setTimeout("appendLanguages(newSeconds)", 1000);
+		return;
+	}
+	var i = 0;
+	var language;
+	while(i < languageList.items.length){
+		language = languageList.items[i];
+		$('#idioma_select').append('<option value="' + language.id +'" > ' + language.name + ' </option>');
+		i++;
+	}
+}
 
 
 function appendCats(seconds){

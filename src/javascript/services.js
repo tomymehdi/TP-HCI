@@ -26,7 +26,7 @@ Country.prototype.addState = function (state){
 
 
 
-function Language(id, code, name){
+function Language(id, name, code){
 	this.id = id;
 	this.code = code;
 	this.name = name;
