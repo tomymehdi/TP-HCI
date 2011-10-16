@@ -95,7 +95,7 @@ $(document).ready( function() {
 
     $('.home').click( function(){
         $("#main").load("./html/home.html #main > *");
-        reloadhomeScript();    
+        reloadhomeScript();
     });
       
 	$('.footerItem').mouseover( function(){
