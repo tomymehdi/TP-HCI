@@ -145,8 +145,6 @@ var mains;
 
 
 $(document).ready( function() {
-	
-	
 
 	cart = new Cart();
 	wishlist = new Cart();

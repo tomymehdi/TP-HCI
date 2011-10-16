@@ -95,7 +95,6 @@ function continueLoading(number){
 
 function bringInfo(n){
 	
-	
 	url='./service/Catalog.groovy?method=GetProduct&product_id='+itemList.items[parseInt(n)].number;
 
 	var request;

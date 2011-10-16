@@ -1012,8 +1012,8 @@ h5{
 }
 
 #totalItemOnCart {
-    float: right;
-    margin-right: -180px;
+    float: left;
+    margin-left: 78px;
     margin-top: 50px;
 }
 
@@ -1373,4 +1373,22 @@ ul#menu li ul li a:hover {
 	
 	margin-right:150px;
 	margin-top: 50px;
+}
+
+.eachCountNumberCart {
+    float: left;
+}
+
+.eachCountNumberWishList {
+    float: left;
+}
+
+.eachCount {
+    float: left;
+    margin-left: 120px;
+    margin-top: 50px;
+}
+
+#dec{
+	float: left;
 }

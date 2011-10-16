@@ -49,11 +49,68 @@ function chargeWishlistItems(){
 			'<img id="ImageOnWishlist" class="pointer" onclick="bringInfo(' + 
 			numEachItem[i] + ')" src="'  + itemsNoRepeat[i].imageSource + '"></img>' +
 			'<div id="PriceNumberOnWishlist" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
-			'<div id="countItem">'  + countEachItem[i] + '</div>' + 
-			'<div id="totalItem">'  + roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
+			'<button id="dec" onclick="decrease(' + i + ', ' + itemsNoRepeat[i].number + ')"> &lt; </button>'+'' +
+			'<div id="eachCountNumber' + i +'" class="eachCountNumberWishList">'+ countEachItem[i]+'</div>'+
+			'<button onclick="increase(' + i + ', ' + itemsNoRepeat[i].number + ')">&gt;</button></div>'+
+			'<button id="removeItem" onclick="removeItem('+ i + ', ' + itemsNoRepeat[i].number + ')"/>' +
 			'<button id="buyButtonOnWishlist" onclick="buyItem(' + i +')" class="buyButton"></button>' +
 			'</div>');
 	}
 	
 	document.getElementById("itemOnWishlistCount").innerHTML="You have " + wishlist.items.length + " items";
+}
+
+function decrease(i, target_id){
+	if(parseInt($('#eachCountNumber' + i)) == 0){
+		alert("El prod " + i + " es 0!!  o sea es " + $('#eachCountNumber' + i));
+		return;
+	}
+	flag = false;
+	var item;
+	while(!flag){
+		item = wishlist.items.shift();
+		if(item.number == target_id){
+			previousNumber = parseInt($('#eachCountNumber' + i ).text());
+			$('#eachCountNumber' + i ).empty();
+			$('#eachCountNumber' + i ).append("" + (previousNumber-1));
+			actualizeCart();
+			if(previousNumber == 1){
+				$('#OnWishlistItem' + i).remove();
+			}
+			return;
+		}
+		wishlist.items.push(item);
+	}
+}
+
+function increase(i, target_id){
+	flag = false;
+	var item;
+	while(!flag){
+		item = wishlist.items.shift();
+		if(item.number == target_id){
+			previousNumber = parseInt($('#eachCountNumber' + i ).text());
+			$('#eachCountNumber' + i ).empty();
+			$('#eachCountNumber' + i ).append("" + (previousNumber+1));
+			wishlist.items.push(item);
+			wishlist.items.push(item);
+			actualizeWishlist();
+			return;
+		}
+		wishlist.items.push(item);
+	}
+}
+
+function removeItem(listNumber, target_id){
+	var i = 0;
+	var len = wishlist.items.length;
+	while(i < len){
+		item = wishlist.items.shift();
+		if(item.number != target_id){
+			wishlist.items.push(item);
+		}
+		i++;
+	}
+	actualizeWishlist();
+	$('#OnCartItem' + listNumber).remove();
 }

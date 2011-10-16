@@ -1,6 +1,6 @@
 $(document).ready( function() {
 
-	setTimeout("chargeWishlistItems()", 500);
+	setTimeout("chargeCartItems()", 500);
 	
 	$('#selCount').change(function() {
 		
@@ -15,7 +15,7 @@ $(document).ready( function() {
 	});
  });
 
-function chargeWishlistItems(){
+function chargeCartItems(){
 	var cartItems = cart.getItems();
 	var cant = cart.getItemCount();
 	var itemsNoRepeat = new Array();
@@ -60,8 +60,8 @@ function chargeWishlistItems(){
 			numEachItem[i] + ')" src="'  + itemsNoRepeat[i].imageSource + '"></img>' +
 			'<div id="PriceNumberOnCart" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
 			'<div class="eachCount">' +
-			'<button onclick="decrease(' + i + ', ' + itemsNoRepeat[i].number + ')"> &lt; </button>'+'' +
-			'<div id="eachCountNumber' + i +'">'+ countEachItem[i]+'</div>'+
+			'<button id="dec" onclick="decrease(' + i + ', ' + itemsNoRepeat[i].number + ')"> &lt; </button>'+'' +
+			'<div id="eachCountNumber' + i +'" class="eachCountNumberCart">'+ countEachItem[i]+'</div>'+
 			'<button onclick="increase(' + i + ', ' + itemsNoRepeat[i].number + ')">&gt;</button></div>'+
 			'<div id="totalItemOnCart">'  + roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
 			'<button id="removeItem" onclick="removeItem('+ i + ', ' + itemsNoRepeat[i].number + ')"/>' +
