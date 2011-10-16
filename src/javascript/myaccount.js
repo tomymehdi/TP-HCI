@@ -18,8 +18,7 @@ $('#PersonalInfo').live('click',function(){
     
  		$('#MenuSelection').replaceWith('<div id="MenuSelection">'+
     	 '<h4>Personal Information</h4>' +
-		'<div  class="MyAcInp">User Name <input id="UserNameInput" type="text" disabled="disabled" ></input></div>'+
-		'<div  class="MyAcInp" > Last Name <input  id="FirstNameInput"type="text" disabled="disabled" ></input></div>'+
+		'<div  class="MyAcInp" >Name <input  id="FirstNameInput" type="text" disabled="disabled" ></input></div>'+
 		'<div  class="MyAcInp" >Email <input id="EmailInput" type="text" disabled="disabled" ></input></div>'+
 		'<div  class="MyAcInp" >Birth Date <input id="BirthInput" type="text" disabled="disabled" ></input></div>'+
 		'<div id="Modify" class="MyAccButton">Modify</div>'+
@@ -32,13 +31,54 @@ $('#PersonalInfo').live('click',function(){
 $('#ShippingInfo').live('click',function(){
     $('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Shipping Information</h4></div>');
 });
-    
+   
+$('#ChangePassword').live('click',function(){
+	
+	
+	var p=$('#PassChange').attr('value');
+	
+	var np=$('#NPass').attr('value');
+	
+	
+	url='./service/Security.groovy?method=ChangePassword&username='+CurrentUsername+'&password='+p+'&new_password='+np;
+	
+	var x,stat,xx;
+	var request;
+	if (window.XMLHttpRequest){
+		request=new XMLHttpRequest();
+	}else {
+		request=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	request.onreadystatechange = function(){
+		if(request.readyState==4 && request.status==200){
+			stat=$(request.responseXML).find("response").attr("status");
+			if(stat == "ok"){
+				alert('You have change your password succesfully.');
+			} else if(stat == "fail"){
+				var string = "";
+			
+				alert(string);
+			}
+		}
+	}
+	request.open("POST",url,true);
+	request.send();
+	
+	
+	var p=$('#PassChange').attr('value','');
+	var np=$('#NPass').attr('value','');
+	var p=$('#RNPass').attr('value','');
+	
+});
+
 $('#PasswordInfo').live('click',function(){
-    $('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Change Password</h4>'+
-    	'<div id="PassChange" class="MyAcInp">Current Password <input type="text" disabled="disabled" ></div>'+
-    	'<div id="NPass" class="MyAcInp">New Password <input type="text" disabled="disabled" ></div>'+
-    	'<div id="RNPass" class="MyAcInp">Re-Type New Password <input type="text" disabled="disabled" ></input></div>'+
-    	'<div id="Modify" class="MyAccButton">Modify</div>'+
+    $('#MenuSelection').replaceWith(
+		'<div id="MenuSelection"><h4>Change Password</h4>'+
+    	'<div  class="MyAcInp">Current Password <input type="password" id="PassChange" class=" LV_invalid_field" ></div>'+
+    	'<div  class="MyAcInp">New Password <input type="password" id="NPass"class=" LV_invalid_field" ></div>'+
+    	'<div  class="MyAcInp">Re-Type New Password <input type="password" id="RNPass" class=" LV_invalid_field"  ></input></div>'+
+    	'<div id="ChangePassword" class="MyAccButton">Change</div>'+
     	'</div>');
 });
 
@@ -76,6 +116,7 @@ function modifyAccount(email,uname,fname,bir){
 		if(request.readyState==4 && request.status==200){
 			stat=$(request.responseXML).find("response").attr("status");
 			if(stat == "ok"){
+				CurrentUsername=uname;
 				alert('You have modified your account succesfully.');
 			} else if(stat == "fail"){
 				var string = "";

@@ -675,6 +675,12 @@ $(function(){
 });
 
 $(function(){
+	var EmailInput = new LiveValidation( "EmailInput", { validMessage: "Ok!", wait: 500 } );	
+	EmailInput.add( Validate.Presence, { failureMessage: "Please, enter your e-mail" } );
+	EmailInput.add( Validate.Email );
+});
+
+$(function(){
 	var rmailBar = new LiveValidation( "rmailBar", { validMessage: "Ok!", wait: 500 } );	
 	rmailBar.add( Validate.Presence, { failureMessage: "Please, re-type your e-mail" } );
 	rmailBar.add( Validate.Email );
@@ -684,7 +690,7 @@ $(function(){
 $(function(){
 	var passBar = new LiveValidation( "passBar", { validMessage: "Ok!", wait: 500 } );	
 	passBar.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
-	passBar.add( Validate.Length, { minimum: 4, maximum: 8 } );
+	passBar.add( Validate.Length, { minimum: 6, maximum: 10 } );
 });
 
 $(function(){
@@ -695,6 +701,21 @@ $(function(){
 });	
 
 $(function(){
+	var PassChange = new LiveValidation( "PassChange", { validMessage: "Ok!", wait: 500 } );	
+	PassChange.add( Validate.Presence, { failureMessage: "Please, enter your password" } );
+	PassChange.add( Validate.Length, { minimum: 6, maximum: 10 } );
+});
+
+
+$(function(){
 	var birthBar = new LiveValidation( "birthBar", { validMessage: "Ok!", wait: 500 } );	
 	birthBar.add( Validate.Presence, { failureMessage: "Please, enter your birthay like: aaaa-mm-dd" } );	
 });	
+$(function(){
+	var BirthInput = new LiveValidation( "BirthInput", { validMessage: "Ok!", wait: 500 } );	
+	BirthInput.add( Validate.Presence, { failureMessage: "Please, enter your birthay like: aaaa-mm-dd" } );	
+});
+$(function(){
+	var FirstNameInput = new LiveValidation( "FirstNameInput", { validMessage: "Ok!", wait: 500 } );		
+	FirstNameInput.add( Validate.Presence, { failureMessage: "Please, enter your name" } );
+});
