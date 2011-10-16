@@ -6,11 +6,10 @@ $(document).ready( function() {
 	var duration = 2500;
 	
 	currentCoinType = dollars;
-	
 
     $("#main").load("./html/home.html #main > *");   
 
-   	appendCats(0);
+   	setTimeout("appendCats(0)", 100);
 	
 	setTimeout("reloadhomeFunc()",2000);
 	
@@ -46,7 +45,7 @@ function appendCats(seconds){
 //	else{
 		
 		$('#FooterCat').empty(); 
-		
+		$('#main_opt').remove();
 		while(j < CategoriesList.categories.length){
 			cate = CategoriesList.categories[j];
 		    $('#main').append('<div class="main_opt"><div  class="'+cate.name+'_link  title pointer" >'+cate.name+'</div>');
