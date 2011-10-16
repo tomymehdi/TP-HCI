@@ -71,12 +71,8 @@ $(document).ready( function() {
 	});
 	
 	$('#Logout_opt').live('click',function(){
-		
-     logout();
-        
-    
+    	logout();
     });
-	
 
 
 	$('.item').css('opacity',opacity).hover(function() {
@@ -468,8 +464,12 @@ function login(username,pass){
 					stat=$(request.responseXML).find("response").attr("status");
 					if(stat == "ok"){
 						CurrentToken = $(request.responseXML).find("token").text();
+						alert(CurrentToken);
 						CurrentUsername = $(request.responseXML).find("user").attr("username");
+						alert(CurrentUsername);
 						alert('Hello '+username+' you have login correctly');
+						$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
+			    		$('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');	
 					} else if(stat == "fail"){
 						var string = "";
 						$(request.responseXML).find("error").each(function(){
@@ -481,8 +481,6 @@ function login(username,pass){
 			}
 			request.open("GET",url,true);
 			request.send();
-			$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
-    		$('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');	
 }
 
 
@@ -502,9 +500,9 @@ function logout(){
 				if (request.readyState==4 && request.status==200){
 					stat=$(request.responseXML).find("response").attr("status");
 					if(stat == "ok"){
-						CurrentToken = null;
-						CurrentUsername = null;
 						alert('Godbye '+ CurrentUsername+' you have logout correctly');
+						$('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
+						$('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
 					} else if(stat == "fail"){
 						var string = "";
 						$(request.responseXML).find("error").each(function(){
@@ -516,6 +514,6 @@ function logout(){
 			}
 		request.open("GET",url,true);
 		request.send();
-		$('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
-		$('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
+		CurrentToken = null;
+		CurrentUsername = null;
 }

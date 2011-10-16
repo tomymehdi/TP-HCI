@@ -135,9 +135,8 @@ var partialList;
 var languageList;
 var CategoriesList;
 var CountriesList;
-//TODO: SACAR LOS VALORES CUANDO ANDE BIEN
-var CurrentUsername= 'luciana';
-var CurrentToken = '45336441380591df61c97aa6791b692';
+var CurrentUsername;
+var CurrentToken;
 
 var euros;
 var dollars;

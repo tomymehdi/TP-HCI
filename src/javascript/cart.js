@@ -12,9 +12,8 @@ $(document).ready( function() {
 			cart.items.shift();
 		}
 		actualizeCart();
-	}
-	
-});
+	});
+ });
 
 function chargeWishlistItems(){
 	var cartItems = cart.getItems();
@@ -60,7 +59,10 @@ function chargeWishlistItems(){
 			'<img id="ImageOnCart" class="pointer" onclick="bringInfo(' + 
 			numEachItem[i] + ')" src="'  + itemsNoRepeat[i].imageSource + '"></img>' +
 			'<div id="PriceNumberOnCart" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
-			'<div class="eachCount"><button onclick="decrease(' + i + ', ' + itemsNoRepeat[i].number + ')"> &lt; </button><div id="eachCountNumber' + i +'">'+ countEachItem[i]+'</div><button onclick="increase(' + i + ', ' + itemsNoRepeat[i].number + ')">&gt;</button></div>'+
+			'<div class="eachCount">' +
+			'<button onclick="decrease(' + i + ', ' + itemsNoRepeat[i].number + ')"> &lt; </button>'+'' +
+			'<div id="eachCountNumber' + i +'">'+ countEachItem[i]+'</div>'+
+			'<button onclick="increase(' + i + ', ' + itemsNoRepeat[i].number + ')">&gt;</button></div>'+
 			'<div id="totalItemOnCart">'  + roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
 			'<button id="removeItem" onclick="removeItem('+ i + ', ' + itemsNoRepeat[i].number + ')"/>' +
 			'</div>');

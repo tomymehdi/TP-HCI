@@ -36,9 +36,8 @@ function createAccount(username,name,pass,email,birth){
 		if(request.readyState==4 && request.status==200){
 			stat=$(request.responseXML).find("response").attr("status");
 			if(stat=="ok"){ 
+				login(username,pass);
 				alert('You have completed your registration succesfully. Now you will be able to start buying.');
-				$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
-			    $('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');
 				currentCategory=CategoriesList.categories[0];
 				$("#main").load("./html/articles.html #main > *");
 				reloadArticlesScript(currentCategory.name);
