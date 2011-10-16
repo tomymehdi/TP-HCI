@@ -791,7 +791,8 @@ h5{
 	font-family: 'Irish Grover', thaoma, century gothic, serif;
 	font-weight: bolder;
 	color: #585044;
-	width: 100%;
+	width: 80%;
+	margin-left:100px;
 }
 
 #info_reg{
@@ -1366,4 +1367,10 @@ ul#menu li ul li a:hover {
 	position: absolute;
 	left: 0;
 	top: 0;
+}
+
+#Submit_register{
+	
+	margin-right:150px;
+	margin-top: 50px;
 }

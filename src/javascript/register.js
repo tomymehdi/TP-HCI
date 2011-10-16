@@ -650,14 +650,16 @@ var Validate = {
     	this.name = 'ValidationError';
     }
 
-
-
-
 }
 
 $(function(){
-	var nameBar = new LiveValidation( "nameBar", { validMessage: "Ok!", wait: 500 } );	
-	nameBar.add( Validate.Presence, { failureMessage: "Please, enter your name" } );	
+	var userNameBar = new LiveValidation( "userNameBar", { validMessage: "Ok!", wait: 500 } );	
+	userNameBar.add( Validate.Presence, { failureMessage: "Please, enter your User name" } );
+});
+
+$(function(){
+	var nameBar = new LiveValidation( "nameBar", { validMessage: "Ok!", wait: 500 } );		
+	nameBar.add( Validate.Presence, { failureMessage: "Please, enter your name" } );
 });
 
 
@@ -693,12 +695,6 @@ $(function(){
 });	
 
 $(function(){
-	var userName = new LiveValidation( "userNameBar",{validMessege: "Ok!", wait: 500});
-	rpassBar.add(Validate.Presence,{ failureMessege: "Please, enter your user name"});
-});
-
-$(function(){
-	var birth = new LiveValidation( "birthBar",{validMessege: "Ok!", wait: 500});
-	birth.add(Validate.Presence,{ failureMessege: "Please, enter your user name"});
-	birth.add(Validate.Format, { pattern: /^[0-9]{4}-[01][0-9]-[0-3][0-9]$/i} );
-});
+	var birthBar = new LiveValidation( "birthBar", { validMessage: "Ok!", wait: 500 } );	
+	birthBar.add( Validate.Presence, { failureMessage: "Please, enter your birthay like: aaaa-mm-dd" } );	
+});	

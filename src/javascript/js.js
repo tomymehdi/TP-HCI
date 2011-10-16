@@ -136,7 +136,9 @@ $(document).ready( function() {
 
 	$('#register_link').live('click', function(){
 		$("#main").load("./html/register.html #main > *");
-		reloadregisterScript();
+		
+		setTimeout("reloadregisterScript()",500);
+		setTimeout("reloadCreateAccountScript()",1000);
 	});
 	
 	$('#MyAccount_opt').live('click', function(){
@@ -384,7 +386,20 @@ function reloadSDscript(){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
-
+function reloadCreateAccountScript(){
+	
+	if(document.getElementById("CreateAccountScript")){
+		$("#CreateAccountScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/createAccount.js";
+	ss.id = "CreateAccountScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+	
+}
 function reloadWishlistScript(){
 	
 	if(document.getElementById("WishlistScript")){
