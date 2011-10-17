@@ -167,6 +167,7 @@ $(document).ready( function() {
 	loadMainCategories();
 	
 	reloadhomeScript();
+	reloadhomeFunc();
 	
 });
 
@@ -369,7 +370,3 @@ function loadSubCategories(categ){
 
 
 }
-
-
-
-
