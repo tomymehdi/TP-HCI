@@ -14,7 +14,35 @@ $(document).ready( function() {
 		actualizeCart();
 		actualizeTotal();
 	});
+	
+	$('#CheckOut_link').click(function(){
+		
+		checkout();
+	
+	});
+	
+	
  });
+
+
+function checkout(){
+		
+	
+	if(CurrentUsername==null){
+		
+		alert("tenes que estar logueado para hacer el checkout");
+	}
+	
+//	VOLVER  APONER ES LA VALIDACION DEL LOGIN      else{
+		
+		
+		$("#main").load("./html/checkout.html #main > *");
+		
+		setTimeout('reloadCheckoutScript()',3000);
+		
+				
+//	}
+}
 
 function actualizeTotal(){
 	$("#cartTotal").empty();

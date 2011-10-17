@@ -156,7 +156,7 @@ $(document).ready( function() {
 	CategoriesList = new CategoriesList();
 	CountriesList = new CountriesList();
 	currentLanguage = new Language(1, "default", "def");
-
+	
 	euros = new CoinType("0.6", "\u20ac");
 	dollars = new CoinType("1", "U$S");
 	pesos = new CoinType("4", "AR$");
