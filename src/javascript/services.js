@@ -143,8 +143,6 @@ var dollars;
 var pesos;
 var mains;
 
-var flagDeLlamadaALoadLanguages = false;
-
 
 $(document).ready( function() {
 
@@ -172,9 +170,7 @@ $(document).ready( function() {
 
 function loadCommons()
 {
-	if(!flagDeLlamadaALoadLanguages){
-		loadLanguages();
-	}
+	loadLanguages();
 	loadCountries();
 }	
 function loadCountries(){
