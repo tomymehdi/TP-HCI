@@ -12,8 +12,6 @@ $('#login_option').click( function(){
 $('#login_button2').live('click', function(){
 	
 		$('#login_data2').slideUp();
-	
-       
 		$('#login_data').slideUp();
       	
 		var u= $('#login_user_input').val();
