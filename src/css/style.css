@@ -931,6 +931,14 @@ h5{
 
 #SortBy {
     float: left;
+    width: 200px;
+    margin-left: 30px;
+    margin-top: -5px;
+}
+
+#pageSizeSelector {
+    float: left;
+    width: 200px;
     margin-left: 30px;
     margin-top: -5px;
 }
