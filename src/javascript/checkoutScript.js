@@ -54,7 +54,7 @@ function appendAdds(){
 					'<div id="address"> City: '+a.city+'</div>'+
 					'<div id="address"> Zip code: '+a.zip_code+'</div>'+
 					'<div id="address"> Phone number:' +a.phone_number+'</div>'+
-					'<div lang="select_address" class="CartButtonC" id="select_address"  onclick="selectAdd('+a+')"> select this address</div>'
+					'<div lang="select_address" class="CartButtonC" id="select_address"  onclick="checkoutAddress=new Address('+a.name+','+a.addline1+','+count.name+','+stat.name+','+a.city,a.zip_code+','+a.phone_number+')"> select this address</div>'
 					
 				);
 			}
@@ -65,8 +65,10 @@ function appendAdds(){
 		
 }
 
-function selectAdd(address){
-	checkoutAddress=address;
+function selectAdd(){
+
+	
+	checkoutAddress=new Address();
 	confirmBuying();
 	
 	
