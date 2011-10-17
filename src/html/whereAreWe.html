@@ -31,7 +31,7 @@ map.addControl(new GSmallMapControl());
 map.addControl(new GMapTypeControl());
 
 
-// establecer el listener para actualizar la posición del punto central
+// establecer el listener para actualizar la posicion del punto central
 GEvent.addListener(map, "moveend", function() {
 var center = map.getCenter();
 document.getElementById("message").innerHTML = center.toString();
