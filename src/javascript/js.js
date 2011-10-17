@@ -485,7 +485,20 @@ function reloadChangeInfo(){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
-
+function reloadCreateAddresstScript(){
+	
+	
+	if(document.getElementById("reloadCreateAddresstScript")){
+		$("#reloadCreateAddresstScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/createAddress.js";
+	ss.id = "reloadCreateAddresstScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+}
 function login(username,pass){
 		
 		url='./service/Security.groovy?method=SignIn&username='+username+'&password='+pass;

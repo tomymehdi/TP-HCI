@@ -1,15 +1,14 @@
 $(document).ready( function() {
 
 
-//VOLVER A PONER CREATE CUANDO ESTE PARA TERMINAR
+createOrder();
 
-//createOrder();
-continueOrder();
+
+
 });
 
 function createOrder(){
 		
-
 url='./service/Order.groovy?method=CreateOrder&username='+CurrentUsername+'&authentication_token='+CurrentToken;
 
 var x,stat,xx;
@@ -27,6 +26,7 @@ request.onreadystatechange = function(){
 		
 		if(stat == "ok"){
 			
+			alert('se creo la orden');
 			continueOrder();
 
 		} else if(stat == "fail"){
@@ -55,48 +55,15 @@ request.send();
 
 
 function continueOrder(){
-	
-	
-	var i;
-	for(i=0;i<CountriesList.countries.lenght;i++){
-		var count=CountriesList.countries[i];
-		$('#country_select').append('<option value="' + count.name +'"  ></option>');
-		
-	}
+
 		
 	
-	//CreateAddress
+	goToCreateAdd();
 }
 
 
-$(function(){
-	var fullname = new LiveValidation( "fullname", { validMessage: "Ok!", wait: 500 } );	
-	fullname.add( Validate.Presence, { failureMessage: "Please, enter your full name" } );
-	fullname.add( Validate.Length, { minimum: 1, maximum: 80 } );
-	
-});
-$(function(){
-	var adress = new LiveValidation( "adress", { validMessage: "Ok!", wait: 500 } );	
-	adress.add( Validate.Presence, { failureMessage: "Please, enter your adress" } );
-	adress.add( Validate.Length, { minimum: 1, maximum: 80 } );
-	
-});
-$(function(){
-	var city = new LiveValidation( "city", { validMessage: "Ok!", wait: 500 } );	
-	city.add( Validate.Presence, { failureMessage: "Please, enter your city name" } );
-	city.add( Validate.Length, { minimum: 1, maximum: 80 } );
-	
-});
-$(function(){
-	var zipcode = new LiveValidation( "zipcode", { validMessage: "Ok!", wait: 500 } );	
-	zipcode.add( Validate.Presence, { failureMessage: "Please, enter your zip code" } );
-	zipcode.add( Validate.Length, { minimum: 1, maximum: 8 } );
-	
-});
-$(function(){
-	
-	var phone = new LiveValidation( "phone", { validMessage: "Ok!", wait: 500 } );	
-	phone.add( Validate.Presence, { failureMessage: "Please, enter your phone number" } );
-	phone.add( Validate.Length, { minimum: 1, maximum: 25 } );
-	
-});
+
+function goToCreateAdd(){
+$("#TextArea").load("./html/createAddres.html #TextArea > *");
+setTimeout('reloadCreateAddresstScript()',1000);
+}
