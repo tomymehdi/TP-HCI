@@ -118,7 +118,7 @@ function Subcategory(name, category, number){
 }
 
 
-//ADESSES
+//ADRESSES
 function AddressList(){
 	this.addresses = new Array();
 }
@@ -166,8 +166,9 @@ var partialList;
 var languageList;
 var CategoriesList;
 var CountriesList;
-var CurrentUsername='luciana';
-var CurrentToken='45336441380591df61c97aa6791b692';
+var CurrentUsername;
+var CurrentToken;
+var currentOrderID;
 
 var euros;
 var dollars;

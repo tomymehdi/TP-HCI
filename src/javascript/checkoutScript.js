@@ -8,7 +8,7 @@ $(document).ready( function() {
 
 	createOrder(bool2);
 	
-		appendAdds(0, bool1, bool2);
+	appendAdds(0, bool1, bool2);
 	
 
 
@@ -62,6 +62,7 @@ function appendAdds(segs, b1, b2){
 					'<div id="address"> Zip code: '+a.zip_code+'</div>'+
 					'<div id="address"> Phone number:' +a.phone_number+'</div>'+
 					'<div lang="select_address" class="CartButtonC" id="select_address"  onclick="selectAdd('+i+')"> select this address</div>'
+					'<div lang="delete_address" class="CartButtonC" id="delete_address"  onclick="deleteAdd('+i+')"> delete this address</div>'
 					
 
 				);
@@ -71,6 +72,51 @@ function appendAdds(segs, b1, b2){
 		
 }
 
+$('#finish_buy').click(function(){
+	
+	
+	url='./service/Order.groovy?method=DeleteOrder&username='+CurrentUsername+'&authentication_token='+CurrentToken+'&order_id='+currentOrderID+'&order_id='+checkoutAddress;
+
+	var x,stat,xx;
+	var request;
+
+	if (window.XMLHttpRequest){
+		request=new XMLHttpRequest();
+	}else {
+		request=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	request.onreadystatechange = function(){
+
+		if(request.readyState==4 && request.status==200){
+
+			stat=$(request.responseXML).find("response").attr("status");
+
+			if(stat == "ok"){
+
+					alert('Your Order has been taken. We will send your staff soon');
+					$("#main").load("./html/home.html #main > *");
+					reloadhomeScript();
+					
+			}
+
+
+		 	else if(stat == "fail"){
+
+				var string = "";
+				$(request.responseXML).find("error").each(function(){
+					string += $(this).attr("message") + "\n";
+				});
+				alert(string);
+
+			}
+		}
+	}
+		request.open("GET",url,true);
+		request.send();
+
+	
+});
 function selectAdd(i){
 
 	
@@ -184,6 +230,9 @@ request.onreadystatechange = function(){
 		stat=$(request.responseXML).find("response").attr("status");
 		
 		if(stat == "ok"){
+			
+		var id=$(request.responseXLM).find("order").attr("id");
+		currentOrderID=id;
 		bool.setValue(true);	
 
 		} else if(stat == "fail"){
