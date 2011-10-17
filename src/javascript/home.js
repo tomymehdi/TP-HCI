@@ -58,6 +58,7 @@ function translate(){
 function changeLanguage(doc){
 	var toChange = document.getElementsByTagName('*');
 	var i = 0;
+	var words;
 	while(i < languageList.items.length){
 		if(languageList.items[i].id == getCurrentLanguageId()){
 			currentLanguage = languageList.items[i];
@@ -65,21 +66,24 @@ function changeLanguage(doc){
 		i++;
 	}
 	i = 0;
-	while(i < toChange.length){
-		if(toChange[i].getAttribute("lang")){
-			toChange[i].innerHTML = "";
-			words = doc.getElementsByTagName("language")[getCurrentLanguageId()- 1].getElementsByTagName('*');
-			var j = 0;
-			var stop = false;
-			while(!stop && j < words.length){
-				if(toChange[i].getAttribute("lang") == words[j].getAttribute("id")){
-					toChange[i].innerHTML = words[j].firstChild.nodeValue;
-					stop = true;
+	if(getCurrentLanguageId()==0){
+	} else{
+		while(i < toChange.length){
+			if(toChange[i].getAttribute("lang")){
+				toChange[i].innerHTML = "";
+				words = doc.getElementsByTagName("language")[getCurrentLanguageId()- 1].getElementsByTagName('*');
+				var j = 0;
+				var stop = false;
+				while(!stop && j < words.length){
+					if(toChange[i].getAttribute("lang") == words[j].getAttribute("id")){
+						toChange[i].innerHTML = words[j].firstChild.nodeValue;
+						stop = true;
+					}
+					j++;
 				}
-				j++;
 			}
+			i++;
 		}
-		i++;
 	}
 	while(CategoriesList.categories.length > 0){
 		CategoriesList.categories.shift();
@@ -112,9 +116,13 @@ function appendLanguages(seconds){
 	}
 	var i = 0;
 	var language;
+	var flag=undefined;
 	while(i < languageList.items.length){
 		language = languageList.items[i];
-		$('#idioma_select').append('<option value="' + language.id +'" > ' + language.name + ' </option>');
+		flag = $('#idioma_select').attr(language.id);
+		if( flag != undefined ){
+			$('#idioma_select').append('<option value="' + language.id +'" > ' + language.name + ' </option>');
+		}
 		i++;
 	}
 	translate();

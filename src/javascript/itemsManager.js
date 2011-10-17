@@ -221,7 +221,7 @@ function loadListBSC(response, sc, page){
 }
 
 function getOrder(){
-	setTimeout('',1000);
+	setTimeout('',2000);
 	return document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value;
 }
 

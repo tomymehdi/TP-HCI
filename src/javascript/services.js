@@ -143,6 +143,8 @@ var dollars;
 var pesos;
 var mains;
 
+var flagDeLlamadaALoadLanguages = false;
+
 
 $(document).ready( function() {
 
@@ -161,10 +163,7 @@ $(document).ready( function() {
 	mains = new Array();
 
 	
-	
-	
 	loadCommons();
-	loadMainCategories();
 	
 	reloadhomeScript();
 	reloadhomeFunc();
@@ -173,7 +172,9 @@ $(document).ready( function() {
 
 function loadCommons()
 {
-	loadLanguages();
+	if(!flagDeLlamadaALoadLanguages){
+		loadLanguages();
+	}
 	loadCountries();
 }	
 function loadCountries(){
@@ -259,7 +260,11 @@ function loadStates(country){
 	
 	
 }
+
+
 function loadLanguages(){
+	
+	flagDeLlamadaALoadLanguages=true;
 	
 	url='./service/Common.groovy?method=GetLanguageList';
 	
