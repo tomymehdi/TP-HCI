@@ -118,6 +118,23 @@ function Subcategory(name, category, number){
 }
 
 
+//ADESSES
+function AddressList(){
+	this.addresses = new Array();
+}
+CountriesList.prototype.addAddress = function(count){
+	this.addresses.push(count);
+}
+function Address(name, addline1,countryID,stateID,city,zip_code,phone_number){
+	this.name = name;
+	this.addline1 = addline1;
+	this.countryID= countryID;
+	this.stateID = stateID;
+	this.city = city;
+	this.zip_code = zip_code;
+	this.phone_number = phone_number;
+	
+}
 
 // VARIABLES
 var currentPage;
@@ -127,6 +144,7 @@ var currentCategory;
 var currentLanguage;
 var currentCountry;
 var CurrentSubCategory;
+var AddressList;
 
 var errorsXML = './errors.xml';
 
@@ -156,6 +174,7 @@ $(document).ready( function() {
 	CategoriesList = new CategoriesList();
 	CountriesList = new CountriesList();
 	currentLanguage = new Language(1, "default", "def");
+	AddressList= new AddressList();
 	
 	euros = new CoinType("0.6", "\u20ac");
 	dollars = new CoinType("1", "U$S");
