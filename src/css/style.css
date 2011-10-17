@@ -521,7 +521,6 @@ body {
 	font-family: 'Irish Grover', thaoma, century gothic, serif;
 	font-weight: bolder;
 	color: #585044;
-	margin-left: 60px;
 }
 
 .main_opt {
@@ -995,7 +994,7 @@ h5{
 
 #PriceNumberOnWishlist{
 	float: left;
-	margin-left: 55px;
+	margin-left: 35px;
 	margin-top: 50px;
 }
 
@@ -1025,10 +1024,19 @@ h5{
 #removeItem{
 	background-image: url('../images/home/x.png');
 	float: left;
-	height: 25px;
-	width: 25px;
-	margin-top: -20px;
+	height: 30px;
+	width: 30px;
+	margin-top: -25px;
 	margin-left: 480px;
+}
+
+#removeItemW {
+    background-image: url("../images/home/x.png");
+    float: right;
+    height: 30px;
+    margin-right: 219px;
+    margin-top: 46px;
+    width: 30px;
 }
 
 #buyButtonOnWishlist{
@@ -1105,6 +1113,19 @@ h5{
 }
 
 .OnCartItem{
+	float: left;
+	margin-left: 15px;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	height: 125px;
+	border-color: #bdbdb7;
+	border-style: groove;
+	background-color: #a0a09a;
+	width: 95%;
+}
+
+.OnWishlistItem{
 	float: left;
 	margin-left: 15px;
 	margin-top: 10px;
@@ -1386,6 +1407,12 @@ ul#menu li ul li a:hover {
 .eachCount {
     float: left;
     margin-left: 120px;
+    margin-top: 50px;
+}
+
+.eachCountW {
+    float: left;
+    margin-left: 75px;
     margin-top: 50px;
 }
 

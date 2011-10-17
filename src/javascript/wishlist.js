@@ -45,19 +45,24 @@ function chargeWishlistItems(){
 	}
 	
 	for(var i = 0 ; i < itemsNoRepeat.length ; i++){
-		$('#ListIt').append('<div id="OnWishlistItem">' +
+		$('#ListIt').append('<div id="OnWishlistItem' + i +'" class="OnWishlistItem">' +
 			'<img id="ImageOnWishlist" class="pointer" onclick="bringInfo(' + 
 			numEachItem[i] + ')" src="'  + itemsNoRepeat[i].imageSource + '"></img>' +
 			'<div id="PriceNumberOnWishlist" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
+			'<div class="eachCountW">' +
 			'<button id="dec" onclick="decrease(' + i + ', ' + itemsNoRepeat[i].number + ')"> &lt; </button>'+'' +
 			'<div id="eachCountNumber' + i +'" class="eachCountNumberWishList">'+ countEachItem[i]+'</div>'+
 			'<button onclick="increase(' + i + ', ' + itemsNoRepeat[i].number + ')">&gt;</button></div>'+
-			'<button id="removeItem" onclick="removeItem('+ i + ', ' + itemsNoRepeat[i].number + ')"/>' +
+			'<button id="removeItemW" onclick="removeItem('+ i + ', ' + itemsNoRepeat[i].number + ')"/>' +
 			'<button id="buyButtonOnWishlist" onclick="buyItem(' + i +')" class="buyButton"></button>' +
 			'</div>');
 	}
-	
-	document.getElementById("itemOnWishlistCount").innerHTML="You have " + wishlist.items.length + " items";
+	actualizeCount();
+}
+
+function actualizeCount(){
+	$("#itemOnWishlistCount").empty();
+	$("#itemOnWishlistCount").text('You have '+wishlist.items.length+' items');
 }
 
 function decrease(i, target_id){
@@ -73,7 +78,8 @@ function decrease(i, target_id){
 			previousNumber = parseInt($('#eachCountNumber' + i ).text());
 			$('#eachCountNumber' + i ).empty();
 			$('#eachCountNumber' + i ).append("" + (previousNumber-1));
-			actualizeCart();
+			actualizeWishlist();
+			actualizeCount();
 			if(previousNumber == 1){
 				$('#OnWishlistItem' + i).remove();
 			}
@@ -95,6 +101,7 @@ function increase(i, target_id){
 			wishlist.items.push(item);
 			wishlist.items.push(item);
 			actualizeWishlist();
+			actualizeCount();
 			return;
 		}
 		wishlist.items.push(item);
@@ -112,5 +119,6 @@ function removeItem(listNumber, target_id){
 		i++;
 	}
 	actualizeWishlist();
-	$('#OnCartItem' + listNumber).remove();
+	actualizeCount();
+	$('#OnWishlistItem' + listNumber).remove();
 }

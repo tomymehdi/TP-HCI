@@ -12,8 +12,14 @@ $(document).ready( function() {
 			cart.items.shift();
 		}
 		actualizeCart();
+		actualizeTotal();
 	});
  });
+
+function actualizeTotal(){
+	$("#cartTotal").empty();
+	$("#cartTotal").text("Total: "+currentCoinType+''+roundNumber(cart.total(), 2));
+}
 
 function chargeCartItems(){
 	var cartItems = cart.getItems();
@@ -83,6 +89,7 @@ function decrease(i, target_id){
 			$('#eachCountNumber' + i ).empty();
 			$('#eachCountNumber' + i ).append("" + (previousNumber-1));
 			actualizeCart();
+			actualizeTotal();
 			if(previousNumber == 1){
 				$('#OnCartItem' + i).remove();
 			}
@@ -104,6 +111,7 @@ function increase(i, target_id){
 			cart.items.push(item);
 			cart.items.push(item);
 			actualizeCart();
+			actualizeTotal();
 			return;
 		}
 		cart.items.push(item);
@@ -121,5 +129,6 @@ function removeItem(listNumber, target_id){
 		i++;
 	}
 	actualizeCart();
+	actualizeTotal();
 	$('#OnCartItem' + listNumber).remove();
 }

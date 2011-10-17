@@ -449,6 +449,7 @@ function login(username,pass){
 		
 		url='./service/Security.groovy?method=SignIn&username='+username+'&password='+pass;
 
+
 		var request;
 		var stat;
 
@@ -483,7 +484,7 @@ function login(username,pass){
 
 
 function logout(){
-		url='./service/Security.groovy?method=SignIn&username='+CurrentUsername+'&authentication_token='+CurrentToken;
+		url='./service/Security.groovy?method=SignOutusername='+CurrentUsername+'&authentication_token='+CurrentToken;
 		var request;
 		var stats;
 
@@ -501,6 +502,8 @@ function logout(){
 						alert('Godbye '+ CurrentUsername+' you have logout correctly');
 						$('#MyAccount_opt').replaceWith('<div class="item" id="register_link"><div class="text">Register</div><div id="register"></div></div>');
 						$('#Logout_opt').replaceWith('<div id="login_opt" class="item"><div id="text_login" class="text">Login</div><div id="login"></div></div>');
+						CurrentToken = null;
+						CurrentUsername = null;
 					} else if(stat == "fail"){
 						var string = "";
 						$(request.responseXML).find("error").each(function(){
@@ -512,6 +515,4 @@ function logout(){
 			}
 		request.open("GET",url,true);
 		request.send();
-		CurrentToken = null;
-		CurrentUsername = null;
 }
