@@ -66,7 +66,7 @@ $('#country_select').change( function(){
 		
 		
 		var count= searchCountryByID(val);
-		
+		currentCountry = count;
 		
 		
 		loadStat(count);	

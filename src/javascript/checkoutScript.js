@@ -215,10 +215,13 @@ function confirmBuying(){
 	
 	$('#TextArea').empty();
 
-	var price;
+	var price=0;
+	var items = cart.getItems();
 	for(var i =0 ; i < cart.getItems().length;i++){
-		price += cart.getItems()[i].price*currentCoinType.value;
+		price += items[i].price*currentCoinType.value;
 	}
+	var coun=searchCountryByID(checkoutAddress.countryID);
+	var sta=searchStateByID(coun.number,checkoutAddress.stateID);
 	$('#TextArea').append(
 		
 		'<div id="AddOption"><h5 lang="Addres ">Checkout confirmation</h5></div>'+
@@ -227,8 +230,8 @@ function confirmBuying(){
 		'</br>'+
 		'<div id="address"> Full Name: '+checkoutAddress.name+'</div>'+
 		'<div id="address"> Adress: '+checkoutAddress.addline1+'</div>'+
-		'<div id="address"> Country: '+searchCountryByID(checkoutAddress.countryID).name+'</div>'+
-		'<div id="address"> State: '+searchStateByID(checkoutAddress.countryID,checkoutAddress.stateID).name+'</div>'+
+		'<div id="address"> Country: '+coun.name+'</div>'+
+		'<div id="address"> State: '+sta.name+'</div>'+
 		'<div id="address"> City: '+checkoutAddress.city+'</div>'+
 		'<div id="address"> Zip code: '+checkoutAddress.zip_code+'</div>'+
 		'<div id="address"> Phone Number: '+checkoutAddress.phone_number+'</div>'+
@@ -238,7 +241,8 @@ function confirmBuying(){
 		'</br>'+
 		'</br>'+
 		'<div id="address"> Items quantity: '+cart.getItems().length+'</div>'+
-		'<div id="address"> Total amount: '+currentCoinType+''+price+'</div>'
+		'<div id="address"> Total amount: '+currentCoinType+''+price+'</div>'+
+		'<button id="finish_buy">CONFIRM</button>'
 		
 	);
 	
