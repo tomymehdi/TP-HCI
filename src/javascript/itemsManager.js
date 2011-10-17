@@ -22,7 +22,7 @@ function roundNumber(num, dec) {
 }
 
 function addToWishlist(number){
-	var i = parseInt(document.getElementById("sel" + number).options.selectedIndex);
+	var i = parseInt(document.getElementById("sel" + number).options[parseInt(document.getElementById("sel" + number).options.selectedIndex)].value);
 	while(i > 0){
 		wishlist.addItem(itemList.items[parseInt(number)]);
 		i--;
@@ -31,12 +31,12 @@ function addToWishlist(number){
 }
 
 function actualizeCart(){
-	document.getElementById("itemCount").innerHTML="You have " + cart.items.length + " items";
-	document.getElementById("totalCount").innerHTML="Total: "+ currentCoinType + ' ' + roundNumber(cart.total(), 2);
+	document.getElementById("itemCount").innerHTML=cart.items.length;
+	document.getElementById("totalCount").innerHTML=' ' + currentCoinType + ' ' + roundNumber(cart.total(), 2);
 }
 
 function actualizeWishlist(){
-	document.getElementById("wishedItems").innerHTML="You have " + wishlist.items.length + " items";
+	document.getElementById("wishedItems").innerHTML= wishlist.items.length;
 }
 
 function loadItems(c, page){

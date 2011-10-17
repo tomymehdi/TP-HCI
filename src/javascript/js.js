@@ -5,12 +5,14 @@ $(document).ready( function() {
         $("#main").load("./html/cart.html #main > *");
 		reloadCartScript();
 		reloadItemsManagerScript();
+		translate();
 	});
 	
 	$('#WishListContainer').click( function(){
         $("#main").load("./html/wishlist.html #main > *");
         reloadWishlistScript();
         reloadItemsManagerScript();
+        translate();
 	});
 	
 	var opacity = 1, toOpacity = 0.5, duration = 2500;

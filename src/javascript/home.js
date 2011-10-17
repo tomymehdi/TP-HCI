@@ -27,29 +27,10 @@ $(document).ready( function() {
 	
 	appendLanguages();
 	
-/*	$('#idioma_select').change(function(){
-		var url = "languages.xml";
-		var xmlhttp;
-		if (window.XMLHttpRequest)
-		  {
-		  xmlhttp=new XMLHttpRequest();
-		  }
-		else
-		  {
-		  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-		  }
-		xmlhttp.onreadystatechange=function()
-		  {
-		  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		    {
-		    changeLanguage(xmlhttp.responseXML.documentElement);
-		    }
-		  }
-		xmlhttp.open("GET",url,true);
-		xmlhttp.send();
-	})*/
-	
 	$('#idioma_select').change(translate);
+	
+	actualizeCart();
+	actualizeWishlist();
 });
 
 function translate(){
@@ -77,10 +58,17 @@ function translate(){
 function changeLanguage(doc){
 	var toChange = document.getElementsByTagName('*');
 	var i = 0;
+	while(i < languageList.items.length){
+		if(languageList.items[i].id == getCurrentLanguageId()){
+			currentLanguage = languageList.items[i].id;
+		}
+		i++;
+	}
+	i = 0;
 	while(i < toChange.length){
 		if(toChange[i].getAttribute("lang")){
 			toChange[i].innerHTML = "";
-			words = doc.getElementsByTagName("language")[getCurrentLanguageId()-1].getElementsByTagName('*');
+			words = doc.getElementsByTagName("language")[getCurrentLanguageId()- 1].getElementsByTagName('*');
 			var j = 0;
 			var stop = false;
 			while(!stop && j < words.length){
@@ -115,6 +103,7 @@ function appendLanguages(seconds){
 		$('#idioma_select').append('<option value="' + language.id +'" > ' + language.name + ' </option>');
 		i++;
 	}
+	translate();
 }
 
 
@@ -130,20 +119,14 @@ function appendCats(seconds){
 
 	var j=0;
 	var cate;
-
-//	if(document.getElementById("main_opt")){
-//	}
-//	else{
-		
-		$('#FooterCat').empty(); 
-		$('#main_opt').remove();
-		while(j < CategoriesList.categories.length){
-			cate = CategoriesList.categories[j];
-		    $('#main').append('<div class="main_opt"><div  class="'+cate.name+'_link  title pointer" >'+cate.name+'</div>');
-		    $('#FooterCat').append('<li><a  class="'+cate.name+'_link pointer">'+cate.name+'</a></li>');
-			j++;
-			}
-//	} 
+	$('#FooterCat').empty(); 
+	$('#main_opt').remove();
+	while(j < CategoriesList.categories.length){
+		cate = CategoriesList.categories[j];
+		$('#main').append('<div class="main_opt"><div  class="'+cate.name+'_link  title pointer" >'+cate.name+'</div>');
+		$('#FooterCat').append('<li><a  class="'+cate.name+'_link pointer">'+cate.name+'</a></li>');
+		j++;
+	}
 }
 
 $(function(){
