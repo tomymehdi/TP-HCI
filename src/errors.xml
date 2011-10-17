@@ -12,20 +12,13 @@
 		<message language="2">Metodo invalido.</message>
 	</error>
 
-	<error id="invalidLanguageId">
-		<message language="1"></message>
-		<message language="2"></message>
+
+	<error id="3">
+		<message language="1">Missing country id.</message>
+		<message language="2">Falta el parametro id de country.</message>
 	</error>
-	<error id="missingCountryId">
-		<message language="1"></message>
-		<message language="2"></message>
-	</error>
-	<error id="invalidCountryId">
-		<message language="1"></message>
-		<message language="2"></message>
-	</error>
-	<error id="missingLanguage">
-		<message language="1"></message>
+	<error id="103">
+		<message language="1">Invalid country id.</message>
 		<message language="2"></message>
 	</error>
 	<error id="102">
@@ -37,75 +30,87 @@
 		<message language="2">Falta pasar el parametro id de language.</message>
 	</error>
 
-	<error id="missingUsername">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="4">
+		<message language="1">Missing username.</message>
+		<message language="2">Falta el parametro username.</message>
 	</error>
-	<error id="missingPassword">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="5">
+		<message language="1">Missing password.</message>
+		<message language="2">Falta el parametro password.</message>
 	</error>
-	<error id="invalidUser">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="104">
+		<message language="1">Invalid username or password.</message>
+		<message language="2">Usuario o password invalidos.</message>
 	</error>
-	<error id="missingAutenticationToken">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="6">
+		<message language="1">Missing autentication token.</message>
+		<message language="2">Falta el parametro autentication token.</message>
 	</error>
-	<error id="invalidAutenticationToken">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="105">
+		<message language="1">Invalid autentication token.</message>
+		<message language="2">Autentication token invalido.</message>
 	</error>
-	<error id="missingNewPassword">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="8">
+		<message language="1">Missing new password.</message>
+		<message language="2">Falta el parametro new password.</message>
 	</error>
-	<error id="missingAccount">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="7">
+		<message language="1">Missing account.</message>
+		<message language="2">Falta el parametro account.</message>
 	</error>
-	<error id="invalidUsername">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="107">
+		<message language="1">Invalid username.</message>
+		<message language="2">Username invalido.</message>
 	</error>
-	<error id="invalidPassword">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="108">
+		<message language="1">Invalid password.</message>
+		<message language="2">Password invalida.</message>
 	</error>
-	<error id="invalidName">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="109">
+		<message language="1">Invalid name.</message>
+		<message language="2">Nombre invalido.</message>
 	</error>
-	<error id="invalidEmail">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="110">
+		<message language="1">Invalid email.</message>
+		<message language="2">Email invalido.</message>
 	</error>
-	<error id="userAlreadyExist">
-		<message language="1"></message>
-		<message language="2"></message>
+		<error id="111">
+		<message language="1">Invalid birth date.</essage>
+		<message language="2">Fecha de cumpleaños invalida.</message>
+	</error>
+	<error id="201">
+		<message language="1">User already exist.</message>
+		<message language="2">El usuario ya existe.</message>
 	</error>
 
+	<error id="9">
+		<message language="1">Missing category id.</message>
+		<message language="2">Falta el parametro category id.</message>
+	</error>
+	<error id="112">
+		<message language="1">Invalid category id.</message>
+		<message language="2">Category id invalido.</message>
+	</error>
+	<error id="10">
+		<message language="1">Missing sub-category id.</message>
+		<message language="2">Falta el parametro subc-ategory id.</message>
+	</error>
+	<error id="113">
+		<message language="1">Invalid sub-category id.</message>
+		<message language="2">Sub-category id invalido.</message>
+	</error>
+	<error id="11">
+		<message language="1">Missing critery function.</message>
+		<message language="2">Falta el parametro funcion de criterio.</message>
+	</error>
 	
-	<error id="missingCategoryId">
-		<message language="1"></message>
-		<message language="2"></message>
+	<error id="12">
+		<message language="1">Missing product id.</message>
+		<message language="2">Falta el parametro product id.</message>
 	</error>
-	<error id="invalidCategoryId">
-		<message language="1"></message>
-		<message language="2"></message>
-	</error>
-	<error id="missingSubCategoryId">
-		<message language="1"></message>
-		<message language="2"></message>
-	</error>
-	<error id="invalidSubCategoryId">
-		<message language="1"></message>
-		<message language="2"></message>
-	</error>
-	<error id="missingCriteria">
-		<message language="1"></message>
-		<message language="2"></message>
+		<error id="114">
+		<message language="1">Invalid product id.</message>
+		<message language="2">El product id es invalido.</message>
 	</error>
 		
 </errors>
