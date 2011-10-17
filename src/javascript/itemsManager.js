@@ -219,11 +219,21 @@ function loadListBSC(response, sc, page){
 }
 
 function getOrder(){
-	return document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value;
+	var x = document.getElementById("sort");
+	if(x==null){
+		return 0;
+	} else{
+		return x.options[document.getElementById("sort").options.selectedIndex].value;
+	}
 }
 
 function getPageSize(){
-	return document.getElementById("pageSize").options[document.getElementById("pageSize").options.selectedIndex].value;
+	var x = document.getElementById("pageSize");
+	if(x==null){
+		return 1;
+	}else {
+		return x.options[document.getElementById("pageSize").options.selectedIndex].value;
+	}
 }
 
 function get(parent, tag){

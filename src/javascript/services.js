@@ -150,7 +150,7 @@ var CurrentSubCategory;
 var AddressList;
 var checkoutAddress;
 
-var errorsXML = './errors.xml';
+var errorsXML;
 
 var cart;
 var wishlist;

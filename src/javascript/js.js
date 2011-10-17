@@ -519,15 +519,28 @@ function login(username,pass){
 					if(stat == "ok"){
 						CurrentToken = $(request.responseXML).find("token").text();
 						CurrentUsername = $(request.responseXML).find("user").attr("username");
-						alert('Hello '+username+' you have login correctly');
+						$(".exito").empty();
+						$(".exito").text('Hello '+username+' you have login correctly');
+						setTimeout(function(){ $(".exito").fadeIn().fadeOut(4000);}, 100);  
 						$('#register_link').replaceWith('<div id="MyAccount_opt" class="item"><div id="text_MyAccount" class="text">MyAcc</div><div id="MyAccount"></div></div>');
 			    		$('#login_opt').replaceWith('<div id="Logout_opt" class="item"><div id="text_Logout" class="text">Logout</div><div id="logout"></div></div>');	
 					} else if(stat == "fail"){
-						var string = "";
-						$(request.responseXML).find("error").each(function(){
-    						string += $(this).attr("message") + "\n";
-  						});
-  						alert(string);
+						var err;
+						var num = $(request.responseXML).find("error").attr("code");
+						$(errorsXML).find("error").each(function(){
+							if($(this).attr("id") == num){
+								$(this).find("message").each(function(){
+									if($(this).attr("language")==currentLanguage.id){
+										err = $(this).text();
+									}
+								});
+							}
+						}
+						
+						);
+						$(".alerta").empty();
+						$(".alerta").text(err);
+						setTimeout(function(){ $(".alerta").fadeIn().fadeOut(4000);}, 100);  
 					}
 				}
 			}
@@ -552,8 +565,9 @@ function logout(){
 				if (request.readyState==4 && request.status==200){
 					stat=$(request.responseXML).find("response").attr("status");
 					if(stat == "ok"){
-					
-						alert('Godbye '+ CurrentUsername+' you have logout correctly');
+						$(".exito").empty();
+						$(".exito").text('Good bye '+CurrentUsername+' you have logout correctly');
+						setTimeout(function(){ $(".exito").fadeIn().fadeOut(4000);}, 100); 
 						
 						$('#login_pass_input2').attr('value','');
 						$('#login_pass_input').attr('value','');
@@ -570,11 +584,17 @@ function logout(){
 				        reloadhomeScript();
 						
 					} else if(stat == "fail"){
-						var string = "";
-						$(request.responseXML).find("error").each(function(){
-    						string += $(this).attr("message") + "\n";
-  						});
-  						alert(string);
+						var err;
+						var num = $(request.responseXML).find("error").attr("code");
+						$(errorsXML).find("error").each(function(){
+							if($(this).attr("id") == num){
+								$(this).find("message").each(function(){
+									if($(this).attr("language")==currentLanguage.id){
+										err = $(this).text();
+									}
+								});
+							}
+						});
 					}	
 				}
 			}

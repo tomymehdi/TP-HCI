@@ -26,6 +26,7 @@ $(document).ready( function() {
 
 	actualizeCart();
 	actualizeWishlist();
+	errors();
 });
 
 function translate(){
@@ -44,6 +45,28 @@ function translate(){
 	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 	    changeLanguage(xmlhttp.responseXML.documentElement);
+	    }
+	  }
+	xmlhttp.open("GET",url,true);
+	xmlhttp.send();
+}
+
+function errors(){
+	var url = "errors.xml";
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    errorsXML = xmlhttp.responseXML;
 	    }
 	  }
 	xmlhttp.open("GET",url,true);
