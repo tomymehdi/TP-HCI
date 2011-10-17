@@ -26,26 +26,11 @@ function createAdress(){
 		var cty=$('#city').val();
 		var zc=$('#zipcode').val();
 		var pn=$('#phone').val();
-		
-		
+				
 	sendPetition(fn,addr,coun,stat,cty,zc,pn)
 	
 }
-function searchCountryByID(id){
-	
-	
-	
-	var i;
-	for(i=0;i<CountriesList.countries.length;i++){
-	
-		var count=CountriesList.countries[i];
 
-		if(count.number==id){
-			
-			return count;
-		}
-	}
-}	
 function loadStat(count){
 		
 		$('#state_select').append('<option>--------</option>');
