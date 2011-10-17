@@ -1,11 +1,14 @@
 
 $(document).ready( function() {
-
-	getDirections();
-
-	createOrder();
 	
-	setTimeout('appendAdds()',4000);
+	bool1= new Bool(false);
+	bool2= new Bool(false);
+
+	getDirections(bool1);
+
+	createOrder(bool2);
+	
+	appendAdds(0, bool1, bool2);
 	
 //QUIERO QUE SE QUEDE ACA HASTA QUE NO HAGA TODO DE GET DIRECTIONS Y CREATE ORDER, QUE NO ENTERE AL IF PORQUE NO VA A 
 //ENCONTRAR LAS VARIABLES Q NECESITA
@@ -17,9 +20,6 @@ $(document).ready( function() {
 //	}
 //	else{
 	
-	
-	
-		
 //	}
 
 
@@ -27,7 +27,17 @@ $(document).ready( function() {
 
 
 
-function appendAdds(){
+function appendAdds(segs, b1, b2){
+	if(!b1.state || !b2.state){
+		if(segs == 20){
+			alert("Connection is slow or null. Please check your internet connection");
+		}
+		newSegs = segs + 1;
+		bool1 = b1;
+		bool2 = b2;
+		setTimeout("appendAdds(newSegs, bool1, bool2)", 1000);
+		return;
+	}
 	
 		var i=0;
 				
@@ -56,10 +66,9 @@ function appendAdds(){
 					'<div id="address"> Phone number:' +a.phone_number+'</div>'+
 					'<div lang="select_address" class="CartButtonC" id="select_address"  onclick="checkoutAddress=new Address('+a.name+','+a.addline1+','+count.name+','+stat.name+','+a.city,a.zip_code+','+a.phone_number+')"> select this address</div>'
 					
+
 				);
 			}
-			
-			
 		$('#TextArea').append('<div lang="create_address" class="CartButton" id="create_address" onclick="goToCreateAdd()">create new address</div>');
 		
 		
@@ -73,7 +82,7 @@ function selectAdd(){
 	
 	
 }
-function getDirections(){
+function getDirections(bool){
 	
 
 	url='./service/Order.groovy?method=GetAddressList&username='+CurrentUsername+'&authentication_token='+CurrentToken;
@@ -107,6 +116,7 @@ function getDirections(){
 						
 						AddressList.add(address);
 					}
+		            bool.setValue(true);
 					
 			}
 
@@ -160,7 +170,7 @@ function searchStateByID(cid,sid){
 	}
 	
 }
-function createOrder(){
+function createOrder(bool){
 		
 url='./service/Order.groovy?method=CreateOrder&username='+CurrentUsername+'&authentication_token='+CurrentToken;
 
@@ -178,7 +188,7 @@ request.onreadystatechange = function(){
 		stat=$(request.responseXML).find("response").attr("status");
 		
 		if(stat == "ok"){
-			
+		bool.setValue(true);	
 
 		} else if(stat == "fail"){
 			

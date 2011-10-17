@@ -568,7 +568,6 @@ function logout(){
 						
 						$("#main").load("./html/home.html #main > *");
 				        reloadhomeScript();
-						
 					} else if(stat == "fail"){
 						var string = "";
 						$(request.responseXML).find("error").each(function(){
