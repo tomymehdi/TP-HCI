@@ -5,7 +5,7 @@
 	</error>
 	<error id="1">
 		<message language="1">Missing method.</message>
-		<message language="2">Metodo perdido.</message>
+		<message language="2">Metodo no encontrado.</message>
 	</error>
 	<error id="101">
 		<message language="1">Invalid method.</message>
@@ -75,7 +75,7 @@
 		<message language="2">Email invalido.</message>
 	</error>
 		<error id="111">
-		<message language="1">Invalid birth date.</essage>
+		<message language="1">Invalid birth date.</message>
 		<message language="2">Fecha de cumpleaños invalida.</message>
 	</error>
 	<error id="201">
@@ -108,9 +108,69 @@
 		<message language="1">Missing product id.</message>
 		<message language="2">Falta el parametro product id.</message>
 	</error>
-		<error id="114">
+	<error id="114">
 		<message language="1">Invalid product id.</message>
 		<message language="2">El product id es invalido.</message>
+	</error>
+	<error id="13">
+		<message language="1">Missing order id.</message>
+		<message language="2">Falta el parametro order id.</message>
+	</error>
+	<error id="115">
+		<message language="1">Invalid order id.</message>
+		<message language="2">El parametro product id es invalido.</message>
+	</error>
+	<error id="116">
+		<message language="1">Invalid operation.</message>
+		<message language="2">Operacion invalida.</message>
+	</error>
+	<error id="14">
+		<message language="1">Missing adress id.</message>
+		<message language="2">Falta el parametro adress id.</message>
+	</error>
+	<error id="15">
+		<message language="1">Missing order item.</message>
+		<message language="2">Falta el parametro order item.</message>
+	</error>
+	<error id="117">
+		<message language="1">Invalid adress id.</message>
+		<message language="2">El parametro adress id es invalido.</message>
+	</error>
+	<error id="16">
+		<message language="1">Missing adress.</message>
+		<message language="2">Falta el parametro adress.</message>
+	</error>
+	<error id="118">
+		<message language="1">Invalid full name.</message>
+		<message language="2">Nombre invalido.</message>
+	</error>
+	<error id="119">
+		<message language="1">Invalid adress.</message>
+		<message language="2">La direccion es invalida.</message>
+	</error>
+	<error id="120">
+		<message language="1">Invalid adress.</message>
+		<message language="2">La direccion es invalida.</message>
+	</error>
+	<error id="121">
+		<message language="1">Invalid state id.</message>
+		<message language="2">El pais es invalido.</message>
+	</error>
+	<error id="122">
+		<message language="1">Invalid city.</message>
+		<message language="2">La ciudad es invalida.</message>
+	</error>
+	<error id="121">
+		<message language="1">Invalid zip code.</message>
+		<message language="2">Zip code invalido.</message>
+	</error>
+	<error id="121">
+		<message language="1">Invalid phone number.</message>
+		<message language="2">El numero de telefono es invalido.</message>
+	</error>
+	<error id="202">
+		<message language="1">Adress already exist.</message>
+		<message language="2">La direccion ya existe.</message>
 	</error>
 		
 </errors>

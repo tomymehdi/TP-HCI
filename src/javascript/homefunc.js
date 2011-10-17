@@ -1,21 +1,4 @@
-//    $('.categorylink').click(function(){
-//		currentSubCategory=undefined;
-//		$("#main").load("./html/articles.html #main > *");
-//		reloadArticlesScript(currentCategory.name);
-//		reloadItemsManagerScript();
-//		setTimeout("loadItems(currentCategory, 1)", 100);
-//	});
-//
-//	$('.DVD_link').click(function(){
-//		currentCategory=CategoriesList.categories[0];
-//		$("#main").load("./html/articles.html #main > *");
-//		currentSubCategory=undefined;
-//		reloadArticlesScript(currentCategory.name);
-//		reloadItemsManagerScript();
-//		setTimeout("loadItems(currentCategory, 1)", 100);
-//	});
-	
-	
+
 	$('.subitem').click(function(){
 
 
@@ -41,6 +24,8 @@
 		var previousCoinType = currentCoinType;
 		currentCoinType = pesos;
 		actualizeCart();
+		actualizeTotal();
+		actualizeCount();
 		$('*').filter('#PriceTag').text( '' + currentCoinType);
 		$('*').filter('#PriceNumber').replaceWith(function(){
 			return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value), 2)+ '</div>');
@@ -51,6 +36,8 @@
 		var previousCoinType = currentCoinType;
 		currentCoinType = euros; 
 		actualizeCart();
+		actualizeTotal();
+		actualizeCount();
 		$('*').filter('#PriceTag').text(currentCoinType.toString());
 		$('*').filter('#PriceNumber').replaceWith(function(){
 			return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value), 2)+ '</div>');
@@ -61,6 +48,8 @@
 		var previousCoinType = currentCoinType;
 		currentCoinType = dollars; 
 		actualizeCart();
+		actualizeTotal();
+		actualizeCount();
 		$('*').filter('#PriceTag').text(currentCoinType.toString());
 		$('*').filter('#PriceNumber').replaceWith(function(){
 			return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value), 2)+ '</div>');

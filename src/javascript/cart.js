@@ -29,7 +29,6 @@ $(document).ready( function() {
 	$("#CartCount").text('You have '+cart.items.length+' items');
 }
 
-
 function checkout(){
 		
 	if(cart.getItems().length==0){
@@ -101,12 +100,12 @@ function chargeCartItems(){
 		$('#ListIt').append('<div id="OnCartItem' + i +'" class="OnCartItem">' +
 			'<img id="ImageOnCart" class="pointer" onclick="bringInfo(' + 
 			numEachItem[i] + ')" src="'  + itemsNoRepeat[i].imageSource + '"></img>' +
-			'<div id="PriceNumberOnCart" >' + roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
+			'<div class="PriceNumberOnCart" id="PriceNumberOnCart' + i +'" >'+roundNumber(itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
 			'<div class="eachCount">' +
 			'<button id="dec" onclick="decrease(' + i + ', ' + itemsNoRepeat[i].number + ')"> &lt; </button>'+'' +
 			'<div id="eachCountNumber' + i +'" class="eachCountNumberCart">'+ countEachItem[i]+'</div>'+
 			'<button onclick="increase(' + i + ', ' + itemsNoRepeat[i].number + ')">&gt;</button></div>'+
-			'<div id="totalItemOnCart">'  + roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
+			'<div class ="totalItemOnCart" id="totalItemOnCart' + i + '">' +currentCoinType+''+ roundNumber(countEachItem[i]*itemsNoRepeat[i].price*currentCoinType.value, 2) + '</div>' +
 			'<button id="removeItem" onclick="removeItem('+ i + ', ' + itemsNoRepeat[i].number + ')"/>' +
 			'</div>');
 	}
@@ -128,6 +127,11 @@ function decrease(i, target_id){
 			actualizeCart();
 			actualizeTotal();
 			actualizeCount();
+			var count,price;
+			count = parseInt($('#eachCountNumber' + i ).text());
+ 			price = parseInt($('#PriceNumberOnCart' + i ).text());
+			$('#totalItemOnCart' + i).empty();
+			$('#totalItemOnCart' + i).text(currentCoinType+''+roundNumber(count*price*currentCoinType.value, 2));
 			if(previousNumber == 1){
 				$('#OnCartItem' + i).remove();
 			}
@@ -151,6 +155,11 @@ function increase(i, target_id){
 			actualizeCart();
 			actualizeTotal();
 			actualizeCount();
+			var count,price;
+			count = parseInt($('#eachCountNumber' + i ).text());
+ 			price = parseInt($('#PriceNumberOnCart' + i ).text());
+			$('#totalItemOnCart' + i).empty();
+			$('#totalItemOnCart' + i).text(currentCoinType+''+roundNumber(count*price*currentCoinType.value, 2));
 			return;
 		}
 		cart.items.push(item);

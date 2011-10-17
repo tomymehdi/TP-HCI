@@ -713,6 +713,7 @@ h5 {
 
 #cartItemQty{
 	text-align: center;
+	width: 170px;
 }
 
 #itemCount{
@@ -749,13 +750,7 @@ h5 {
 	width:100%;
 	height:100%;
 }
-#CartCount{
-	position:relative;
-	float:left;
-	width:75%;
-	height:30px;
-	margin-bottom: 15px;
-}
+
 #Buttons{
 	position:relative;
 	float:left;
@@ -763,6 +758,7 @@ h5 {
 	height: 60%;
 	margin-top:30px;	
 }
+
 #ListIt{
 	float:left;
 	margin-top: 30px;
@@ -1030,7 +1026,7 @@ h5 {
 	margin-left: 5px;
 }
 
-#PriceNumberOnCart{
+.PriceNumberOnCart{
 	float: left;
 	margin-left: 55px;
 	margin-top: 50px;
@@ -1054,9 +1050,9 @@ h5 {
     margin-top: 50px;
 }
 
-#totalItemOnCart {
+.totalItemOnCart {
     float: left;
-    margin-left: 78px;
+    margin-left: 90px;
     margin-top: 50px;
 }
 
@@ -1451,8 +1447,9 @@ ul#menu li ul li a:hover {
     margin-top: 25px;
 }
 
-#cartCount{
-	
+#cartCount {
+    text-align: center;
+    width: 115px;
 }
 
 .eachCountNumberCart {
@@ -1465,7 +1462,7 @@ ul#menu li ul li a:hover {
 
 .eachCount {
     float: left;
-    margin-left: 120px;
+    margin-left: 115px;
     margin-top: 50px;
 }
 
