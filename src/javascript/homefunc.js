@@ -99,7 +99,6 @@ function getCategory(id){
 	}
 	
 	function addNavigation(name, level){
-			alert(level);
 			var i = level;
 			while(i < 10){
 				$("#level" + i).remove();

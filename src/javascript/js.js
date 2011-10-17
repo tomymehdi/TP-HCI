@@ -582,7 +582,6 @@ function logout(){
 						
 						$("#main").load("./html/home.html #main > *");
 				        reloadhomeScript();
-						
 					} else if(stat == "fail"){
 						var err;
 						var num = $(request.responseXML).find("error").attr("code");

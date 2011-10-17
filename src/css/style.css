@@ -702,7 +702,7 @@ h5 {
     float: left;
     height: 40px;
     position: relative;
-    width: 300px;
+     width: 340px;
 	
 }
 
@@ -818,18 +818,18 @@ h5 {
 	background-color: #c4dcd8;
 	border-style:double;
 }
-.CartButtonC{
-	position: relative;
-	float:left;
-	margin:30px;
-	height: 50px;
-	width: 110px;
-	font-size: 18px;
-	text-align: center;
-	font-family: century gothic, serif;
-	color: #585044;
-	background-color: #c4dcd8;
-	border-style:double;
+.CartButtonC {
+    background-color: #C4DCD8;
+    border-style: double;
+    color: #585044;
+    float: left;
+    font-family: century gothic,serif;
+    font-size: 18px;
+    height: 32px;
+    margin: 30px 500px 30px 30px;
+    position: relative;
+    text-align: center;
+    width: 196px;
 }
 
 .MyAccButton{

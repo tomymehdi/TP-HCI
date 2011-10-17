@@ -136,7 +136,14 @@ function Address(name, addline1,countryID,stateID,city,zip_code,phone_number){
 	this.city = city;
 	this.zip_code = zip_code;
 	this.phone_number = phone_number;
-	
+}
+
+function Bool(state){
+	this.state = state;
+}
+
+Bool.prototype.setValue = function(value){
+	this.state = value;
 }
 
 // VARIABLES
@@ -179,6 +186,7 @@ $(document).ready( function() {
 	CountriesList = new CountriesList();
 	currentLanguage = new Language(1, "default", "def");
 	AddressList= new AddressList();
+	checkoutAddress= new Address();
 	
 	euros = new CoinType("0.6", "\u20ac");
 	dollars = new CoinType("1", "U$S");

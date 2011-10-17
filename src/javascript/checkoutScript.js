@@ -1,34 +1,41 @@
 
 $(document).ready( function() {
+	
+	bool1= new Bool(false);
+	bool2= new Bool(false);
 
-	getDirections();
+	getDirections(bool1);
 
-	createOrder();
+	createOrder(bool2);
 	
-	setTimeout('appendAdds()',4000);
+		appendAdds(0, bool1, bool2);
 	
-//QUIERO QUE SE QUEDE ACA HASTA QUE NO HAGA TODO DE GET DIRECTIONS Y CREATE ORDER, QUE NO ENTERE AL IF PORQUE NO VA A 
-//ENCONTRAR LAS VARIABLES Q NECESITA
-
-//	if(AddressList.addresses.length==0){
-	
-//		goToCreateAdd();
-	
-//	}
-//	else{
-	
-	
-	
-		
-//	}
 
 
 });
 
 
 
-function appendAdds(){
+function appendAdds(segs, b1, b2){
+	if(!b1.state || !b2.state){
+		if(segs == 20){
+			alert("Connection is slow or null. Please check your internet connection");
+		}
+		newSegs = segs + 1;
+		bool1 = b1;
+		bool2 = b2;
+		setTimeout("appendAdds(newSegs, bool1, bool2)", 1000);
+		return;
+	}
 	
+	
+	
+	if(AddressList.addresses.length==0){
+	
+		goToCreateAdd();
+	
+	}
+	else{
 		var i=0;
 				
 				
@@ -54,24 +61,25 @@ function appendAdds(){
 					'<div id="address"> City: '+a.city+'</div>'+
 					'<div id="address"> Zip code: '+a.zip_code+'</div>'+
 					'<div id="address"> Phone number:' +a.phone_number+'</div>'+
-					'<div lang="select_address" class="CartButtonC" id="select_address"  onclick="selectAdd('+a+')"> select this address</div>'
+					'<div lang="select_address" class="CartButtonC" id="select_address"  onclick="selectAdd('+i+')"> select this address</div>'
 					
+
 				);
 			}
-			
-			
 		$('#TextArea').append('<div lang="create_address" class="CartButton" id="create_address" onclick="goToCreateAdd()">create new address</div>');
-		
+		}
 		
 }
 
-function selectAdd(address){
-	checkoutAddress=address;
+function selectAdd(i){
+
+	
+	checkoutAddress=AddressList.addresses[i];
 	confirmBuying();
 	
 	
 }
-function getDirections(){
+function getDirections(bool){
 	
 
 	url='./service/Order.groovy?method=GetAddressList&username='+CurrentUsername+'&authentication_token='+CurrentToken;
@@ -102,9 +110,9 @@ function getDirections(){
 						
 						address = new Address(xx.getElementsByTagName("full_name")[0].firstChild.nodeValue, xx.getElementsByTagName("address_line_1")[0].firstChild.nodeValue,xx.getElementsByTagName("country_id")[0].firstChild.nodeValue,xx.getElementsByTagName("state_id")[0].firstChild.nodeValue,xx.getElementsByTagName("city")[0].firstChild.nodeValue,xx.getElementsByTagName("zip_code")[0].firstChild.nodeValue,xx.getElementsByTagName("phone_number")[0].firstChild.nodeValue);
 						
-						
 						AddressList.add(address);
 					}
+		            bool.setValue(true);
 					
 			}
 
@@ -158,7 +166,7 @@ function searchStateByID(cid,sid){
 	}
 	
 }
-function createOrder(){
+function createOrder(bool){
 		
 url='./service/Order.groovy?method=CreateOrder&username='+CurrentUsername+'&authentication_token='+CurrentToken;
 
@@ -176,7 +184,7 @@ request.onreadystatechange = function(){
 		stat=$(request.responseXML).find("response").attr("status");
 		
 		if(stat == "ok"){
-			
+		bool.setValue(true);	
 
 		} else if(stat == "fail"){
 			
@@ -207,13 +215,30 @@ function confirmBuying(){
 	
 	$('#TextArea').empty();
 
-	
+	var price;
+	for(var i =0 ; i < cart.getItems().length;i++){
+		price += cart.getItems()[i].price*currentCoinType.value;
+	}
 	$('#TextArea').append(
 		
 		'<div id="AddOption"><h5 lang="Addres ">Checkout confirmation</h5></div>'+
-		'<div id="address"> Full Name: '+checkoutAddress.name+'</div>'
-		
-		
+		'<h5 lang="Addres ">Address information</h5></div>'+
+		'</br>'+
+		'</br>'+
+		'<div id="address"> Full Name: '+checkoutAddress.name+'</div>'+
+		'<div id="address"> Adress: '+checkoutAddress.addline1+'</div>'+
+		'<div id="address"> Country: '+searchCountryByID(checkoutAddress.countryID).name+'</div>'+
+		'<div id="address"> State: '+searchStateByID(checkoutAddress.countryID,checkoutAddress.stateID).name+'</div>'+
+		'<div id="address"> City: '+checkoutAddress.city+'</div>'+
+		'<div id="address"> Zip code: '+checkoutAddress.zip_code+'</div>'+
+		'<div id="address"> Phone Number: '+checkoutAddress.phone_number+'</div>'+
+		'</br>'+
+		'</br>'+
+		'<h5 lang="Addres ">Items information</h5></div>'+
+		'</br>'+
+		'</br>'+
+		'<div id="address"> Items quantity: '+cart.getItems().length+'</div>'+
+		'<div id="address"> Total amount: '+currentCoinType+''+price+'</div>'
 		
 	);
 	
