@@ -253,7 +253,7 @@ function setStart(){
 	    }
 	});
 
-if(currentCategory.id==1){
+if(currentCategory.number==1){
 	$('#menu ul:first').show();
 }
 else{
@@ -264,7 +264,6 @@ else{
 }
 
 function loadMenu(){
-	
 	$('#menu').empty();
 	
 	var w=0;
@@ -274,12 +273,13 @@ function loadMenu(){
 
 		var id='#'+CategoriesList.categories[w].name+'_sm';	
 		
-			$('#menu').append('<li><a class="'+ CategoriesList.categories[w].name  +'_link" href="#">'+CategoriesList.categories[w].name+'</a><ul id="'+CategoriesList.categories[w].name+'_sm"></ul></li>');
+			$('#menu').append('<li><a onclick="cateLink(' + CategoriesList.categories[w].number + ')" class="pointer"href="#">'+CategoriesList.categories[w].name+'</a><ul id="'+CategoriesList.categories[w].name+'_sm"></ul></li>');
 
 	while(e <  CategoriesList.categories[w].subcategories.length){	
 		
 	var id='#'+CategoriesList.categories[w].name+'_sm';	
-	$(id).append('<li><a class="subitem" id="'+ CategoriesList.categories[w].subcategories[e].name +'" href="#" >'+CategoriesList.categories[w].subcategories[e].name+'</a></li>');
+
+	$(id).append('<li><a class="subitem pointer" id="'+ CategoriesList.categories[w].subcategories[e].number +'">'+CategoriesList.categories[w].subcategories[e].name+'</a></li>');
 	e++;
 	
 	}
@@ -290,6 +290,7 @@ function loadMenu(){
 	
 	reloadhomeFunc();
 }
+
 
 function reloadhomeScript(){
 	if(document.getElementById("homeScript")){
@@ -340,7 +341,7 @@ function reloadArticlesScript(){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 	
-	initMenu();
+	reloadMenu(0);
 	
 	
 }

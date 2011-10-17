@@ -45,6 +45,8 @@
 		<lang id="page_size">Page size:</lang>
 		<lang id="previous">Previous</lang>
 		<lang id="next">Next</lang>
+		<lang id="add_to_cart">Add to Cart</lang>
+		<lang id="add_all">Add All</lang>
 	</language>
 	<language id="2">
 		<lang id="cart">Carrito</lang>
@@ -92,5 +94,7 @@
 		<lang id="page_size">Tamaño de página:</lang>
 		<lang id="previous">Anterior</lang>
 		<lang id="next">Proxima</lang>
+		<lang id="add_to_cart">Agregar al Carrito</lang>
+		<lang id="add_all">Agregar Todo</lang>
 	</language>
 </languages>

@@ -42,10 +42,8 @@ function actualizeWishlist(){
 function loadItems(c, page){
 	
 	currentPage = page;
-	if(c.category){
-		
+	if(c.category!=undefined){
 		currentCategory = c.category;
-		
 	}
 	else{
 		currentCategory=c;
