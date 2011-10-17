@@ -27,6 +27,8 @@ function createAdress(){
 		var zc=$('#zipcode').val();
 		var pn=$('#phone').val();
 				
+				
+	//	checkoutAddress=new Address()
 	sendPetition(fn,addr,coun,stat,cty,zc,pn)
 	
 }
@@ -81,7 +83,6 @@ function sendPetition(fn,addr,counid,stat,cty,zc,pn){
 			'<phone_number>'+  pn   +'</phone_number>'+
 			'</address>';
 			
-		alert(addHtml);
 		
 url='./service/Order.groovy?method=CreateAddress&username='+CurrentUsername+'&authentication_token='+CurrentToken+'&address='+addHtml;
 
@@ -102,8 +103,7 @@ request.onreadystatechange = function(){
 		
 		if(stat == "ok"){
 			
-			//COMO SIGUE????
-			alert('You have created a new address correctly')
+			confirmBuying();
 			
 		} else if(stat == "fail"){
 			
@@ -120,8 +120,6 @@ request.onreadystatechange = function(){
 	request.send();
 	
 }
-
-
 
 
 //VALIDACIONES

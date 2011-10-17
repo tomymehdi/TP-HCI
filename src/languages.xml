@@ -76,7 +76,7 @@
 		<lang id="remove_all">Eliminar Todo</lang>
 		<lang id="print_page">Imprimir Página</lang>
 		<lang id="continue_shopping">Seguir de compras</lang>
-		<lang id="checkout">Finalizar Compra</lang>
+		<lang id="checkout">Realizar Compra</lang>
 		<lang id="registration">Registración</lang>
 		<lang id="if_have_acc">Si usted ya posee una cuenta de usuario, por favor </lang>
 		<lang id="required_fields">* Campos Requeridos</lang>
@@ -93,4 +93,4 @@
 		<lang id="previous">Anterior</lang>
 		<lang id="next">Proxima</lang>
 	</language>
-</languages>
+</languages>>

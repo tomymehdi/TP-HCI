@@ -1,35 +1,76 @@
 
 $(document).ready( function() {
 
-getDirections();
-setTimeout('',4000);
-createOrder();
+	getDirections();
 
-if(AddressList.addresses.length==0){
+	createOrder();
 	
-	goToCreateAdd();
+	setTimeout('appendAdds()',4000);
 	
-}
-else{
+//QUIERO QUE SE QUEDE ACA HASTA QUE NO HAGA TODO DE GET DIRECTIONS Y CREATE ORDER, QUE NO ENTERE AL IF PORQUE NO VA A 
+//ENCONTRAR LAS VARIABLES Q NECESITA
+
+//	if(AddressList.addresses.length==0){
 	
-	var i=0;
-	for(;i<AddressList.addresses.length;i++){
-	var a=AddressList.addresses[i];
-	var count=searchCountryByID(a.countryID);
-	var stat=searchStateByID(a.countryID,a.stateID);
-	$('#TextArea').append(
+//		goToCreateAdd();
+	
+//	}
+//	else{
+	
+	
+	
 		
-		'<div id="upOptions"><h5 lang="Addres ">Addres Nº'+i+'</h5></div>'+
-		'<div id="address"> Full Name: '+a.name+'\n Address: '+a.addline1+'\n Country: '+count+'\n State: '+stat+'\n City: '+a.city+'\n Zip code: '+a.zip_code+'\n Phone number:' +a.phone_number+'</div>'
-	);
-	
-	}
-}
+//	}
 
 
 });
 
 
+
+function appendAdds(){
+	
+		var i=0;
+				
+				
+		for( ;i<AddressList.getAdd().length;i++){
+		
+				var a=AddressList.addresses[i];
+				
+				var count=searchCountryByID(a.countryID);
+				
+				
+				var stat=searchStateByID(a.countryID,a.stateID);
+				
+				var cant=i+1;
+				
+				
+				$('#TextArea').append(
+		
+					'<div id="AddOption"><h5 lang="Addres ">Address Nº'+cant+'</h5></div>'+
+					'<div id="address"> Full Name: '+a.name+'</div>'+
+					'<div id="address"> Address: '+a.addline1+'</div>'+
+					'<div id="address"> Country: '+count.name+'</div>'+
+					'<div id="address"> State: '+stat.name+'</div>'+
+					'<div id="address"> City: '+a.city+'</div>'+
+					'<div id="address"> Zip code: '+a.zip_code+'</div>'+
+					'<div id="address"> Phone number:' +a.phone_number+'</div>'+
+					'<div lang="select_address" class="CartButtonC" id="select_address"  onclick="selectAdd('+a+')"> select this address</div>'
+					
+				);
+			}
+			
+			
+		$('#TextArea').append('<div lang="create_address" class="CartButton" id="create_address" onclick="goToCreateAdd()">create new address</div>');
+		
+		
+}
+
+function selectAdd(address){
+	checkoutAddress=address;
+	confirmBuying();
+	
+	
+}
 function getDirections(){
 	
 
@@ -57,10 +98,14 @@ function getDirections(){
 		            for (i=0;i<x.length;i++)
 					{
 						xx = x[i];
+						
+						
 						address = new Address(xx.getElementsByTagName("full_name")[0].firstChild.nodeValue, xx.getElementsByTagName("address_line_1")[0].firstChild.nodeValue,xx.getElementsByTagName("country_id")[0].firstChild.nodeValue,xx.getElementsByTagName("state_id")[0].firstChild.nodeValue,xx.getElementsByTagName("city")[0].firstChild.nodeValue,xx.getElementsByTagName("zip_code")[0].firstChild.nodeValue,xx.getElementsByTagName("phone_number")[0].firstChild.nodeValue);
+						
+						
 						AddressList.add(address);
 					}
-
+					
 			}
 
 
@@ -132,7 +177,6 @@ request.onreadystatechange = function(){
 		
 		if(stat == "ok"){
 			
-			alert('se creo la orden');
 
 		} else if(stat == "fail"){
 			
@@ -156,6 +200,25 @@ request.onreadystatechange = function(){
 request.open("GET",url,true);
 request.send();
 
+}
+
+
+function confirmBuying(){
+	
+	$('#TextArea').empty();
+
+	
+	$('#TextArea').append(
+		
+		'<div id="AddOption"><h5 lang="Addres ">Checkout confirmation</h5></div>'+
+		'<div id="address"> Full Name: '+checkoutAddress.name+'</div>'
+		
+		
+		
+	);
+	
+	
+	
 }
 
 
