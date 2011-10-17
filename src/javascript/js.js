@@ -408,6 +408,21 @@ function reloadCartScript(){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 }
+
+function reloadCheckoutScript(){
+	if(document.getElementById("CheckoutScript")){
+		$("#CheckoutScript").remove();
+	}
+	
+	var ss = document.createElement('script');
+	ss.type = 'text/javascript';
+	ss.src = "./javascript/checkoutScript.js";
+	ss.id = "CheckoutScript";
+	var hh = document.getElementsByTagName('head')[0];
+	hh.appendChild(ss);
+	
+	
+}
 function reloadSDscript(){
 	if(document.getElementById("SDScript")){
 		$("#SDScript").remove();
