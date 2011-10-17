@@ -228,6 +228,8 @@ body {
 	margin-right: 25px;
 	margin-top: -5px;
 	width: 95px;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 .fadein1{
@@ -338,7 +340,7 @@ body {
     height: 30%;
     margin-right: 15px;
     margin-top: 10px;
-    width: 18%;
+    width: 25%;
 }
 
 .movies_link{
@@ -695,10 +697,29 @@ h5{
 	width: 100%;
 	height: 30px;
 }
-#itemCount{
-	text-align: center;
-		
+
+#cartCount{
+	margin-top: 20px;
 }
+
+#totalCount{
+	margin-left: 5px;
+}
+
+#cartItemQty{
+	text-align: center;
+}
+
+#itemCount{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#wishedItems{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
 #CartItems{
 	position:relative;
 	float:left;

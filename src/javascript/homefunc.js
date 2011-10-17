@@ -41,7 +41,7 @@
 		var previousCoinType = currentCoinType;
 		currentCoinType = pesos;
 		actualizeCart();
-		$('*').filter('#PriceTag').text(currentCoinType.toString());
+		$('*').filter('#PriceTag').text( '' + currentCoinType);
 		$('*').filter('#PriceNumber').replaceWith(function(){
 			return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value), 2)+ '</div>');
 		});

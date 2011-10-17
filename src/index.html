@@ -39,18 +39,18 @@
 
 				<div id="CartContainer" class="curved" >
 					<div id="Cart"><a class="pointer" ><span class="span">cart</span></a></div>
-					<h4><a lang="cart" class="pointer">Cart</a></h4>
+					<h4><a lang="cart" class="pointer"></a></h4>
 					<div class="data">
-					<h2 id="itemCount" lang="itemQty">You have 0 items</h2>
-					<h2 id="totalCount" lang="totalCount">Total: U$S 0</h2>
+					<div id="cartItemQty"><h2 lang="you_have"></h2><h2 id="itemCount"></h2><h2 lang="items"></h2></div>
+					<div id="cartCount"><h2 lang="total"></h2><h2 id="totalCount"></h2></div>
 					</div>
 				</div>
 			
 				<div id="WishListContainer" class="curved" >
 					<div id="WishList"><a class="pointer" ><span class="span">wishlist</span></a></div>
-					<h4><a lang="wishList" class="pointer">WishList</a></h4>
+					<h4><a lang="wishList" class="pointer"></a></h4>
 					<div class="data">
-					<h2 id="wishedItems" lang="wishedItems">You have 0 items</h2>
+					<div id="cartItemQty"><h2 lang="you_have"></h2><h2 id="wishedItems"></h2><h2 lang="items"></h2></div>
 					</div>
 				</div>
 
@@ -60,30 +60,30 @@
 			<div id="opciones" >
 
 				<div id="login_opt" class="item">
-					<div id="text_login" lang="login" class="text">Login</div>
+					<div id="text_login" lang="login" class="text"></div>
 					<div id="login"></div>
 
 				</div>
 				<div class="item">
-					<div class="text" lang="help" id="help_text">Help</div>
+					<div class="text" lang="help" id="help_text"></div>
 					<div id="help"><a class="pointer" ></a></div>
 				</div>
 				<div class="item" id="register_link">
-					<div lang="register" class="text">Register</div>
+					<div lang="register" class="text"></div>
 					<div id="register"></div>					
 				</div>
 
 
 					<div id="login_data" class="hidden">
 						<div id="login_user">
-							<h1>User</h1>
+							<h1></h1>
 							<input type="text" id="login_user_input2"></input>
 						</div>
 						<div id="login_pass">
-							<h1>Password</h1>
+							<h1></h1>
 							<input type="password" id="login_pass_input2"></input>
 						</div>
-						<div id="login_button" lang="login" class="pointer"><a href="#">Login</a></div>
+						<div id="login_button" lang="login" class="pointer"><a href="#"></a></div>
 					</div>
 
 
@@ -102,7 +102,7 @@
 		</div>
 
 			<div id="search" >
-				<div id="search_button"><a class="pointer"></a></div>
+				<button id="search_button" lang="search"></button>
 				<input id="searchbar" type="text"/>
 			</div>
 		</div>
@@ -116,45 +116,45 @@
 
 		<div id="footer">
 			<div class="column">
-			<h3 lang="navigate">Navigate</h3>
+			<h3 lang="navigate"></h3>
 			<ul id="FooterCat">
 			</ul>
 			</div>
 			<div class="column">
-			<h3 lang="customer_service">Customer Service</h3>
+			<h3 lang="customer_service"></h3>
 
 			<ul>
-				<li><a lang="helpFAQ" class="pointer">Help / FAQ's</a></li>
+				<li><a lang="helpFAQ" class="pointer"></a></li>
 
 
 			</ul>
 			</div>
 
 			<div class="column">
-			<h3 lang="our_company">Our Company</h3>
+			<h3 lang="our_company"></h3>
 			<ul>
-				<li><a lang="about_us" class="pointer">About Us</a></li>
-				<li><a lang="site_map" class="pointer">Site Map</a></li>
+				<li><a lang="about_us" class="pointer"></a></li>
+				<li><a lang="site_map" class="pointer"></a></li>
 
 			</ul>
 			</div>
 
 			<div class="column">
-			<h3 lang="where_we_are">Where Are We</h3>
+			<h3 lang="where_we_are"></h3>
 			<ul>
 			<li><a id="whereAreWe" onclick="initializeMap()" class="footerItem pointer"></a></li>
 			</ul>
 			</div>
 
 			<div class="column">
-				<h3 lang="contact_us">Contact Us</h3>
+				<h3 lang="contact_us"></h3>
 				<ul>
 				<li><a id="contactUs" class="footerItem pointer"></a></li>
 				</ul>
 			</div>
 
 			<div class="column">
-			<h3 lang="follow_us">Follow Us</h3>
+			<h3 lang="follow_us"></h3>
 			<ul>
 				<li><a id="facebook" class="footerItem pointer"></a></li>
 				<li><a id="twitter" class="footerItem pointer"></a></li>
@@ -165,4 +165,4 @@
 	</div>
 
 </body>
-</html>>
+</html>
