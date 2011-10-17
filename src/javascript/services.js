@@ -136,7 +136,14 @@ function Address(name, addline1,countryID,stateID,city,zip_code,phone_number){
 	this.city = city;
 	this.zip_code = zip_code;
 	this.phone_number = phone_number;
-	
+}
+
+function Bool(state){
+	this.state = state;
+}
+
+Bool.prototype.setValue = function(value){
+	this.state = value;
 }
 
 // VARIABLES
