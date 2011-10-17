@@ -1,8 +1,38 @@
 <languages>
 	<language id="1">
 		<lang id="cart"> Cart </lang>
+		<lang id="itemQty"> You have 0 items </lang>
+		<lang id="wishList"> WishList </lang>
+		<lang id="wishedItems"> You have 0 items </lang>
+		<lang id="login"> Login </lang>
+		<lang id="help"> Help </lang>
+		<lang id="register"> Register </lang>
+		<lang id="user"> User </lang>
+		<lang id="password"> Password </lang>
+		<lang id="navigate"> Navigate </lang>
+		<lang id="customer_service"> Customer Service </lang>
+		<lang id="helpFAQ"> Help / FAQs </lang>
+		<lang id="our_company"> Our Company </lang>
+		<lang id="where_we_are"> Where we are </lang>
+		<lang id="contact_us"> Contact us </lang>
+		<lang id="follow_us"> Follow us </lang>
 	</language>
 	<language id="2">
 		<lang id="cart"> Carrito </lang>
+		<lang id="itemQty"> Usted tiene 0 articulos </lang>
+		<lang id="wishList"> Deseados </lang>
+		<lang id="wishedItems"> Usted tiene 0 articulos </lang>
+		<lang id="login"> Loguearse </lang>
+		<lang id="help"> Ayuda </lang>
+		<lang id="register"> Registrarse </lang>
+		<lang id="user"> Usuario </lang>
+		<lang id="password"> Contraseña </lang>
+		<lang id="navigate"> Navegar </lang>
+		<lang id="customer_service"> Servicio al cliente </lang>
+		<lang id="helpFAQ"> Ayuda / Preguntas </lang>
+		<lang id="our_company"> Nosotros </lang>
+		<lang id="where_we_are"> Donde estamos </lang>
+		<lang id="contact_us"> Contactanos </lang>
+		<lang id="follow_us"> Seguinos </lang>
 	</language>
 </languages>
