@@ -186,6 +186,7 @@ $(document).ready( function() {
 	CountriesList = new CountriesList();
 	currentLanguage = new Language(1, "default", "def");
 	AddressList= new AddressList();
+	checkoutAddress= new Address();
 	
 	euros = new CoinType("0.6", "\u20ac");
 	dollars = new CoinType("1", "U$S");

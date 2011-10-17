@@ -29,8 +29,10 @@ function createAdress(){
 				
 				
 	//	checkoutAddress=new Address()
-	sendPetition(fn,addr,coun,stat,cty,zc,pn)
-	
+		
+		var ans=sendPetition(fn,addr,coun,stat,cty,zc,pn);
+		
+		
 }
 
 function loadStat(count){
@@ -70,7 +72,12 @@ $('#country_select').change( function(){
 		loadStat(count);	
 	}
 });
+
+
+
 function sendPetition(fn,addr,counid,stat,cty,zc,pn){
+
+
 
 		
 			var addHtml='<address>'+
@@ -102,8 +109,16 @@ request.onreadystatechange = function(){
 		stat=$(request.responseXML).find("response").attr("status");
 		
 		if(stat == "ok"){
+						
 			
-			confirmBuying();
+			var Nadd = new Address(fn,addr,counid,stat,cty,zc,pn);
+			
+			AddressList.add(Nadd);
+						
+			selectAdd(AddressList.getAdd().length-1);
+			
+			//confirmBuying();
+			return true;
 			
 		} else if(stat == "fail"){
 			
@@ -112,6 +127,7 @@ request.onreadystatechange = function(){
 				string += $(this).attr("message") + "\n";
 			});
 			alert(string);
+			return false;
 						
 		}
 	}
