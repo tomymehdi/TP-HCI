@@ -164,7 +164,7 @@ function getMaxPage(){
 }
 
 function loadListBC(response, c, page){
-	url='./service/Catalog.groovy?method=GetProductListByCategory&language_id='+currentLanguage+'&category_id=' + c.number + '&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page='+ page;
+	url='./service/Catalog.groovy?method=GetProductListByCategory&language_id='+currentLanguage.id+'&category_id=' + c.number + '&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page='+ page;
 	var request;
 	var xx,x,i;
 	if (window.XMLHttpRequest)
@@ -193,7 +193,7 @@ function loadListBC(response, c, page){
 
 function loadListBSC(response, sc, page){
 	
-	url='./service/Catalog.groovy?method=GetProductListBySubcategory&language_id='+currentLanguage+'&category_id=' + sc.category.number + '&subcategory_id=' + sc.number+'&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page='+ page;
+	url='./service/Catalog.groovy?method=GetProductListBySubcategory&language_id='+currentLanguage.id+'&category_id=' + sc.category.number + '&subcategory_id=' + sc.number+'&order=' + getOrder() + '&items_per_page=' + getPageSize() + '&page='+ page;
 	var request;
 	var xx,x,i;
 	if (window.XMLHttpRequest)

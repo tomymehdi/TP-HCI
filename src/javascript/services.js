@@ -124,9 +124,9 @@ var currentPage;
 var currentCoinType;
 var itemQty;
 var currentCategory;
-var currentLanguage=1;
+var currentLanguage;
 var currentCountry;
-var CurrentSubCategory=undefined;
+var CurrentSubCategory;
 
 var cart;
 var wishlist;
@@ -153,6 +153,7 @@ $(document).ready( function() {
 	languageList = new ItemList();
 	CategoriesList = new CategoriesList();
 	CountriesList = new CountriesList();
+	currentLanguage = new Language(1, "default", "def");
 
 	euros = new CoinType("0.6", "\u20ac");
 	dollars = new CoinType("1", "U$S");
@@ -177,7 +178,7 @@ function loadCommons()
 function loadCountries(){
 	
 	
-	url='./service/Common.groovy?method=GetCountryList&language_id='+currentLanguage;
+	url='./service/Common.groovy?method=GetCountryList&language_id='+currentLanguage.id;
 
 	var request;
 	var j=0;
@@ -217,7 +218,7 @@ function loadCountries(){
 function loadStates(country){
 	
 	
-	url='./service/Common.groovy?method=GetStateList&language_id='+currentLanguage+'&country_id='+country.number;
+	url='./service/Common.groovy?method=GetStateList&language_id='+currentLanguage.id+'&country_id='+country.number;
 
 	var request;
 	var j=0;
@@ -280,6 +281,7 @@ function loadLanguages(){
 				var lang = new Language(xx.getAttribute("id"),  xx.getElementsByTagName("name")[0].firstChild.nodeValue,  xx.getElementsByTagName("code")[0].firstChild.nodeValue);
 				languageList.addItem(lang);
 			}
+			currentLanguage=languageList.items[0];
 		}
 	}
 	request.open("GET",url,true);
@@ -290,8 +292,7 @@ function loadLanguages(){
 
 function loadMainCategories(){
 	
-	url='./service/Catalog.groovy?method=GetCategoryList&language_id='+currentLanguage;
-
+	url='./service/Catalog.groovy?method=GetCategoryList&language_id='+currentLanguage.id;
 	var request;
 	var j=0;
 	var cn;
@@ -331,7 +332,7 @@ function loadMainCategories(){
 	
 function loadSubCategories(categ){
 	
-	url='./service/Catalog.groovy?method=GetSubcategoryList&language_id='+currentLanguage+'&category_id='+categ.number;
+	url='./service/Catalog.groovy?method=GetSubcategoryList&language_id='+currentLanguage.id+'&category_id='+categ.number;
 
 	var request;
 	var j=0;

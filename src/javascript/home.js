@@ -60,7 +60,7 @@ function changeLanguage(doc){
 	var i = 0;
 	while(i < languageList.items.length){
 		if(languageList.items[i].id == getCurrentLanguageId()){
-			currentLanguage = languageList.items[i].id;
+			currentLanguage = languageList.items[i];
 		}
 		i++;
 	}
@@ -81,6 +81,20 @@ function changeLanguage(doc){
 		}
 		i++;
 	}
+	while(CategoriesList.categories.length > 0){
+		CategoriesList.categories.shift();
+	}
+	loadMainCategories();
+	if(document.getElementById("Items")){
+		if(CurrentSubCategory!=undefined){
+			loadItems(CurrentSubCategory, currentPage);
+		}else{
+			loadItems(currentCategory, currentPage);
+		}
+	}
+	if(document.getElementsByClassName("fadein1")[0]){
+		setTimeout("appendCats(0)", 1000);
+	}
 }
 
 function getCurrentLanguageId(){
@@ -88,7 +102,7 @@ function getCurrentLanguageId(){
 }
 
 function appendLanguages(seconds){
-	if(languageList.items.length == 0 || languageList.items.length == undefined){
+	if(languageList.items.length == 0){
 		if(seconds == 10){
 			alert("The connection with our server is slow or is not connected at all. Please check our your internet connection.");
 		}
@@ -119,11 +133,14 @@ function appendCats(seconds){
 
 	var j=0;
 	var cate;
+//	$('.categorylink').remove();
 	$('#FooterCat').empty(); 
-	$('#main_opt').remove();
+	$('.main_opt').remove();
 	while(j < CategoriesList.categories.length){
 		cate = CategoriesList.categories[j];
-		$('#main').append('<div class="main_opt"><div  class="'+cate.name+'_link  title pointer" >'+cate.name+'</div>');
+		if(document.getElementsByClassName("fadein1")[0]){
+			$('#main').append('<div class="main_opt"><div onclick="cateLink(' + cate.number + ')" class="categorylink title pointer" >'+cate.name+'</div>');
+		}
 		$('#FooterCat').append('<li><a  class="'+cate.name+'_link pointer">'+cate.name+'</a></li>');
 		j++;
 	}

@@ -1,19 +1,19 @@
-    $('.Books_link').click(function(){
-		currentCategory=CategoriesList.categories[1];
-		$("#main").load("./html/articles.html #main > *");
-		reloadArticlesScript(currentCategory.name);
-		reloadItemsManagerScript();
-		setTimeout("loadItems(currentCategory, 1)", 100);
-	});
-
-	$('.DVD_link').click(function(){
-		currentCategory=CategoriesList.categories[0];
-		$("#main").load("./html/articles.html #main > *");
-		
-		reloadArticlesScript(currentCategory.name);
-		reloadItemsManagerScript();
-		setTimeout("loadItems(currentCategory, 1)", 100);
-	});
+//    $('.categorylink').click(function(){
+//		currentSubCategory=undefined;
+//		$("#main").load("./html/articles.html #main > *");
+//		reloadArticlesScript(currentCategory.name);
+//		reloadItemsManagerScript();
+//		setTimeout("loadItems(currentCategory, 1)", 100);
+//	});
+//
+//	$('.DVD_link').click(function(){
+//		currentCategory=CategoriesList.categories[0];
+//		$("#main").load("./html/articles.html #main > *");
+//		currentSubCategory=undefined;
+//		reloadArticlesScript(currentCategory.name);
+//		reloadItemsManagerScript();
+//		setTimeout("loadItems(currentCategory, 1)", 100);
+//	});
 	
 	
 	$('.subitem').click(function(){
@@ -71,7 +71,26 @@
 	});
 		
 		
-	});
+});
+	
+function cateLink(id){
+	currentCategory=getCategory(id);
+	$("#main").load("./html/articles.html #main > *");
+	currentSubCategory=undefined;
+	reloadArticlesScript(currentCategory.name);
+	reloadItemsManagerScript();
+	setTimeout("loadItems(currentCategory, 1)", 100);
+}
+
+function getCategory(id){
+	var i = 0;
+	while(i < CategoriesList.categories.length){
+		if(CategoriesList.categories[i].number == id){
+			return CategoriesList.categories[i];
+		}
+		i++;
+	}
+}
 	
 	function searchSC(name){
 				

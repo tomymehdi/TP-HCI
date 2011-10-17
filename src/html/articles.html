@@ -1,9 +1,9 @@
 <div id="main">
 	<div id="navigation">
 		<ul>
-			<li id="home_nav" class="navigationItem"><a href="#" class="home">Home</a></li>
+			<li id="home_nav" class="navigationItem"><a href="#" lang="home" class="home">Home</a></li>
 			<li class="navigationItem">&gt;</li>
-			<li id="movies_nav" class="navigationItem"><a href ="#" >Movies</a>
+			<li id="movies_nav" class="navigationItem"><a id="cat" href="#" ></a>
 		</ul>
 	</div>
 
@@ -16,14 +16,14 @@
 	</div>
 		
 		
-		<div id="SortBy">
+		<div id="SortBy" lang="sort_by">
 		Sort by:
 		<select id="sort">
 		  <option value="ASC">A-Z</option>
 		  <option value="DESC">Z-A</option>
 		</select>
 		</div>
-		<div id="pageSizeSelector">
+		<div id="pageSizeSelector" lang="page_size">
 		Page size:
 		 <select id="pageSize">
 			<option value="4">4</option>
@@ -38,7 +38,7 @@
 		<div id="Items">
 		</div>
 		<div id="prevnext">
-		<div id="prev" class="pageChange pointer"><h3>&lt; Previous</h3></div>
-		<div id="next" class="pageChange pointer"><h3>Next &gt;</h3></div>
+		<div id="prev" class="pageChange pointer"><h3 lang="previous">&lt; Previous</h3></div>
+		<div id="next" class="pageChange pointer"><h3 lang="next">Next &gt;</h3></div>
 		</div>
 </div>

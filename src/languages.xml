@@ -9,6 +9,7 @@
 		<lang id="register">Register</lang>
 		<lang id="user">User</lang>
 		<lang id="password">Password</lang>
+		<lang id="search">Search</lang>
 		<lang id="navigate">Navigate</lang>
 		<lang id="customer_service">Customer Service</lang>
 		<lang id="site_map">Site Map</lang>
@@ -29,7 +30,21 @@
 		<lang id="print_page">Print Page</lang>
 		<lang id="continue_shopping">Continue Shopping</lang>
 		<lang id="checkout">Checkout</lang>
-		<lang id="search">Search</lang>
+		<lang id="registration">Registration</lang>
+		<lang id="if_have_acc">If you already have an account, please </lang>
+		<lang id="required_fields">* Required fields</lang>
+		<lang id="user_name_req">User Name *</lang>
+		<lang id="first_name_req">First Name *</lang>
+		<lang id="last_name">Last Name</lang>
+		<lang id="e-mail_req">E-Mail *</lang>
+		<lang id="re-type_e-mail_req">Re-type E-mail *</lang>
+		<lang id="password_req">Password *</lang>
+		<lang id="re-type_password_req">Re-type Password *</lang>
+		<lang id="birth_date_req">Birth Date *</lang>
+		<lang id="sort_by">Sort by:</lang>
+		<lang id="page_size">Page size:</lang>
+		<lang id="previous">Previous</lang>
+		<lang id="next">Next</lang>
 	</language>
 	<language id="2">
 		<lang id="cart">Carrito</lang>
@@ -41,6 +56,7 @@
 		<lang id="register">Registrarse</lang>
 		<lang id="user">Usuario</lang>
 		<lang id="password">Contraseña</lang>
+		<lang id="search">Buscar</lang>
 		<lang id="navigate">Navegar</lang>
 		<lang id="customer_service">Servicio al cliente</lang>
 		<lang id="site_map">Mapa del Sitio</lang>
@@ -61,6 +77,20 @@
 		<lang id="print_page">Imprimir Página</lang>
 		<lang id="continue_shopping">Seguir de compras</lang>
 		<lang id="checkout">Finalizar Compra</lang>
-		<lang id="search">Buscar</lang>
+		<lang id="registration">Registración</lang>
+		<lang id="if_have_acc">Si usted ya posee una cuenta de usuario, por favor </lang>
+		<lang id="required_fields">* Campos Requeridos</lang>
+		<lang id="user_name_req">Nombre de Usuario *</lang>
+		<lang id="first_name_req">Nombre de Pila *</lang>
+		<lang id="last_name">Apellido</lang>
+		<lang id="e-mail_req">E-Mail *</lang>
+		<lang id="re-type_e-mail_req">Re-escriba su E-mail *</lang>
+		<lang id="password_req">Contraseña *</lang>
+		<lang id="re-type_password_req">Re-escriba su Contraseña *</lang>
+		<lang id="birth_date_req">Fecha de Nacimiento *</lang>
+		<lang id="sort_by">Ordenar por:</lang>
+		<lang id="page_size">Tamaño de página:</lang>
+		<lang id="previous">Anterior</lang>
+		<lang id="next">Proxima</lang>
 	</language>
 </languages>
