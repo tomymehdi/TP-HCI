@@ -3,8 +3,6 @@ $(document).ready( function() {
 	var toOpacity = 0.5;
 	var duration = 2500;
 
-	currentCoinType = dollars;
-
     $("#main").load("./html/home.html #main > *");   
 
    	setTimeout("appendCats(0)", 100);
@@ -96,7 +94,7 @@ function changeLanguage(doc){
 }
 
 function reloadMenu(seconds){
-	if(CategoriesList.categories.length == 0 || CategoriesList.categories[0].subcategories.length == 0){
+	if(CategoriesList.categories.length == 0 || !subcatLoaded()){
 		if(seconds == 15){
 			alert("The connection with our server is slow or is not connected at all. Please check our your internet connection.");
 		}
@@ -105,6 +103,20 @@ function reloadMenu(seconds){
 		return;
 	}
 	initMenu();
+}
+
+function subcatLoaded(){
+	if(CategoriesList.categories.length != 0){
+		var i = 0;
+		while(i < CategoriesList.categories.length){
+			if(CategoriesList.categories[i].subcategories.length == 0){
+				return false;
+			}
+			i++;
+		}
+		return true;
+	}
+	return false;
 }
 
 function getCurrentLanguageId(){

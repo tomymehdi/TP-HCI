@@ -2,22 +2,20 @@
 	$('.subitem').click(function(){
 
 
-			var name=$(this).attr('id');
+			var id=$(this).attr('id');
 			var cs=null;
 
 
-			cs=searchSC(name);	
+			cs=searchSC(id);	
 			CurrentSubCategory=cs;	
 
 			$("#main").load("./html/articles.html #main > *");
 
 			loadItems(cs, 1);
 			currentCategory=cs.category;
-			initMenu();	
-			// NO ANDA     $("#Horror").css({'background':'#aaa','border-left' : '5px #6D929B solid' , 'padding-left' : '15px'});
-			setTimeout("addNavigation(\'"+cs.name+"\')",500);
-			
-
+			reloadMenu(0);
+			setTimeout('addNavigation("'+currentCategory.name+'", 1)',200);
+			setTimeout('addNavigation("'+cs.name+'", 2)',400);
 		});
 	
     $('#pesos').click(function(){
@@ -67,6 +65,7 @@ function cateLink(id){
 	reloadArticlesScript();
 	reloadItemsManagerScript();
 	setTimeout("loadItems(currentCategory, 1)", 100);
+	setTimeout('addNavigation("'+currentCategory.name+'", 1)',500);
 }
 
 function getCategory(id){
@@ -79,7 +78,7 @@ function getCategory(id){
 	}
 }
 	
-	function searchSC(name){
+	function searchSC(id){
 				
 		var i=0;
 		var j=0;
@@ -90,7 +89,7 @@ function getCategory(id){
 			
 			for(;j< c.subcategories.length;j++){
 				
-				if(c.subcategories[j].name==name){
+				if(c.subcategories[j].number==id){
 					return c.subcategories[j];
 				}
 			}
@@ -99,16 +98,15 @@ function getCategory(id){
 	
 	}
 	
-	function addNavigation(name){
-
-
-			if(document.getElementById("Sc")){
-				$("#Sc").remove();
-			}	
+	function addNavigation(name, level){
+			alert(level);
+			var i = level;
+			while(i < 10){
+				$("#level" + i).remove();
+				i++;
+			}
 			$('#navigation ul').append('<li class="navigationItem"> &gt; </li>');
-			$('#navigation ul').append('<li id="Sc" class="navigationItem" >'+ name+'</li>'); 
-
-
-		}
+			$('#navigation ul').append('<li id="level' + level + '" class="navigationItem" >'+ name+'</li>'); 
+	}
 
 

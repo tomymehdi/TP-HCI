@@ -786,9 +786,9 @@ h5 {
 
 #unitPrice {
     margin-left: -10px;
-    margin-top: 0;
-    text-align: center;
-    width: 110px;
+/*     margin-top: 0; */
+/*     text-align: center; */
+/*     width: 110px; */
 }
 
 #itemText {
@@ -1483,7 +1483,6 @@ ul#menu li ul li a:hover {
 #cartCount {
     text-align: center;
     width: 115px;
-}
 
 .eachCountNumberCart {
     float: left;

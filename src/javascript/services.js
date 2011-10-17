@@ -141,7 +141,7 @@ function Address(name, addline1,countryID,stateID,city,zip_code,phone_number){
 
 // VARIABLES
 var currentPage;
-var currentCoinType;
+var currentCoinType = new CoinType("1", "U$S");
 var itemQty;
 var currentCategory;
 var currentLanguage;
@@ -185,8 +185,9 @@ $(document).ready( function() {
 	pesos = new CoinType("4", "AR$");
 	mains = new Array();
 
-	
-	loadCommons();
+	if(languageList.items.length == 0){
+		loadCommons();
+	}
 	
 	reloadhomeScript();
 	reloadhomeFunc();
