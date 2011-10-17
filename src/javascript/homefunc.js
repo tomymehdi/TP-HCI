@@ -65,19 +65,17 @@
 		$('*').filter('#PriceNumber').replaceWith(function(){
 			return ('<div id="PriceNumber" >' + roundNumber(parseFloat((parseFloat($(this).text())/previousCoinType.value)*currentCoinType.value), 2)+ '</div>');
 		});
-		
+	});
+	
 	$('#whereAreWe').click(function(){
 		initializeMap();
 	});
-		
-		
-});
 	
 function cateLink(id){
 	currentCategory=getCategory(id);
 	$("#main").load("./html/articles.html #main > *");
 	currentSubCategory=undefined;
-	reloadArticlesScript(currentCategory.name);
+	reloadArticlesScript();
 	reloadItemsManagerScript();
 	setTimeout("loadItems(currentCategory, 1)", 100);
 }

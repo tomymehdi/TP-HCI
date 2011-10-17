@@ -224,7 +224,7 @@ function initializeMap() {
 	infowindow.open(map,marker);
 }
 
-function initMenu(n) {
+function initMenu() {
 
 
  setTimeout("loadMenu()", 500);
@@ -253,7 +253,7 @@ function setStart(){
 	    }
 	});
 
-if(currentCategory.name=="DVD"){
+if(currentCategory.id==1){
 	$('#menu ul:first').show();
 }
 else{
@@ -329,7 +329,7 @@ function reloadjsScript(){
 	
 }
 
-function reloadArticlesScript(n){
+function reloadArticlesScript(){
     if(document.getElementById("articlesScript")){
 		$("#articlesScript").remove();
 	}
@@ -340,7 +340,7 @@ function reloadArticlesScript(n){
 	var hh = document.getElementsByTagName('head')[0];
 	hh.appendChild(ss);
 	
-	initMenu(n);
+	initMenu();
 	
 	
 }

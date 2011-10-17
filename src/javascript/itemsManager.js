@@ -67,7 +67,7 @@ function loadItems(c, page){
 
 function continueLoading(number){
 	if(itemList.items.length == 0){
-		if(number == 10){
+		if(number == 15){
 			alert("We can't establish connection to our servers. Please check out your internet connection.");
 		}
 		newNumber = number + 1;
@@ -221,7 +221,6 @@ function loadListBSC(response, sc, page){
 }
 
 function getOrder(){
-	setTimeout('',2000);
 	return document.getElementById("sort").options[document.getElementById("sort").options.selectedIndex].value;
 }
 

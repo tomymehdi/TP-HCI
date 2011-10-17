@@ -1,6 +1,4 @@
 $(document).ready( function() {	
-
-
 	var opacity = 1;
 	var toOpacity = 0.5;
 	var duration = 2500;
@@ -12,8 +10,7 @@ $(document).ready( function() {
    	setTimeout("appendCats(0)", 100);
 
 	setTimeout("reloadhomeFunc()",2000);
-
-
+	
 	$('.main_opt').css('opacity',opacity).hover(function() {
 	      $(this).animate({
 				opacity: toOpacity,
@@ -25,7 +22,7 @@ $(document).ready( function() {
 	    }
 	);
 
-	appendLanguages();
+	appendLanguages(0);
 
 	$('#idioma_select').change(translate);
 
@@ -91,10 +88,23 @@ function changeLanguage(doc){
 		}else{
 			loadItems(currentCategory, currentPage);
 		}
+		reloadMenu(0);
 	}
 	if(document.getElementsByClassName("fadein1")[0]){
 		setTimeout("appendCats(0)", 1000);
 	}
+}
+
+function reloadMenu(seconds){
+	if(CategoriesList.categories.length == 0 || CategoriesList.categories[0].subcategories.length == 0){
+		if(seconds == 15){
+			alert("The connection with our server is slow or is not connected at all. Please check our your internet connection.");
+		}
+		newSeconds = seconds+1;
+		setTimeout("reloadMenu(newSeconds)", 1000);
+		return;
+	}
+	initMenu();
 }
 
 function getCurrentLanguageId(){
@@ -103,8 +113,11 @@ function getCurrentLanguageId(){
 
 function appendLanguages(seconds){
 	if(languageList.items.length == 0){
-		if(seconds == 10){
-			alert("The connection with our server is slow or is not connected at all. Please check our your internet connection.");
+		if(seconds == 1){
+			$('#main').append('<img id="loading" src="./images/itemSelector/loadbar.gif" />');
+		}
+		if(seconds == 15){
+			alert("The connection with our server is slow or is not connected at all. Please check our your internet connection. ");
 		}
 		newSeconds = seconds+1;
 		setTimeout("appendLanguages(newSeconds)", 1000);
@@ -123,7 +136,7 @@ function appendLanguages(seconds){
 
 function appendCats(seconds){
 	if(CategoriesList.categories.length == 0){
-		if(seconds == 10){
+		if(seconds == 15){
 			alert("The connection with our server is slow or is not connected at all. Please check our your internet connection.");
 		}
 		newSeconds = seconds+1;
@@ -134,6 +147,7 @@ function appendCats(seconds){
 	var j=0;
 	var cate;
 //	$('.categorylink').remove();
+	$('#loading').remove();
 	$('#FooterCat').empty(); 
 	$('.main_opt').remove();
 	while(j < CategoriesList.categories.length){
