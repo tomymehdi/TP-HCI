@@ -171,13 +171,11 @@ function getAccount(){
 		if (request.readyState==4 && request.status==200){
 			
 			var email=request.responseXML.documentElement.getElementsByTagName("email")[0].firstChild.nodeValue;
-			var uname=request.responseXML.documentElement.getElementsByTagName("username")[0].firstChild.nodeValue; 
 			var name=request.responseXML.documentElement.getElementsByTagName("name")[0].firstChild.nodeValue;
 			var birth=request.responseXML.documentElement.getElementsByTagName("birth_date")[0].firstChild.nodeValue;
 			
 			
 			$('#EmailInput').attr('value',email);
-			$('#UserNameInput').attr('value',uname);
 			$('#FirstNameInput').attr('value',name);
 			$('#BirthInput').attr('value',birth);
 			
