@@ -1,8 +1,12 @@
 
 
 $('#Modify').live('click',function(){
-    $('.MyAcInp :input').removeAttr('disabled');
+    
+	$('.MyAcInp :input').removeAttr('disabled');
     $('#Modify').replaceWith('<div id="Save" class="MyAccButton">Save</div>');
+
+	setTimeout("reloadChangeInfo()",1500);
+	
 });
     
 $('#Save').live('click',function(){
@@ -16,15 +20,17 @@ $('#Save').live('click',function(){
     
 $('#PersonalInfo').live('click',function(){
     
+
  		$('#MenuSelection').replaceWith('<div id="MenuSelection">'+
     	 '<h4>Personal Information</h4>' +
-		'<div  class="MyAcInp" >Name <input  id="FirstNameInput" type="text" disabled="disabled" ></input></div>'+
-		'<div  class="MyAcInp" >Email <input id="EmailInput" type="text" disabled="disabled" ></input></div>'+
-		'<div  class="MyAcInp" >Birth Date <input id="BirthInput" type="text" disabled="disabled" ></input></div>'+
+		'<div  class="MyAcInp" >Name <input  id="FirstNameInput" type="text" disabled="disabled"class=" LV_invalid_field" ></input></div>'+
+		'<div  class="MyAcInp" >Email <input id="EmailInput" type="text" disabled="disabled"class=" LV_invalid_field" ></input></div>'+
+		'<div  class="MyAcInp" >Birth Date <input id="BirthInput" type="text" disabled="disabled" class=" LV_invalid_field"></input></div>'+
 		'<div id="Modify" class="MyAccButton">Modify</div>'+
 		
     	 '</div>'); 
-
+		
+		reloadChangeInfo();
 		getAccount();
 });
     
@@ -36,7 +42,6 @@ $('#ChangePassword').live('click',function(){
 	
 	
 	var p=$('#PassChange').attr('value');
-	
 	var np=$('#NPass').attr('value');
 	
 	
@@ -57,7 +62,9 @@ $('#ChangePassword').live('click',function(){
 				alert('You have change your password succesfully.');
 			} else if(stat == "fail"){
 				var string = "";
-			
+				$(request.responseXML).find("error").each(function(){
+					string += $(this).attr("message") + "\n";
+				});
 				alert(string);
 			}
 		}
@@ -73,6 +80,7 @@ $('#ChangePassword').live('click',function(){
 });
 
 $('#PasswordInfo').live('click',function(){
+	
     $('#MenuSelection').replaceWith(
 		'<div id="MenuSelection"><h4>Change Password</h4>'+
     	'<div  class="MyAcInp">Current Password <input type="password" id="PassChange" class=" LV_invalid_field" ></div>'+
@@ -80,6 +88,8 @@ $('#PasswordInfo').live('click',function(){
     	'<div  class="MyAcInp">Re-Type New Password <input type="password" id="RNPass" class=" LV_invalid_field"  ></input></div>'+
     	'<div id="ChangePassword" class="MyAccButton">Change</div>'+
     	'</div>');
+
+		reloadChangePassword();
 });
 
 $('#PreviousInfo').live('click',function(){
@@ -116,7 +126,6 @@ function modifyAccount(email,uname,fname,bir){
 		if(request.readyState==4 && request.status==200){
 			stat=$(request.responseXML).find("response").attr("status");
 			if(stat == "ok"){
-				CurrentUsername=uname;
 				alert('You have modified your account succesfully.');
 			} else if(stat == "fail"){
 				var string = "";
