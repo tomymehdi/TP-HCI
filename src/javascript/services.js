@@ -128,6 +128,8 @@ var currentLanguage;
 var currentCountry;
 var CurrentSubCategory;
 
+var errorsXML = './errors.xml';
+
 var cart;
 var wishlist;
 var itemList;

@@ -193,7 +193,7 @@ body {
 	float: right;
 	height: 20px;
 	margin-right: 10px;
-	width: 140px;
+	width: 170px;
 	margin-bottom: 10px;
 }
 
@@ -678,27 +678,33 @@ h4 {
 	margin-left: 60px;
 	color: #6D929B;
 }
-h5{
-	color: #585044;
-	text-decoration: none;
-	float: left;
-	font-size: 24px;
-	font-family: century gothic, serif;
-	text-align: right;
-	margin-left:50px;
-	
+h5 {
+    color: #585044;
+    float: left;
+    font-family: century gothic,serif;
+    font-size: 24px;
+    margin-left: 50px;
+    margin-top: 15px;
+    text-align: right;
+    text-decoration: none;
 }
 
-#upOptions{
-	position:relative;
-	float:left;
-	background-color:#c4dcd8;
-	width: 100%;
-	height: 30px;
+#upOptions {
+    background-color: #C4DCD8;
+    float: left;
+    height: 65px;
+    position: relative;
+    width: 100%;
 }
 
-#cartCount{
-	margin-top: 20px;
+#CartCount {
+    float: left;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-top: 20px;
+    position: relative;
+    width: 75%;
 }
 
 #totalCount{
@@ -759,13 +765,28 @@ h5{
 }
 #ListIt{
 	float:left;
+	margin-top: 30px;
 }
-#CheckOut{
-	float:right;
-	font-size: 24px;
-	font-family: century gothic, serif;	
-	color: #585044;
-	margin-right: 200px;
+
+#unitPrice {
+    margin-left: -10px;
+    margin-top: 0;
+    text-align: center;
+    width: 110px;
+}
+
+#itemText {
+	 text-align: left;
+	 width: 115px;
+}
+
+#CheckOut {
+    color: #585044;
+    float: right;
+    font-family: century gothic,serif;
+    font-size: 24px;
+    margin-right: 30px;
+    margin-top: 104px;
 }
 	
 .CartButton{
@@ -1406,10 +1427,13 @@ ul#menu li ul li a:hover {
 	top: 0;
 }
 
-#Submit_register{
+#Submit_register {
+    margin-right: 140px;
+    margin-top: 25px;
+}
+
+#cartCount{
 	
-	margin-right:150px;
-	margin-top: 50px;
 }
 
 .eachCountNumberCart {

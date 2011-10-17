@@ -1,33 +1,111 @@
 <errors>
-	<error id="unknownError"><message language="1"></message><message language="2"></message></error>
-	<error id="missingMethod"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidMethod"><message language="1"></message><message language="2"></message></error>
+	<error id="999">
+		<message language="1">Unknown error.</message>
+		<message language="2">Error desconocido.</message>
+	</error>
+	<error id="1">
+		<message language="1">Missing method.</message>
+		<message language="2">Metodo perdido.</message>
+	</error>
+	<error id="101">
+		<message language="1">Invalid method.</message>
+		<message language="2">Metodo invalido.</message>
+	</error>
 
-	<error id="invalidLanguageId"><message language="1"></message><message language="2"></message></error>
-	<error id="missingCountryId"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidCountryId"><message language="1"></message><message language="2"></message></error>
-	<error id="missingLanguage"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidLanguageId"><message language="1"></message><message language="2"></message></error>
-	<error id="missingLanguageId"><message language="1"></message><message language="2"></message></error>
+	<error id="invalidLanguageId">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="missingCountryId">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidCountryId">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="missingLanguage">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="102">
+		<message language="1">Invalid language id.</message>
+		<message language="2">Parametro id de language invalido.</message>
+	</error>
+	<error id="2">
+		<message language="1">Missing language id.</message>
+		<message language="2">Falta pasar el parametro id de language.</message>
+	</error>
 
-	<error id="missingUsername"><message language="1"></message><message language="2"></message></error>
-	<error id="missingPassword"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidUser"><message language="1"></message><message language="2"></message></error>
-	<error id="missingAutenticationToken"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidAutenticationToken"><message language="1"></message><message language="2"></message></error>
-	<error id="missingNewPassword"><message language="1"></message><message language="2"></message></error>
-	<error id="missingAccount"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidUsername"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidPassword"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidName"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidEmail"><message language="1"></message><message language="2"></message></error>
-	<error id="userAlreadyExist"><message language="1"></message><message language="2"></message></error>
+	<error id="missingUsername">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="missingPassword">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidUser">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="missingAutenticationToken">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidAutenticationToken">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="missingNewPassword">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="missingAccount">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidUsername">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidPassword">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidName">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidEmail">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="userAlreadyExist">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
 
 	
-	<error id="missingCategoryId"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidCategoryId"><message language="1"></message><message language="2"></message></error>
-	<error id="missingSubCategoryId"><message language="1"></message><message language="2"></message></error>
-	<error id="invalidSubCategoryId"><message language="1"></message><message language="2"></message></error>
-	<error id="missingCriteria"><message language="1"></message><message language="2"></message></error>
+	<error id="missingCategoryId">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidCategoryId">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="missingSubCategoryId">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="invalidSubCategoryId">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
+	<error id="missingCriteria">
+		<message language="1"></message>
+		<message language="2"></message>
+	</error>
 		
 </errors>

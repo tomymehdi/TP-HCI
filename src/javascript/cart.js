@@ -12,7 +12,6 @@ $(document).ready( function() {
 			cart.items.shift();
 		}
 		actualizeCart();
-		actualizeTotal();
 	});
 	
 	$('#CheckOut_link').click(function(){
@@ -20,9 +19,15 @@ $(document).ready( function() {
 		checkout();
 	
 	});
-	
-	
+
+	actualizeTotal();	
+	actualizeCount();
  });
+ 
+ function actualizeCount(){
+	$("#CartCount").empty();
+	$("#CartCount").text('You have '+cart.items.length+' items');
+}
 
 
 function checkout(){
@@ -118,6 +123,7 @@ function decrease(i, target_id){
 			$('#eachCountNumber' + i ).append("" + (previousNumber-1));
 			actualizeCart();
 			actualizeTotal();
+			actualizeCount();
 			if(previousNumber == 1){
 				$('#OnCartItem' + i).remove();
 			}
@@ -140,6 +146,7 @@ function increase(i, target_id){
 			cart.items.push(item);
 			actualizeCart();
 			actualizeTotal();
+			actualizeCount();
 			return;
 		}
 		cart.items.push(item);
@@ -158,5 +165,6 @@ function removeItem(listNumber, target_id){
 	}
 	actualizeCart();
 	actualizeTotal();
+	actualizeCount();
 	$('#OnCartItem' + listNumber).remove();
 }
