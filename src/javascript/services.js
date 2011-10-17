@@ -122,8 +122,11 @@ function Subcategory(name, category, number){
 function AddressList(){
 	this.addresses = new Array();
 }
-CountriesList.prototype.addAddress = function(count){
+AddressList.prototype.add = function(count){
 	this.addresses.push(count);
+}
+AddressList.prototype.getAdd = function (){
+	return this.addresses;
 }
 function Address(name, addline1,countryID,stateID,city,zip_code,phone_number){
 	this.name = name;
@@ -145,6 +148,7 @@ var currentLanguage;
 var currentCountry;
 var CurrentSubCategory;
 var AddressList;
+var checkoutAddress;
 
 var errorsXML = './errors.xml';
 

@@ -696,7 +696,27 @@ h5 {
     position: relative;
     width: 100%;
 }
+#AddOption{
+	
+	background-color: #C4DCD8;
+    float: left;
+    height: 40px;
+    position: relative;
+    width: 300px;
+	
+}
 
+#address {
+    color: #585044;
+    float: left;
+    font-family: century gothic,serif;
+    font-size: 19px;
+    margin-left: 50px;
+    margin-top: 10px;
+    text-align: left;
+    text-decoration: none;
+    width: 80%;
+}
 #CartCount {
     float: left;
     height: 30px;
@@ -792,6 +812,19 @@ h5 {
 .CartButton{
 	position: relative;
 	float:right;
+	margin:30px;
+	height: 50px;
+	width: 110px;
+	font-size: 18px;
+	text-align: center;
+	font-family: century gothic, serif;
+	color: #585044;
+	background-color: #c4dcd8;
+	border-style:double;
+}
+.CartButtonC{
+	position: relative;
+	float:left;
 	margin:30px;
 	height: 50px;
 	width: 110px;

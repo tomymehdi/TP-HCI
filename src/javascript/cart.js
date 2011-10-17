@@ -46,6 +46,8 @@ else{
 		
 		$("#main").load("./html/checkout.html #main > *");
 		
+
+		
 		setTimeout('reloadCheckoutScript()',1000);
 		
 				
