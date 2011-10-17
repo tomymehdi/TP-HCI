@@ -135,8 +135,8 @@ var partialList;
 var languageList;
 var CategoriesList;
 var CountriesList;
-var CurrentUsername;
-var CurrentToken;
+var CurrentUsername='luciana';
+var CurrentToken='45336441380591df61c97aa6791b692';
 
 var euros;
 var dollars;
@@ -206,7 +206,7 @@ function loadCountries(){
 					xx = x[i];
 					cn = new Country(xx.getElementsByTagName("name")[0].firstChild.nodeValue ,xx.getAttribute("id"),xx.getElementsByTagName("code")[0].firstChild.nodeValue);
 					CountriesList.addCountry(cn);
-					
+					loadStates(cn);
 				}
 
 			}

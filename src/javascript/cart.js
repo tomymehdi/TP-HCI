@@ -27,21 +27,25 @@ $(document).ready( function() {
 
 function checkout(){
 		
-	
+	if(cart.getItems().length==0){
+		alert('You don t have items to buy');
+	}
+	else{
 	if(CurrentUsername==null){
 		
 		alert("tenes que estar logueado para hacer el checkout");
 	}
 	
-//	VOLVER  APONER ES LA VALIDACION DEL LOGIN      else{
+else{
 		
 		
 		$("#main").load("./html/checkout.html #main > *");
 		
-		setTimeout('reloadCheckoutScript()',3000);
+		setTimeout('reloadCheckoutScript()',1000);
 		
 				
-//	}
+}
+}
 }
 
 function actualizeTotal(){

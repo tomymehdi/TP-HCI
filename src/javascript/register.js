@@ -38,12 +38,12 @@ $('#login_button2').live('click', function(){
 });
 
 
+//VALIDACIONES 
 
 $(function(){
 	var nameBar = new LiveValidation( "nameBar", { validMessage: "Ok!", wait: 500 } );		
 	nameBar.add( Validate.Presence, { failureMessage: "Please, enter your name" } );
 });
-
 
 $(function(){
 	var lastnameBar = new LiveValidation( "lastnameBar", { validMessage: "Ok!", wait: 500 } );	
