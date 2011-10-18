@@ -70,10 +70,74 @@ function appendAdds(segs, b1, b2){
 		}
 		
 }
+function AddOrderItems(){
 
+	var i=0;
+	for(;i<cart.getItems().length;i++){
+		addOrderItem(cart.getItems()[i]);
+	}
+	
+}
+
+function addOrderItem(item){	
+	
+		var IT='<order_item>' +
+				'<product_id>'+item.number+'</product_id>' +
+				'<count>1</count>' +
+			'</order_item>';
+
+	url='./service/Order.groovy?method=AddOrderItem&username='+CurrentUsername+'&authentication_token='+CurrentToken+'&order_id='+currentOrderID+'&order_item='+IT;
+
+	var x,stat,xx;
+	var request;
+
+	if (window.XMLHttpRequest){
+		request=new XMLHttpRequest();
+	}else {
+		request=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	request.onreadystatechange = function(){
+
+		if(request.readyState==4 && request.status==200){
+
+			stat=$(request.responseXML).find("response").attr("status");
+
+			if(stat == "ok"){
+					
+			}
+
+
+		 	else if(stat == "fail"){
+
+				var string = "";
+				$(request.responseXML).find("error").each(function(){
+					string += $(this).attr("message") + "\n";
+				});
+				alert(string);
+
+			}
+		}
+	}
+		request.open("POST",url,true);
+		request.send();
+	
+	
+	
+}
 function finish_buy(){	
 	
-	url='./service/Order.groovy?method=ConfirmOrder&username='+CurrentUsername+'&authentication_token='+CurrentToken+'&order_id='+currentOrderID+'&address_id='+checkoutAddress;
+	
+	//
+	AddOrderItems();
+	
+	setTimeout('autenticate()',4000);
+	
+}
+function autenticate(){
+	
+	
+	url='./service/Order.groovy?method=ConfirmOrder&username='+CurrentUsername+'&authentication_token='+CurrentToken+'&order_id='+currentOrderID+'&address_id='+ checkoutAddress.number;
 
 	var x,stat,xx;
 	var request;
@@ -119,6 +183,7 @@ function selectAdd(i){
 
 	
 	checkoutAddress=AddressList.addresses[i];
+	
 	confirmBuying();
 	
 	
@@ -228,11 +293,10 @@ request.onreadystatechange = function(){
 		stat=$(request.responseXML).find("response").attr("status");
 		
 		if(stat == "ok"){
-			
-		var id=$(request.responseXLM).find("order").attr("id");
 		
-		alert(id);
 		
+		var id=$(request.responseXML).find("order").attr("id");
+				
 		currentOrderID=id;
 		
 		
@@ -282,8 +346,8 @@ function confirmBuying(){
 		'</br>'+
 		'<div id="address"> Full Name: '+checkoutAddress.name+'</div>'+
 		'<div id="address"> Adress: '+checkoutAddress.addline1+'</div>'+
-		'<div id="address"> Country: '+coun.name+'</div>'+
-		'<div id="address"> State: '+sta.name+'</div>'+
+//		'<div id="address"> Country: '+coun.name+'</div>'+
+//		'<div id="address"> State: '+sta.name+'</div>'+
 		'<div id="address"> City: '+checkoutAddress.city+'</div>'+
 		'<div id="address"> Zip code: '+checkoutAddress.zip_code+'</div>'+
 		'<div id="address"> Phone Number: '+checkoutAddress.phone_number+'</div>'+

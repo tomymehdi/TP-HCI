@@ -128,7 +128,7 @@ AddressList.prototype.add = function(count){
 AddressList.prototype.getAdd = function (){
 	return this.addresses;
 }
-function Address(name, addline1,countryID,stateID,city,zip_code,phone_number){
+function Address(name, addline1,countryID,stateID,city,zip_code,phone_number,number){
 	this.name = name;
 	this.addline1 = addline1;
 	this.countryID= countryID;
@@ -136,6 +136,7 @@ function Address(name, addline1,countryID,stateID,city,zip_code,phone_number){
 	this.city = city;
 	this.zip_code = zip_code;
 	this.phone_number = phone_number;
+	this.number=number;
 }
 
 function Bool(state){

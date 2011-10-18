@@ -682,7 +682,7 @@ h5 {
     color: #585044;
     float: left;
     font-family: century gothic,serif;
-    font-size: 24px;
+    font-size: 19px;
     margin-left: 50px;
     margin-top: 15px;
     text-align: right;
@@ -705,6 +705,14 @@ h5 {
      width: 340px;
 	
 }
+#AddOption2 {
+    background-color: #C4DCD8;
+    float: right;
+    height: 40px;
+    margin-right: 79px;
+    margin-top: 29px;
+    width: 340px;
+}
 
 #address {
     color: #585044;
@@ -716,6 +724,18 @@ h5 {
     text-align: left;
     text-decoration: none;
     width: 80%;
+}
+#address2 {
+	    color: #585044;
+	    float: right;
+	    font-family: century gothic,serif;
+	    font-size: 19px;
+	    margin-left: 373px;
+	    margin-right: 182px;
+	    margin-top: 10px;
+	    text-align: left;
+	    text-decoration: none;
+	    width: 24%;
 }
 #CartCount {
     float: left;

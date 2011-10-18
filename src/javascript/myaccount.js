@@ -35,7 +35,19 @@ $('#PersonalInfo').live('click',function(){
 });
     
 $('#ShippingInfo').live('click',function(){
-    $('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Shipping Information</h4></div>');
+  
+
+	
+  	$('#MenuSelection').replaceWith('<div id="MenuSelection"><h4>Shipping Information</h4></div>');
+
+		
+	
+	getDirections();
+	
+ 	setTimeout('appendAdds()',5000);
+
+	
+		
 });
    
 $('#ChangePassword').live('click',function(){
@@ -138,4 +150,136 @@ function modifyAccount(email,uname,fname,bir){
 	}
 	request.open("POST",url,true);
 	request.send();
+}
+
+
+
+
+
+
+
+function appendAdds(){
+	
+
+		var i=0;
+				
+				
+		for( ;i<AddressList.getAdd().length;i++){
+		
+				var a=AddressList.addresses[i];
+				
+				var count=searchCountryByID(a.countryID);
+				
+				
+				var stat=searchStateByID(a.countryID,a.stateID);
+				
+				var cant=i+1;
+				
+				
+				$('#main').append(
+		
+					'<div id="AddOption2"><h5 lang="Addres ">Address Nº'+cant+'</h5></div>'+
+					'<div id="address2"> Full Name: '+a.name+'</div>'+
+					'<div id="address2"> Address: '+a.addline1+'</div>'+
+					'<div id="address2"> Country: '+count.name+'</div>'+
+					'<div id="address2"> State: '+stat.name+'</div>'+
+					'<div id="address2"> City: '+a.city+'</div>'+
+					'<div id="address2"> Zip code: '+a.zip_code+'</div>'+
+					'<div id="address2"> Phone number:' +a.phone_number+'</div>'
+					
+
+				);
+			}
+		
+		
+}
+
+
+function getDirections(){
+	
+
+	url='./service/Order.groovy?method=GetAddressList&username='+CurrentUsername+'&authentication_token='+CurrentToken;
+
+	var x,stat,xx;
+	var request;
+
+	if (window.XMLHttpRequest){
+		request=new XMLHttpRequest();
+	}else {
+		request=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	request.onreadystatechange = function(){
+
+		if(request.readyState==4 && request.status==200){
+
+			stat=$(request.responseXML).find("response").attr("status");
+
+			if(stat == "ok"){
+
+					x=request.responseXML.documentElement.getElementsByTagName("address");
+
+		            for (i=0;i<x.length;i++)
+					{
+						xx = x[i];
+						
+						
+						address = new Address(xx.getElementsByTagName("full_name")[0].firstChild.nodeValue, xx.getElementsByTagName("address_line_1")[0].firstChild.nodeValue,xx.getElementsByTagName("country_id")[0].firstChild.nodeValue,xx.getElementsByTagName("state_id")[0].firstChild.nodeValue,xx.getElementsByTagName("city")[0].firstChild.nodeValue,xx.getElementsByTagName("zip_code")[0].firstChild.nodeValue,xx.getElementsByTagName("phone_number")[0].firstChild.nodeValue);
+						
+						AddressList.add(address);
+					}
+					
+			}
+
+
+		 	else if(stat == "fail"){
+
+				var string = "";
+				$(request.responseXML).find("error").each(function(){
+					string += $(this).attr("message") + "\n";
+				});
+				alert(string);
+
+			}
+		}
+	}
+		request.open("GET",url,true);
+		request.send();
+	
+	
+}
+
+
+
+function searchCountryByID(id){
+	
+	
+	
+	var i;
+	for(i=0;i<CountriesList.countries.length;i++){
+	
+		var count=CountriesList.countries[i];
+
+		if(count.number==id){
+			
+			return count;
+		}
+	}
+}
+
+
+function searchStateByID(cid,sid){
+	
+	var c=searchCountryByID(cid);
+	
+	for(i=0;i<c.states.length;i++){
+	
+		var st=c.states[i];
+
+		if(st.number==sid){
+			
+			return st;
+		}
+	}
+	
 }

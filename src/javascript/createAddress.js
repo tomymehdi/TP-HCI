@@ -110,8 +110,10 @@ request.onreadystatechange = function(){
 		
 		if(stat == "ok"){
 						
+			var id=$(request.responseXML).find("address").attr("id");
 			
-			var Nadd = new Address(fn,addr,counid,stat,cty,zc,pn);
+			
+			var Nadd = new Address(fn,addr,counid,stat,cty,zc,pn,id);
 			
 			AddressList.add(Nadd);
 						
