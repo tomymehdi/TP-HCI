@@ -62,7 +62,6 @@ function appendAdds(segs, b1, b2){
 					'<div id="address"> Zip code: '+a.zip_code+'</div>'+
 					'<div id="address"> Phone number:' +a.phone_number+'</div>'+
 					'<div lang="select_address" class="CartButtonC" id="select_address"  onclick="selectAdd('+i+')"> select this address</div>'
-					'<div lang="delete_address" class="CartButtonC" id="delete_address"  onclick="deleteAdd('+i+')"> delete this address</div>'
 					
 
 				);
@@ -72,10 +71,9 @@ function appendAdds(segs, b1, b2){
 		
 }
 
-$('#finish_buy').click(function(){
+function finish_buy(){	
 	
-	
-	url='./service/Order.groovy?method=DeleteOrder&username='+CurrentUsername+'&authentication_token='+CurrentToken+'&order_id='+currentOrderID+'&order_id='+checkoutAddress;
+	url='./service/Order.groovy?method=ConfirmOrder&username='+CurrentUsername+'&authentication_token='+CurrentToken+'&order_id='+currentOrderID+'&address_id='+checkoutAddress;
 
 	var x,stat,xx;
 	var request;
@@ -116,7 +114,7 @@ $('#finish_buy').click(function(){
 		request.send();
 
 	
-});
+}
 function selectAdd(i){
 
 	
@@ -232,7 +230,12 @@ request.onreadystatechange = function(){
 		if(stat == "ok"){
 			
 		var id=$(request.responseXLM).find("order").attr("id");
+		
+		alert(id);
+		
 		currentOrderID=id;
+		
+		
 		bool.setValue(true);	
 
 		} else if(stat == "fail"){
@@ -274,7 +277,7 @@ function confirmBuying(){
 	$('#TextArea').append(
 		
 		'<div id="AddOption"><h5 lang="Addres ">Checkout confirmation</h5></div>'+
-		'<h5 lang="Addres ">Address information</h5></div>'+
+		'<h5 id=AddInfoCheck lang="Addres ">Address information</h5></div>'+
 		'</br>'+
 		'</br>'+
 		'<div id="address"> Full Name: '+checkoutAddress.name+'</div>'+
@@ -286,12 +289,12 @@ function confirmBuying(){
 		'<div id="address"> Phone Number: '+checkoutAddress.phone_number+'</div>'+
 		'</br>'+
 		'</br>'+
-		'<h5 lang="Addres ">Items information</h5></div>'+
+		'<h5 id=AddInfoCheck lang="Addres ">Items information</h5></div>'+
 		'</br>'+
 		'</br>'+
 		'<div id="address"> Items quantity: '+cart.getItems().length+'</div>'+
 		'<div id="address"> Total amount: '+currentCoinType+''+price+'</div>'+
-		'<button id="finish_buy">CONFIRM</button>'
+		'<div lang="select_address" class="CartButtonC" id="finish_buy"  onclick="finish_buy()"> Confirm </div>'
 		
 	);
 	

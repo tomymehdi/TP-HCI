@@ -167,7 +167,14 @@ function increase(i, target_id){
 		cart.items.push(item);
 	}
 }
+$('#ContinueShoping').click(function(){
+	
+	if(currentCategory){
+		cateLink(currentCategory.number);
+		
+	}
 
+});
 function removeItem(listNumber, target_id){
 	var i = 0;
 	var len = cart.items.length;
